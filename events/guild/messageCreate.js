@@ -1,8 +1,25 @@
 require('dotenv').config();
+const playerModel = require("../../models/playerSchema");
 
 module.exports = async (Discord, client, message) => {
     const prefix = process.env.PREFIX;
     if(!message.content.startsWith(prefix) || message.author.bot) return;
+    let playerData;
+
+    try {
+        playerData = await playerModel.findOne({ userID: message.author.id });
+        if (!playerData){
+            let player = await playerModel.create({
+                userID: message.author.id,
+                coins: 500,
+                maids: [],
+                dailyRolls: 5
+            });
+            profile.save();
+        }
+    } catch(err){
+        console.log(err);
+    }
 
     
 

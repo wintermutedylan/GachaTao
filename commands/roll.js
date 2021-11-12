@@ -1,4 +1,5 @@
 const playerModel = require("../models/playerSchema");
+var unitSplash = require("../units/maids.json");
 const { userMention, memberNicknameMention, channelMention, roleMention } = require('@discordjs/builders');
 const lucky = require('lucky-item').default;
 module.exports = {
@@ -15,6 +16,7 @@ module.exports = {
             args.push('1');
         }
         if (args[0] === '1' || args[0] === '10'){
+            var ID = message.author.id;
 
         
         
@@ -22,34 +24,7 @@ module.exports = {
         
 
         //<a:pinkstar:907752258870075462>
-        const unitSplash = [
-            { id: "Milim", icon: "https://i.redd.it/s2754m4u81m51.jpg" },
-            { id: "Veldora", icon: "https://static.wikia.nocookie.net/tensei-shitara-slime-datta-ken/images/8/87/Veldora_Human_Anime.png/revision/latest?cb=20210628010435" },
-            { id: "Rimuru", icon: "https://cdn.discordapp.com/attachments/907801558765420544/907802085507076156/Rimuru-Emote.png" },
-            { id: "Benimaru", icon: "https://static.wikia.nocookie.net/topstrongest/images/b/bd/Benimaru_Anime.png/revision/latest?cb=20190206131059" },
-            { id: "Maid Cafe Shoko", icon: "https://cdn.discordapp.com/avatars/219322584477466625/780a452f94af5243607cdf7c555a9e27.png?size=4096" },
-            { id: "Sewage Monster Smug", icon: "https://cdn.discordapp.com/avatars/272421193901015041/16f2024f5e4b4087c436856aced7fdc5.png?size=4096" },
-            { id: "Idol Ren", icon: "https://cdn.discordapp.com/attachments/907801558765420544/907830509307048007/IMG_0469.png" },
-            { id: "Lio", icon: "https://cdn.discordapp.com/attachments/907801558765420544/907832254653399081/IMG_0470.png" },
-            { id: "Melody", icon: "https://cdn.discordapp.com/attachments/907801558765420544/907814022563389450/melody.png" },
-            { id: "Priscilla", icon: "https://i.imgur.com/RTjf5cI.png" },
-            { id: "Mayo", icon: "https://images-ext-1.discordapp.net/external/bJtQFv6PaetBcMGu-KOxRD-3GjgpD0eQ2UNS9NzNcqE/%3Fsize%3D4096/https/cdn.discordapp.com/avatars/231906328954535948/267cf486324f9e5d57a73bca8cf1ca6a.png" },
-            { id: "Seraphel", icon: "https://images-ext-1.discordapp.net/external/UBzuR_cdtVxEedRL1nnSqI-6gFQt48xVLbNQEIyMHhM/%3Fsize%3D4096/https/cdn.discordapp.com/avatars/257190913862926336/a_35270966580d867cff641f944db14aa3.gif" },
-            { id: "Diablo", icon: "https://static.wikia.nocookie.net/tensei-shitara-slime-datta-ken/images/f/f5/Diablo_Anime.png/revision/latest?cb=20190115050410" },
-            { id: "Vox", icon: "https://i.imgur.com/PbQoWvO.png" },
-            { id: "Dark Hart", icon: "https://i.imgur.com/pfcVRVi.png" },
-            { id: "Riceerd", icon: "https://cdn.discordapp.com/avatars/170705342269751296/5dbd0e8b182b65495f345ad05211a714.png?size=4096" },
-            { id: "Shion", icon: "https://static.wikia.nocookie.net/tensei-shitara-slime-datta-ken/images/b/b7/Shion_Anime.png/revision/latest?cb=20180924183120" },
-            { id: "Ahsoka", icon: "https://www.looper.com/img/gallery/the-real-reason-the-mandalorian-needs-ahsoka-tano/intro-1604691488.jpg" },
-            { id: "Seraphael, Everyone's Wife", icon: "https://images-ext-1.discordapp.net/external/UBzuR_cdtVxEedRL1nnSqI-6gFQt48xVLbNQEIyMHhM/%3Fsize%3D4096/https/cdn.discordapp.com/avatars/257190913862926336/a_35270966580d867cff641f944db14aa3.gif" },
-            { id: "Blakninja", icon: "https://cdn.discordapp.com/avatars/238364422135873536/a_cc9cfe6052a997a7d16a68f0d957d8d1.gif?size=4096" },
-            { id: "Cinders", icon: "https://cdn.discordapp.com/avatars/491836708359372800/66d1a224a9abe2a1d199eeeea6c103eb.png?size=4096" },
-            { id: "Aki", icon: "https://cdn.discordapp.com/avatars/259747383699701760/1045eef56f78f732f2449d6f330589b1.png?size=4096" },
-            { id: "Abababa", icon: "https://cdn.discordapp.com/avatars/121030264901206016/a_c49901fdc09f7b1ad8462fad54eebc20.gif?size=4096" },
-            { id: "Ren", icon: "https://cdn.discordapp.com/avatars/307860993910898700/d2c632b56b38b6c188a67bd5552804b9.png?size=4096" },
-            { id: "Kiui", icon: "https://cdn.discordapp.com/attachments/907801558765420544/907821253610569768/IMG_0467.png" },
-
-        ];
+        
         const arr = [
             { id: 1, weight: 2 },
             { id: 2, weight: 200 },
@@ -136,6 +111,77 @@ module.exports = {
                     image = unitSplash[i].icon;
                 }
             }
+
+            let playerData; 
+            playerData = await playerModel.findOne({ userID: message.author.id});
+            if (!playerData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
+            if (playerData.maids.length === 0) {
+                try {
+                    await playerModel.findOneAndUpdate(
+                        {
+                            userID: ID
+                        },
+                        {
+                            $push: {
+                                maids: { unit: rolledCharacter.id , dupes: 0 }
+                            },
+                        }
+                    );
+
+                } catch(err){
+                    console.log(err);
+                }
+            } else {
+                
+            
+                var have = false;
+                for (let location = 0; location < playerData.maids.length; location++){
+                    if (playerData.maids[location].unit === rolledCharacter.id){
+                        
+                        var owned = playerData.maids[location].dupes;
+                        owned++;
+                        
+                        try {
+                            await playerModel.findOneAndUpdate(
+                                {
+                                    userID: ID
+                                },
+                                {
+                                    $set: {
+                                        ["maids." + location + ".dupes"]: owned
+                                    },
+                                }
+                            );
+        
+                        } catch(err){
+                            console.log(err);
+                        }
+                        have = true;
+                        break;
+                    }
+                }
+                if (!have){
+                    try {
+                        await playerModel.findOneAndUpdate(
+                            {
+                                userID: ID
+                            },
+                            {
+                                $push: {
+                                    maids: { unit: rolledCharacter.id , dupes: 0 }
+                                },
+                            }
+                        );
+    
+                    } catch(err){
+                        console.log(err);
+                    }
+
+                }
+            }
+
+
+
             
             const newEmbed = new Discord.MessageEmbed()
             .setColor('#E76AA3')
@@ -223,6 +269,75 @@ module.exports = {
                 case 7:
                     rolledRarity = '<a:pinkstar:907752258870075462>';
                     break;
+            }
+            for (let k = 0; k < rolledCharacters.length; k++){
+                let playerData; 
+                playerData = await playerModel.findOne({ userID: message.author.id});
+                if (!playerData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
+                if (playerData.maids.length === 0) {
+                    try {
+                        await playerModel.findOneAndUpdate(
+                            {
+                                userID: ID
+                            },
+                            {
+                                $push: {
+                                    maids: { unit: rolledCharacters[k].unit , dupes: 0 }
+                                },
+                            }
+                        );
+
+                    } catch(err){
+                        console.log(err);
+                    }
+                } else {
+                    
+                
+                    var have = false;
+                    for (let location = 0; location < playerData.maids.length; location++){
+                        if (playerData.maids[location].unit === rolledCharacters[k].unit){
+                            
+                            var owned = playerData.maids[location].dupes;
+                            owned++;
+                            
+                            try {
+                                await playerModel.findOneAndUpdate(
+                                    {
+                                        userID: ID
+                                    },
+                                    {
+                                        $set: {
+                                            ["maids." + location + ".dupes"]: owned
+                                        },
+                                    }
+                                );
+            
+                            } catch(err){
+                                console.log(err);
+                            }
+                            have = true;
+                            break;
+                        }
+                    }
+                    if (!have){
+                        try {
+                            await playerModel.findOneAndUpdate(
+                                {
+                                    userID: ID
+                                },
+                                {
+                                    $push: {
+                                        maids: { unit: rolledCharacters[k].unit , dupes: 0 }
+                                    },
+                                }
+                            );
+        
+                        } catch(err){
+                            console.log(err);
+                        }
+
+                    }
+                }
             }
             const newEmbed10 = new Discord.MessageEmbed()
             .setColor('#ff3399')

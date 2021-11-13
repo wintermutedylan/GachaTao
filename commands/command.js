@@ -20,8 +20,11 @@ module.exports = {
         .setFooter('MILIM');
         
         
+        
 
         message.channel.send({ embeds: [newEmbed] });
+        
+        
 
         
     }

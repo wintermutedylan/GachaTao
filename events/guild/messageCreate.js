@@ -13,7 +13,8 @@ module.exports = async (Discord, client, message) => {
                 userID: message.author.id,
                 coins: 500,
                 maids: [],
-                dailyRolls: 5
+                dailyRolls: 5,
+                starterSelected: false
             });
             profile.save();
         }

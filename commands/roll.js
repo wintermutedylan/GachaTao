@@ -24,7 +24,6 @@ module.exports = {
         
 
         //<a:pinkstar:907752258870075462>
-        
         const arr = [
             { id: 1, weight: 2 },
             { id: 2, weight: 200 },
@@ -123,7 +122,7 @@ module.exports = {
                         },
                         {
                             $push: {
-                                maids: { unit: rolledCharacter.id , dupes: 0 }
+                                maids: { unit: rolledCharacter.id, dupes: 0 }
                             },
                         }
                     );

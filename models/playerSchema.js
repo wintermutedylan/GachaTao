@@ -4,7 +4,8 @@ const playerSchema = new mongoose.Schema({
     userID: { type: String, require: true, unique: true},
     coins: { type: Number, default: 500},
     maids: { type: Array, default: 0},
-    dailyRolls: { type: Number, default: 5}
+    dailyRolls: { type: Number, default: 5},
+    starterSelected: {type: Boolean, default: false}
 })
 
 const model = mongoose.model('PlayerModels', playerSchema);

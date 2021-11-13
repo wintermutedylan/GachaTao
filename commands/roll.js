@@ -8,7 +8,8 @@ module.exports = {
     permissions: [],
     description: "Give coins to users",
     async execute(client, message, cmd, args, Discord){
-        
+        //make a thing where people can't use this command untill they run register
+        //so that they have to get their starting unit first
         if (args.length > 1) {
             return message.reply('Please only enter one number');
         }
@@ -25,13 +26,13 @@ module.exports = {
 
         //<a:pinkstar:907752258870075462>
         const arr = [
-            { id: 1, weight: 2 },
-            { id: 2, weight: 200 },
-            { id: 3, weight: 350 },
-            { id: 4, weight: 800 },
-            { id: 5, weight: 1000 },
-            { id: 6, weight: 1500 },
-            { id: 7, weight: 1500 },
+            { id: 1, weight: 6 },
+            { id: 2, weight: 250 },
+            { id: 3, weight: 400 },
+            { id: 4, weight: 900 },
+            { id: 5, weight: 1200 },
+            { id: 6, weight: 1700 },
+            { id: 7, weight: 2000 },
         ];
         const arrLR = [
             { id: "Veldora", weight: 25 },
@@ -41,8 +42,6 @@ module.exports = {
         ];
         const arrUR = [
             { id: "Maid Cafe Shoko", weight: 25 },
-            { id: "Sewage Monster Smug", weight: 25 },
-            { id: "Idol Ren", weight: 25 },
             { id: "Lio", weight: 25 },
         ];
         const arrSR = [
@@ -67,7 +66,6 @@ module.exports = {
             { id: "Cinders", weight: 25 },
             { id: "Aki", weight: 25 },
             { id: "Abababa", weight: 25 },
-            { id: "Ren", weight: 25 },
         ];
         var rolledCharacter;
         var rolledRarity;

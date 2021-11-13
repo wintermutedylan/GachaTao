@@ -85,7 +85,7 @@ module.exports = {
                 },
                 {
                     $push: {
-                        maids: { unit: "Sewage Monster Smug", dupes: 0 }
+                        maids: { unit: unitSelected, dupes: 0 }
                     },
                 }
             );

@@ -10,6 +10,9 @@ module.exports = {
     async execute(client, message, cmd, args, Discord){
         //make a thing where people can't use this command untill they run register
         //so that they have to get their starting unit first
+        let playerData; 
+        playerData = await playerModel.findOne({ userID: message.author.id});
+        if (playerData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
         if (args.length > 1) {
             return message.reply('Please only enter one number');
         }
@@ -112,6 +115,7 @@ module.exports = {
             let playerData; 
             playerData = await playerModel.findOne({ userID: message.author.id});
             if (!playerData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
+            if (playerData.coins  < 50) return message.reply("Go get more coins baka");
             if (playerData.maids.length === 0) {
                 try {
                     await playerModel.findOneAndUpdate(
@@ -267,6 +271,7 @@ module.exports = {
                     rolledRarity = '<a:pinkstar:907752258870075462>';
                     break;
             }
+            if (playerData.coins  < 50) return message.reply("Go get more coins baka");
             for (let k = 0; k < rolledCharacters.length; k++){
                 let playerData; 
                 playerData = await playerModel.findOne({ userID: message.author.id});

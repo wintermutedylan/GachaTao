@@ -15,6 +15,7 @@ module.exports = {
         var pageNumber = args[0];
         let playerData; 
         playerData = await playerModel.findOne({ userID: message.author.id});
+        if (playerData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
         
         var sorted = [];
         

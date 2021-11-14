@@ -1,12 +1,13 @@
 [
     { "id": "Milim", "icon": "https://i.redd.it/s2754m4u81m51.jpg", "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>", "rValue": 1 },
-    { "id": "Veldora", "icon": "https://static.wikia.nocookie.net/tensei-shitara-slime-datta-ken/images/8/87/Veldora_Human_Anime.png/revision/latest?cb=20210628010435", "rarity": "<:L_908871560851501056><:R_:908870913167089704>", "rValue": 2, "CP": 999 },
-    { "id": "Rimuru", "icon": "https://cdn.discordapp.com/attachments/907801558765420544/907802085507076156/Rimuru-Emote.png", "rarity": "<:L_908871560851501056><:R_:908870913167089704>", "rValue": 2, "CP": 999 },
-    { "id": "Benimaru", "icon": "https://static.wikia.nocookie.net/topstrongest/images/b/bd/Benimaru_Anime.png/revision/latest?cb=20190206131059", "rarity": "<:L_908871560851501056><:R_:908870913167089704>", "rValue": 2, "CP": 999 },
+    { "id": "Veldora", "icon": "https://static.wikia.nocookie.net/tensei-shitara-slime-datta-ken/images/8/87/Veldora_Human_Anime.png/revision/latest?cb=20210628010435", "rarity": "<:L_:908871560851501056><:R_:908870913167089704>", "rValue": 2, "CP": 999 },
+    { "id": "Rimuru", "icon": "https://cdn.discordapp.com/attachments/907801558765420544/907802085507076156/Rimuru-Emote.png", "rarity": "<:L_:908871560851501056><:R_:908870913167089704>", "rValue": 2, "CP": 999 },
+    { "id": "Benimaru", "icon": "https://static.wikia.nocookie.net/topstrongest/images/b/bd/Benimaru_Anime.png/revision/latest?cb=20190206131059", "rarity": "<:L_:908871560851501056><:R_:908870913167089704>", "rValue": 2, "CP": 999 },
     { "id": "Maid Cafe Shoko", "icon": "https://cdn.discordapp.com/avatars/219322584477466625/780a452f94af5243607cdf7c555a9e27.png?size=4096", "rarity": "<:U_:908870913183846401><:R_:908870913167089704>", "rValue": 3, "CP": 999 },
     { "id": "Sewage Monster Smug", "icon": "https://cdn.discordapp.com/avatars/272421193901015041/16f2024f5e4b4087c436856aced7fdc5.png?size=4096", "rarity": "<:U_:908870913183846401><:R_:908870913167089704>", "rValue": 3, "CP": 999 },
-    { "id": "Idol Ren", "icon": "https://cdn.discordapp.com/attachments/907801558765420544/907830509307048007/IMG_0469.png", "rarity": "<:U_:908870913183846401><:R_:908870913167089704>", "rValue": 3, "CP": 999 },
     { "id": "Lio", "icon": "https://cdn.discordapp.com/attachments/907801558765420544/907832254653399081/IMG_0470.png", "rarity": "<:U_:908870913183846401><:R_:908870913167089704>", "rValue": 3, "CP": 999 },
+    { "id": "Guardian Angel Dana", "icon": "https://cdn.discordapp.com/attachments/907801558765420544/908894962119213056/9f76c1d99bb40b33d6061121642ee161.png", "rarity": "<:U_:908870913183846401><:R_:908870913167089704>", "rValue": 3, "CP": 999 },
+    { "id": "Idol Ren", "icon": "https://cdn.discordapp.com/attachments/907801558765420544/908894961615900702/d2c632b56b38b6c188a67bd5552804b9.png", "rarity": "<:U_:908870913183846401><:R_:908870913167089704>", "rValue": 3, "CP": 999 },
     { "id": "Melody", "icon": "https://cdn.discordapp.com/attachments/907801558765420544/907814022563389450/melody.png", "rarity": "<:S_:908870913225818214><:R_:908870913167089704>", "rValue": 4, "CP": 999 },
     { "id": "Priscilla", "icon": "https://i.imgur.com/RTjf5cI.png", "rarity": "<:S_:908870913225818214><:R_:908870913167089704>", "rValue": 4, "CP": 999 },
     { "id": "Mayo", "icon": "https://images-ext-1.discordapp.net/external/bJtQFv6PaetBcMGu-KOxRD-3GjgpD0eQ2UNS9NzNcqE/%3Fsize%3D4096/https/cdn.discordapp.com/avatars/231906328954535948/267cf486324f9e5d57a73bca8cf1ca6a.png", "rarity": "<:S_:908870913225818214><:R_:908870913167089704>", "rValue": 4, "CP": 999 },
@@ -24,5 +25,6 @@
     { "id": "Abababa", "icon": "https://cdn.discordapp.com/avatars/121030264901206016/a_c49901fdc09f7b1ad8462fad54eebc20.gif?size=4096", "rarity": "<:C_:908870913267757066>", "rValue": 7, "CP": 999 },
     { "id": "Ren", "icon": "https://cdn.discordapp.com/avatars/307860993910898700/d2c632b56b38b6c188a67bd5552804b9.png?size=4096", "rarity": "<:C_:908870913267757066>", "rValue": 7, "CP": 999 },
     { "id": "Kiui", "icon": "https://cdn.discordapp.com/attachments/907801558765420544/907821253610569768/IMG_0467.png", "rarity": "<:L_908871560851501056><:R_:908870913167089704>", "rValue": 2, "CP": 999 }
+    
 
 ]

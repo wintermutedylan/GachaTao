@@ -30,50 +30,107 @@ module.exports = {
         //<a:pinkstar:907752258870075462>
         const arr = [
             { id: 1, weight: 6 },
-            { id: 2, weight: 250 },
-            { id: 3, weight: 400 },
+            { id: 2, weight: 30 },
+            { id: 3, weight: 150 },
             { id: 4, weight: 900 },
             { id: 5, weight: 1200 },
-            { id: 6, weight: 1700 },
+            { id: 6, weight: 1500 },
             { id: 7, weight: 2000 },
         ];
         const arrLR = [
-            { id: "Veldora", weight: 25 },
-            { id: "Rimuru", weight: 25 },
-            { id: "Benimaru", weight: 25 },
-            { id: "Kiui", weight: 25 },
+            { id: "Gine", weight: 25 },
+            { id: "Zyla", weight: 25 },
+            
         ];
         const arrUR = [
-            { id: "Maid Cafe Shoko", weight: 25 },
-            { id: "Lio", weight: 25 },
+            { id: "Saltea", weight: 25 },
+            { id: "Jahnkeem", weight: 25 },
+            { id: "RKTSM", weight: 25 },
+            { id: "Sewage Monster Smug", weight: 25 },
+            { id: "Shoko", weight: 25 },
+            { id: "Guardian Angel Dana", weight: 25 },
+            { id: "Idol Ren", weight: 25 },
+            { id: "Yuki", weight: 25 },
+            { id: "X99", weight: 25 },
+            { id: "Blakninja", weight: 25 },
+            { id: "Safryz", weight: 25 },
+            { id: "Swede", weight: 25 },
+            { id: "Jirachi", weight: 25 },
+            { id: "RavingTurnip", weight: 25 },
+            { id: "Tatertot", weight: 25 },
+            { id: "Cabbag", weight: 25 },
+            { id: "Wobbly Carrot", weight: 25 },
+
+
         ];
         const arrSR = [
-            { id: "Melody", weight: 25 },
-            { id: "Priscilla", weight: 25 },
+            { id: "Semi", weight: 25 },
+            { id: "Poro", weight: 25 },
+            { id: "Otaku", weight: 25 },
+            { id: "Koryan Fr1edch1ken", weight: 25 },
             { id: "Mayo", weight: 25 },
-            { id: "Seraphel", weight: 25 },
+            { id: "Creamy", weight: 25 },
+            { id: "Kiui", weight: 25 },
+            { id: "Slasher", weight: 25 },
+            { id: "Gaius", weight: 25 },
+            { id: "UpGuess", weight: 25 },
+            { id: "Pedquin", weight: 25 },
+            { id: "LSniper", weight: 25 },
+            { id: "Tuna", weight: 25 },
+            { id: "Cinders", weight: 25 },
+            { id: "Kitahime", weight: 25 },
+            { id: "Notto", weight: 25 },
+            
         ];
         const arrR = [
-            { id: "Diablo", weight: 25 },
-            { id: "Vox", weight: 25 },
-            { id: "Dark Hart", weight: 25 },
+            { id: "Lara", weight: 25 },
+            { id: "Nove", weight: 25 },
+            { id: "Corin", weight: 25 },
+            { id: "Pat", weight: 25 },
             { id: "Riceerd", weight: 25 },
+            { id: "Starlight", weight: 25 },
+            { id: "Zohruii", weight: 25 },
+            { id: "MadKnight", weight: 25 },
+            { id: "Zero Cream", weight: 25 },
+            { id: "NZPIEFACE", weight: 25 },
+            { id: "Corin the Onion", weight: 25 },
+            { id: "iCarrot", weight: 25 },
+
+            
         ];
         const arrUC = [
-            { id: "Shion", weight: 25 },
-            { id: "Ashoka", weight: 25 },
-            { id: "Seraphael, Everyone's Wife", weight: 25 },
-            { id: "Blakninja", weight: 25 },
+            { id: "JakefromStatefarm", weight: 25 },
+            { id: "Nao", weight: 25 },
+            { id: "Infinity", weight: 25 },
+            { id: "OnePokeMan", weight: 25 },
+            { id: "Felix", weight: 25 },
+            { id: "Leaf", weight: 25 },
+            { id: "Ledia", weight: 25 },
+            { id: "Kagaxmii", weight: 25 },
+            { id: "Jimi", weight: 25 },
+            { id: "Arrieh", weight: 25 },
+            { id: "Regis", weight: 25 },
+
+
+            
         ];
         const arrC = [
-            { id: "Cinders", weight: 25 },
+            { id: "Lio", weight: 25 },
+            { id: "Seraphael", weight: 25 },
             { id: "Aki", weight: 25 },
             { id: "Abababa", weight: 25 },
+            { id: "Adam", weight: 25 },
+            { id: "Adam (not staff)", weight: 25 },
+            { id: "Alblue", weight: 25 },
+
+            
+            
         ];
         var rolledCharacter;
         var rolledRarity;
         
         if (args[0] === '1'){ // For the single pull sorted by rarity.  Highest to lowest
+            //check for pity here then roll the certain pity
             var rolled = lucky.itemBy(arr, 'weight');
             switch (rolled.id){
                 case 1:
@@ -205,7 +262,10 @@ module.exports = {
             
             var rarestUnit;
             for (let i = 0; i < maids.length; i++){
+                
                 var character;
+                //check for pity here and if you are rolling skip the switch statement using and if else
+                //put switch statment in else statement
                 
                 switch (maids[i].id){
                     case 1:

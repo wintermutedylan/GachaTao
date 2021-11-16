@@ -1,30 +1,464 @@
 [
-    { "id": "Milim", "icon": "https://i.redd.it/s2754m4u81m51.jpg", "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>", "rValue": 1 },
-    { "id": "Veldora", "icon": "https://static.wikia.nocookie.net/tensei-shitara-slime-datta-ken/images/8/87/Veldora_Human_Anime.png/revision/latest?cb=20210628010435", "rarity": "<:L_:908871560851501056><:R_:908870913167089704>", "rValue": 2, "CP": 999 },
-    { "id": "Rimuru", "icon": "https://cdn.discordapp.com/attachments/907801558765420544/907802085507076156/Rimuru-Emote.png", "rarity": "<:L_:908871560851501056><:R_:908870913167089704>", "rValue": 2, "CP": 999 },
-    { "id": "Benimaru", "icon": "https://static.wikia.nocookie.net/topstrongest/images/b/bd/Benimaru_Anime.png/revision/latest?cb=20190206131059", "rarity": "<:L_:908871560851501056><:R_:908870913167089704>", "rValue": 2, "CP": 999 },
-    { "id": "Maid Cafe Shoko", "icon": "https://cdn.discordapp.com/avatars/219322584477466625/780a452f94af5243607cdf7c555a9e27.png?size=4096", "rarity": "<:U_:908870913183846401><:R_:908870913167089704>", "rValue": 3, "CP": 999 },
-    { "id": "Sewage Monster Smug", "icon": "https://cdn.discordapp.com/avatars/272421193901015041/16f2024f5e4b4087c436856aced7fdc5.png?size=4096", "rarity": "<:U_:908870913183846401><:R_:908870913167089704>", "rValue": 3, "CP": 999 },
-    { "id": "Lio", "icon": "https://cdn.discordapp.com/attachments/907801558765420544/907832254653399081/IMG_0470.png", "rarity": "<:U_:908870913183846401><:R_:908870913167089704>", "rValue": 3, "CP": 999 },
-    { "id": "Guardian Angel Dana", "icon": "https://cdn.discordapp.com/attachments/907801558765420544/908894962119213056/9f76c1d99bb40b33d6061121642ee161.png", "rarity": "<:U_:908870913183846401><:R_:908870913167089704>", "rValue": 3, "CP": 999 },
-    { "id": "Idol Ren", "icon": "https://cdn.discordapp.com/attachments/907801558765420544/908894961615900702/d2c632b56b38b6c188a67bd5552804b9.png", "rarity": "<:U_:908870913183846401><:R_:908870913167089704>", "rValue": 3, "CP": 999 },
-    { "id": "Melody", "icon": "https://cdn.discordapp.com/attachments/907801558765420544/907814022563389450/melody.png", "rarity": "<:S_:908870913225818214><:R_:908870913167089704>", "rValue": 4, "CP": 999 },
-    { "id": "Priscilla", "icon": "https://i.imgur.com/RTjf5cI.png", "rarity": "<:S_:908870913225818214><:R_:908870913167089704>", "rValue": 4, "CP": 999 },
-    { "id": "Mayo", "icon": "https://images-ext-1.discordapp.net/external/bJtQFv6PaetBcMGu-KOxRD-3GjgpD0eQ2UNS9NzNcqE/%3Fsize%3D4096/https/cdn.discordapp.com/avatars/231906328954535948/267cf486324f9e5d57a73bca8cf1ca6a.png", "rarity": "<:S_:908870913225818214><:R_:908870913167089704>", "rValue": 4, "CP": 999 },
-    { "id": "Seraphel", "icon": "https://images-ext-1.discordapp.net/external/UBzuR_cdtVxEedRL1nnSqI-6gFQt48xVLbNQEIyMHhM/%3Fsize%3D4096/https/cdn.discordapp.com/avatars/257190913862926336/a_35270966580d867cff641f944db14aa3.gif", "rarity": "<:S_:908870913225818214><:R_:908870913167089704>", "rValue": 4, "CP": 999 },
-    { "id": "Diablo", "icon": "https://static.wikia.nocookie.net/tensei-shitara-slime-datta-ken/images/f/f5/Diablo_Anime.png/revision/latest?cb=20190115050410", "rarity": "<:R_:908870913167089704>", "rValue": 5, "CP": 999 },
-    { "id": "Vox", "icon": "https://i.imgur.com/PbQoWvO.png", "rarity": "<:R_:908870913167089704>", "rValue": 5, "CP": 999 },
-    { "id": "Dark Hart", "icon": "https://i.imgur.com/pfcVRVi.png", "rarity": "<:R_:908870913167089704>", "rValue": 5, "CP": 999 },
-    { "id": "Riceerd", "icon": "https://cdn.discordapp.com/avatars/170705342269751296/5dbd0e8b182b65495f345ad05211a714.png?size=4096", "rarity": "<:R_:908870913167089704>", "rValue": 5, "CP": 999 },
-    { "id": "Shion", "icon": "https://static.wikia.nocookie.net/tensei-shitara-slime-datta-ken/images/b/b7/Shion_Anime.png/revision/latest?cb=20180924183120", "rarity": "<:U_:908870913183846401><:C_:908870913267757066>", "rValue": 6, "CP": 999 },
-    { "id": "Ashoka", "icon": "https://www.looper.com/img/gallery/the-real-reason-the-mandalorian-needs-ahsoka-tano/intro-1604691488.jpg", "rarity": "<:U_:908870913183846401><:C_:908870913267757066>", "rValue": 6, "CP": 999 },
-    { "id": "Seraphael, Everyone's Wife", "icon": "https://images-ext-1.discordapp.net/external/UBzuR_cdtVxEedRL1nnSqI-6gFQt48xVLbNQEIyMHhM/%3Fsize%3D4096/https/cdn.discordapp.com/avatars/257190913862926336/a_35270966580d867cff641f944db14aa3.gif", "rarity": "<:U_:908870913183846401><:C_:908870913267757066>", "rValue": 6, "CP": 999 },
-    { "id": "Blakninja", "icon": "https://cdn.discordapp.com/avatars/238364422135873536/a_cc9cfe6052a997a7d16a68f0d957d8d1.gif?size=4096", "rarity": "<:U_:908870913183846401><:C_:908870913267757066>", "rValue": 6, "CP": 999 },
-    { "id": "Cinders", "icon": "https://cdn.discordapp.com/avatars/491836708359372800/66d1a224a9abe2a1d199eeeea6c103eb.png?size=4096", "rarity": "<:C_:908870913267757066>", "rValue": 7, "CP": 999 },
-    { "id": "Aki", "icon": "https://cdn.discordapp.com/avatars/259747383699701760/1045eef56f78f732f2449d6f330589b1.png?size=4096", "rarity": "<:C_:908870913267757066>", "rValue": 7, "CP": 999 },
-    { "id": "Abababa", "icon": "https://cdn.discordapp.com/avatars/121030264901206016/a_c49901fdc09f7b1ad8462fad54eebc20.gif?size=4096", "rarity": "<:C_:908870913267757066>", "rValue": 7, "CP": 999 },
-    { "id": "Ren", "icon": "https://cdn.discordapp.com/avatars/307860993910898700/d2c632b56b38b6c188a67bd5552804b9.png?size=4096", "rarity": "<:C_:908870913267757066>", "rValue": 7, "CP": 999 },
-    { "id": "Kiui", "icon": "https://cdn.discordapp.com/attachments/907801558765420544/907821253610569768/IMG_0467.png", "rarity": "<:L_908871560851501056><:R_:908870913167089704>", "rValue": 2, "CP": 999 }
-    
-
+    {
+        "id": "Milim",
+        "icon": "https://i.redd.it/s2754m4u81m51.jpg",
+        "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 1,
+        "CP": 100000
+    },
+    {
+        "id": "Semi",
+        "icon": "https://cdn.discordapp.com/attachments/907801558765420544/909271021843005460/e23ac9e179b380301ffa309296f3ba17.png",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 9500
+    },
+    {
+        "id": "Saltea",
+        "icon": "https://cdn.discordapp.com/attachments/907801558765420544/909271141561032784/bbb0237dea9574af5d07961816f4ca94.png",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 17000
+    },
+    {
+        "id": "Jahnkeem",
+        "icon": "https://cdn.discordapp.com/attachments/907801558765420544/909270811544805386/0ba592e5885875d42a7d5de3e5ad7e2c.png",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 17900
+    },
+    {
+        "id": "Lio",
+        "icon": "https://cdn.discordapp.com/avatars/517652119860281344/cd603cbe429530caddbd6c555029e4dd.png?size=4096",
+        "rarity": "<:C_:908870913267757066>",
+        "rValue": 7,
+        "CP": 1
+    },
+    {
+        "id": "Lara",
+        "icon": "https://cdn.discordapp.com/attachments/907801558765420544/909271554125336596/868d5197c7ce41b2cfb420a99eaf4a40.png",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 7200
+    },
+    {
+        "id": "Poro",
+        "icon": "https://cdn.discordapp.com/attachments/907801558765420544/909271723042562119/a_b572f0e1445dc6ad6e05ec81c4189d26.gif",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 9000
+    },
+    {
+        "id": "Nove",
+        "icon": "https://cdn.discordapp.com/attachments/907801558765420544/909272186970329158/df8423bb8d505a927a7a7e5cd11b622c.png",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 6000
+    },
+    {
+        "id": "JakefromStatefarm",
+        "icon": "https://cdn.discordapp.com/attachments/907801558765420544/909272213583196200/e9753febca4f6c191b26a3e6a91d164c.png",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 3100
+    },
+    {
+        "id": "RKTSM",
+        "icon": "https://cdn.discordapp.com/avatars/128850334541021184/295552039a3bdfcdaff4e8645c710253.png?size=4096",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 17000
+    },
+    {
+        "id": "Gine",
+        "icon": "https://cdn.discordapp.com/avatars/692863215654404096/e3f3cc03833b2968b5e0250ce96dd892.png?size=4096",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 69696
+    },
+    {
+        "id": "Corin",
+        "icon": "https://cdn.discordapp.com/avatars/586722401404977152/e85de7602daf7546c7cc28cc68108f73.png?size=1024",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 6800
+    },
+    {
+        "id": "Sewage Monster Smug",
+        "icon": "https://cdn.discordapp.com/avatars/272421193901015041/16f2024f5e4b4087c436856aced7fdc5.png?size=4096",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 10000
+    },
+    {
+        "id": "Shoko",
+        "icon": "https://cdn.discordapp.com/avatars/219322584477466625/58efc595c3e64d4d4d71116e16030011.png?size=1024",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 17600
+    },
+    {
+        "id": "Otaku",
+        "icon": "https://cdn.discordapp.com/avatars/771250628315185163/35d9725632a13b94256031e596bcdd40.png?size=4096",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 8400
+    },
+    {
+        "id": "Guardian Angel Dana",
+        "icon": "https://cdn.discordapp.com/attachments/907801558765420544/908894962119213056/9f76c1d99bb40b33d6061121642ee161.png",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 10000
+    },
+    {
+        "id": "Idol Ren",
+        "icon": "https://cdn.discordapp.com/attachments/907801558765420544/908894961615900702/d2c632b56b38b6c188a67bd5552804b9.png",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 10000
+    },
+    {
+        "id": "Koryan Fr1edch1ken",
+        "icon": "https://cdn.discordapp.com/avatars/633818824411709441/97b8b86e49a8c0be64442897bb80e8cb.png?size=4096",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 7700
+    },
+    {
+        "id": "Nao",
+        "icon": "https://cdn.discordapp.com/avatars/758842739516375100/76d107e06821204d5e9b47ae4df4de48.png?size=4096",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 3400
+    },
+    {
+        "id": "Mayo",
+        "icon": "https://cdn.discordapp.com/avatars/231906328954535948/267cf486324f9e5d57a73bca8cf1ca6a.png?size=1024",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 9800
+    },
+    {
+        "id": "Seraphael",
+        "icon": "https://cdn.discordapp.com/avatars/257190913862926336/a_35270966580d867cff641f944db14aa3.gif?size=4096",
+        "rarity": "<:C_:908870913267757066>",
+        "rValue": 7,
+        "CP": 2100
+    },
+    {
+        "id": "Infinity",
+        "icon": "https://cdn.discordapp.com/avatars/419482774601465856/1a6797667427e4879773491ffb81b60e.png?size=1024",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 2800
+    },
+    {
+        "id": "Creamy",
+        "icon": "https://cdn.discordapp.com/avatars/289672719912402944/2e4ba9b8b4c36ddf41749a7c45910180.png?size=1024",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 8200
+    },
+    {
+        "id": "Pat",
+        "icon": "https://cdn.discordapp.com/avatars/236664566451404801/e1d411b5e060fa5165e5b57c82d3304c.png?size=1024",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 7400
+    },
+    {
+        "id": "Kiui",
+        "icon": "https://cdn.discordapp.com/avatars/583329656237719565/22a03bf7b276a161ba3f295a3a12c987.png?size=4096",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 9900
+    },
+    {
+        "id": "Riceerd",
+        "icon": "https://cdn.discordapp.com/avatars/170705342269751296/c79755827d7ab8b16d375595c4298446.png?size=1024",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 7300
+    },
+    {
+        "id": "Aki",
+        "icon": "https://cdn.discordapp.com/avatars/259747383699701760/da0aa32bd308c96d10eb4210e944916f.png?size=1024",
+        "rarity": "<:C_:908870913267757066>",
+        "rValue": 7,
+        "CP": 400
+    },
+    {
+        "id": "OnePokeMan",
+        "icon": "https://cdn.discordapp.com/avatars/195188785678385152/f4ec131ae84f7a27d77372d2a65b02a3.png?size=4096",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 4200
+    },
+    {
+        "id": "Starlight",
+        "icon": "https://cdn.discordapp.com/avatars/109757292970262528/35241f2eb35343093aec1ee32c3a8251.png?size=1024",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 6400
+    },
+    {
+        "id": "Abababa",
+        "icon": "https://cdn.discordapp.com/avatars/121030264901206016/a_c49901fdc09f7b1ad8462fad54eebc20.gif?size=4096",
+        "rarity": "<:C_:908870913267757066>",
+        "rValue": 7,
+        "CP": 727
+    },
+    {
+        "id": "Yuki",
+        "icon": "https://cdn.discordapp.com/avatars/128669727051612160/6dac20413500eb751a655bd216ffc0ef.png?size=4096",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 19300
+    },
+    {
+        "id": "Zyla",
+        "icon": "https://cdn.discordapp.com/avatars/488699894023061516/977487fcbdbd77649f5ca75e3b44e35b.png?size=4096",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 66666
+    },
+    {
+        "id": "X99",
+        "icon": "https://cdn.discordapp.com/guilds/830700055451271188/users/499408144439705601/avatars/64ac231f451813e873afd8b897578136.png?size=4096",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 13700
+    },
+    {
+        "id": "Slasher",
+        "icon": "https://cdn.discordapp.com/avatars/363617284838653954/80c015ec4e87824ca43cdd72f7041f69.png?size=4096",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 7700
+    },
+    {
+        "id": "Gaius",
+        "icon": "https://cdn.discordapp.com/avatars/494660779358945290/b9e39d68509aa063a8352e6b939b3c3b.png?size=4096",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 8300
+    },
+    {
+        "id": "Blakninja",
+        "icon": "https://cdn.discordapp.com/avatars/238364422135873536/a_cc9cfe6052a997a7d16a68f0d957d8d1.gif?size=4096",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 16300
+    },
+    {
+        "id": "Safryz",
+        "icon": "https://cdn.discordapp.com/avatars/309422842968014860/426995c21564e89615dfecdd654d6a79.png?size=4096",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 14900
+    },
+    {
+        "id": "Swede",
+        "icon": "https://cdn.discordapp.com/guilds/830700055451271188/users/408165327365472257/avatars/829b4ef47965829599306697a8d29c9a.png?size=4096",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 14200
+    },
+    {
+        "id": "Adam",
+        "icon": "https://cdn.discordapp.com/avatars/704490223303655434/1d63abc9828829aa39310d37ce6b3eb4.png?size=4096",
+        "rarity": "<:C_:908870913267757066>",
+        "rValue": 7,
+        "CP": 2
+    },
+    {
+        "id": "UpGuess",
+        "icon": "https://cdn.discordapp.com/avatars/771426605390233620/768fbdfd5f358b31f2b45e9acf0865d3.png?size=4096",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 9700
+    },
+    {
+        "id": "Pedquin",
+        "icon": "https://cdn.discordapp.com/avatars/373298112707428352/74ac62c14a5a1e8fbc91827861914505.png?size=4096",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 8200
+    },
+    {
+        "id": "LSniper",
+        "icon": "https://cdn.discordapp.com/avatars/865756027910750229/33f6ef1ebfd584db22f0f102e124e69d.png?size=4096",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 8100
+    },
+    {
+        "id": "Felix",
+        "icon": "https://cdn.discordapp.com/avatars/200554762448404480/6cf62f9fc85da3736669c0e213e0a0f4.png?size=4096",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 3500
+    },
+    {
+        "id": "Leaf",
+        "icon": "https://cdn.discordapp.com/avatars/591262921120808961/a_3c6e290106f1c0162d203994be3f1de4.gif?size=4096",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 3200
+    },
+    {
+        "id": "Adam (not staff)",
+        "icon": "https://media.discordapp.net/attachments/903168854526685205/909694141062053938/Untitled_Artwork.jpg",
+        "rarity": "<:C_:908870913267757066>",
+        "rValue": 7,
+        "CP": 200
+    },
+    {
+        "id": "Zohruii",
+        "icon": "https://cdn.discordapp.com/avatars/677376338197479425/37c42821cf9941c584b92b50d4dad4a3.png?size=4096",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 5900
+    },
+    {
+        "id": "MadKnight",
+        "icon": "https://cdn.discordapp.com/avatars/381090828929597441/7818cc6d151b7b970ccf0a0df7ae9aa5.png?size=4096",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 5500
+    },
+    {
+        "id": "Alblue",
+        "icon": "https://cdn.discordapp.com/avatars/499257085159276544/e6d00193956db66ebe0a99eafb369b76.png?size=4096",
+        "rarity": "<:C_:908870913267757066>",
+        "rValue": 7,
+        "CP": 1000
+    },
+    {
+        "id": "Tuna",
+        "icon": "https://cdn.discordapp.com/avatars/814117570256699464/cb64aa7e12cfba776165b202618c0b40.png?size=4096",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 8000
+    },
+    {
+        "id": "Zero Cream",
+        "icon": "https://cdn.discordapp.com/avatars/457991815476281346/788953a3cadb266ec965b47c29dab3b5.png?size=4096",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 6300
+    },
+    {
+        "id": "NZPIEFACE",
+        "icon": "https://cdn.discordapp.com/avatars/112500541417857024/f524fcbd4fc0bc8dd7f44350ab0a1581.png?size=4096",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 6400
+    },
+    {
+        "id": "Cinders",
+        "icon": "https://cdn.discordapp.com/avatars/491836708359372800/66d1a224a9abe2a1d199eeeea6c103eb.png?size=4096",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 8800
+    },
+    {
+        "id": "Jirachi",
+        "icon": "https://cdn.discordapp.com/avatars/485509370252361729/0b05a3803d2410acf29d332ab440d8f1.png?size=4096",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 17800
+    },
+    {
+        "id": "Kitahime",
+        "icon": "https://cdn.discordapp.com/avatars/432265862137774081/1ba8553d38b2f25cc71464a54887f46d.png?size=4096",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 8300
+    },
+    {
+        "id": "Notto",
+        "icon": "https://cdn.discordapp.com/avatars/332840644299063296/583083fd7b300e836f848b10c460a448.png?size=4096",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 7600
+    },
+    {
+        "id": "RavingTurnip",
+        "icon": "https://cdn.discordapp.com/avatars/263762368650149888/a_4f24dc2a4e5053ac6570d364c965c00d.gif?size=4096",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 11000
+    },
+    {
+        "id": "Tatertot",
+        "icon": "https://media.discordapp.net/attachments/854047198291689542/909970243970035723/7700E7DB-4916-431A-8CAF-60106CFEA887.jpg?width=677&height=676",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 19900
+    },
+    {
+        "id": "Cabbag",
+        "icon": "https://media.istockphoto.com/photos/green-cabbage-isolated-on-white-picture-id673162168?k=20&m=673162168&s=612x612&w=0&h=3QKF6zzzCAUL3pKxW6kVbZ7lUt1JUY_SchOUMyOHwhs=",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 17400
+    },
+    {
+        "id": "Corin the Onion",
+        "icon": "https://s.cornershopapp.com/product-images/3337875.jpg?versionId=NqePoVJm1SftEztIrxtWSyo5TM7vm9oe",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 5600
+    },
+    {
+        "id": "iCarrot",
+        "icon": "https://res.cloudinary.com/teepublic/image/private/s--4KLLZILR--/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:38/co_ffffff,e_outline:inner_fill:38/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_90,w_630/v1500610812/production/designs/1754110_1.jpg",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 8300
+    },
+    {
+        "id": "Wobbly Carrot",
+        "icon": "https://cdn.discordapp.com/avatars/366038688620216362/8820ec41ba2999d2d2a6f7460cbc2415.png?size=4096",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 17500
+    },
+    {
+        "id": "Ledia",
+        "icon": "https://cdn.discordapp.com/avatars/769631291762016316/81200a2cddd24f150479654a5f20066f.png?size=4096",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 3700
+    },
+    {
+        "id": "Kagaxmii",
+        "icon": "https://cdn.discordapp.com/avatars/451281530434879488/e7b556f984834474b3603f7fb5d9dad9.png?size=4096",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 3300
+    },
+    {
+        "id": "Jimi",
+        "icon": "https://cdn.discordapp.com/avatars/277850351841837066/a_ee24416fef184ba39adaea41c4c2d4a6.gif?size=1024",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 4900
+    },
+    {
+        "id": "Arrieh",
+        "icon": "https://cdn.discordapp.com/avatars/409271981238779915/55891e1bc139dc61d9548d4f3db41755.png?size=4096",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 3900
+    },
+    {
+        "id": "Regis",
+        "icon": "https://cdn.discordapp.com/avatars/191001301298053120/0d8c1ffe097579055ac7092d1c1a255a.png?size=1024",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 4400
+    }
 ]

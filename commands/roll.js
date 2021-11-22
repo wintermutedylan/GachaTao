@@ -28,6 +28,8 @@ module.exports = {
         
 
         //<a:pinkstar:907752258870075462>
+        
+        // good values
         const arr = [
             { id: 1, weight: 6 },
             { id: 2, weight: 30 },
@@ -37,6 +39,8 @@ module.exports = {
             { id: 6, weight: 1500 },
             { id: 7, weight: 2000 },
         ];
+        
+        
         const arrLR = [
             { id: "Gine", weight: 25 },
             { id: "Zyla", weight: 25 },
@@ -46,10 +50,10 @@ module.exports = {
             { id: "Saltea", weight: 25 },
             { id: "Jahnkeem", weight: 25 },
             { id: "RKTSM", weight: 25 },
-            { id: "Sewage Monster Smug", weight: 25 },
+            
             { id: "Shoko", weight: 25 },
-            { id: "Guardian Angel Dana", weight: 25 },
-            { id: "Idol Ren", weight: 25 },
+            
+            
             { id: "Yuki", weight: 25 },
             { id: "X99", weight: 25 },
             { id: "Blakninja", weight: 25 },
@@ -163,9 +167,14 @@ module.exports = {
                     break;
             }
             var image;
+            var rolledCP;
+            var awkNeeded;
+            var awkThisUnit = false;
             for (let i = 0; i < unitSplash.length; i++){
                 if (rolledCharacter.id === unitSplash[i].id){
                     image = unitSplash[i].icon;
+                    rolledCP = unitSplash[i].CP;
+                    awkNeeded = unitSplash[i].awakenThreshold;
                 }
             }
 
@@ -173,23 +182,7 @@ module.exports = {
             playerData = await playerModel.findOne({ userID: message.author.id});
             if (!playerData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
             if (playerData.coins  < 50) return message.reply("Go get more coins baka");
-            if (playerData.maids.length === 0) {
-                try {
-                    await playerModel.findOneAndUpdate(
-                        {
-                            userID: ID
-                        },
-                        {
-                            $push: {
-                                maids: { unit: rolledCharacter.id, dupes: 0 }
-                            },
-                        }
-                    );
-
-                } catch(err){
-                    console.log(err);
-                }
-            } else {
+            
                 
             
                 var have = false;
@@ -198,6 +191,9 @@ module.exports = {
                         
                         var owned = playerData.maids[location].dupes;
                         owned++;
+                        if (owned === awkNeeded){
+                            awkThisUnit = true;
+                        }
                         
                         try {
                             await playerModel.findOneAndUpdate(
@@ -236,7 +232,23 @@ module.exports = {
                     }
 
                 }
+            
+            try {
+                await playerModel.findOneAndUpdate(
+                    {
+                        userID: ID
+                    },
+                    {
+                        $inc: {
+                            totalCP: rolledCP,
+                        },
+                    }
+                );
+
+            } catch(err){
+                console.log(err);
             }
+
 
 
 
@@ -244,17 +256,21 @@ module.exports = {
             const newEmbed = new Discord.MessageEmbed()
             .setColor('#E76AA3')
             .setTitle(`${rolledRarity} ${rolledCharacter.id}`)
-            .setDescription(`${userMention(message.author.id)}  just pulled ${rolledCharacter.id}`)
+            .setDescription(`${userMention(message.author.id)}  just pulled ${rolledCharacter.id} \nCP: ${rolledCP}`)
             .setImage(`${image}`)
             .setFooter('Congrats');
         
 
             message.channel.send({ embeds: [newEmbed] });
+            if (awkThisUnit){
+                message.channel.send(`${userMention(message.author.id)} has just awoken ${rolledCharacter.id}, Congrats!`);
+            }
             
             
         }
         var highestCharacter = 8;
         var rolledCharacters = [];
+        var awkCharacters = [];
         if (args[0] === '10'){
             var maids = lucky.itemsBy(arr, 'weight', 10, {unique: false}); //this will be used for 10 rolls
 
@@ -332,35 +348,35 @@ module.exports = {
                     break;
             }
             if (playerData.coins  < 50) return message.reply("Go get more coins baka");
+            
             for (let k = 0; k < rolledCharacters.length; k++){
                 let playerData; 
+                var rolledCP;
+                for (let l = 0; l < unitSplash.length; l++){
+                    if (rolledCharacters[k].unit === unitSplash[l].id){
+                        rolledCP = unitSplash[l].CP;
+                    }
+                }
                 playerData = await playerModel.findOne({ userID: message.author.id});
                 if (!playerData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
-                if (playerData.maids.length === 0) {
-                    try {
-                        await playerModel.findOneAndUpdate(
-                            {
-                                userID: ID
-                            },
-                            {
-                                $push: {
-                                    maids: { unit: rolledCharacters[k].unit , dupes: 0 }
-                                },
-                            }
-                        );
-
-                    } catch(err){
-                        console.log(err);
-                    }
-                } else {
+                
                     
                 
                     var have = false;
                     for (let location = 0; location < playerData.maids.length; location++){
+                        var awkNeeded;
                         if (playerData.maids[location].unit === rolledCharacters[k].unit){
+                            for (let j = 0; j < unitSplash.length; j++){
+                                if (rolledCharacters[k].unit === unitSplash[j].id){
+                                    awkNeeded = unitSplash[j].awakenThreshold;
+                                }
+                            }
                             
                             var owned = playerData.maids[location].dupes;
                             owned++;
+                            if (owned === awkNeeded){
+                                awkCharacters.push(rolledCharacters[k].unit);
+                            }
                             
                             try {
                                 await playerModel.findOneAndUpdate(
@@ -399,7 +415,23 @@ module.exports = {
                         }
 
                     }
+                
+                try {
+                    await playerModel.findOneAndUpdate(
+                        {
+                            userID: ID
+                        },
+                        {
+                            $inc: {
+                                totalCP: rolledCP,
+                            },
+                        }
+                    );
+    
+                } catch(err){
+                    console.log(err);
                 }
+
             }
             const newEmbed10 = new Discord.MessageEmbed()
             .setColor('#ff3399')
@@ -426,7 +458,18 @@ module.exports = {
         
 
             message.channel.send({ embeds: [newEmbed10] });
-            //message.channel.send(`Rarest Character pulled ${rarestUnit}, Rarity: ${highestCharacter}`);
+            if (awkCharacters.length != 0){
+                var awkUnits = "";
+                if (awkCharacters.length === 1){
+                    message.channel.send(`${userMention(message.author.id)} has just awoken ${awkCharacters[0]}, Congrats!`);
+                } else {
+                    awkUnits = awkCharacters[0];
+                    for (let i = 1; i < awkCharacters.length; i ++){
+                        awkUnits = awkUnits + ", " + awkCharacters[i];
+                    }
+                    message.channel.send(`${userMention(message.author.id)} has just awoken **${awkUnits}**, Congrats!`);
+                }
+            }
         }  
         
     } else {

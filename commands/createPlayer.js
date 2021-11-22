@@ -51,7 +51,9 @@ module.exports = {
                     .setImage(`https://cdn.discordapp.com/attachments/907801558765420544/908894961884356659/16f2024f5e4b4087c436856aced7fdc5.png`)
                     .setFooter('Congrats');
                     message.reply({ embeds: [newEmbed] });
-                    client.channels.cache.get("853101428875984957").send(`g$addunit ${unitSelected} ${ID} ${message.channel.id}`);
+                    //client.channels.cache.get("853101428875984957").send(`g$addunit ${unitSelected} ${ID} ${message.channel.id}`);
+                    addUnit(unitSelected, ID);
+                    message.channel.send(`${unitSelected} has been added to your account ${userMention(ID)}`);
                     
                    
 
@@ -65,7 +67,9 @@ module.exports = {
                     .setImage(`https://cdn.discordapp.com/attachments/907801558765420544/908894962119213056/9f76c1d99bb40b33d6061121642ee161.png`)
                     .setFooter('Congrats');
                     message.reply({ embeds: [newEmbed] });
-                    client.channels.cache.get("853101428875984957").send(`g$addunit ${unitSelected} ${ID} ${message.channel.id}`);
+                    //client.channels.cache.get("853101428875984957").send(`g$addunit ${unitSelected} ${ID} ${message.channel.id}`);
+                    addUnit(unitSelected, ID);
+                    message.channel.send(`${unitSelected} has been added to your account ${userMention(ID)}`);
                     
                 }
                 else if (s == 'Ren'){
@@ -77,7 +81,8 @@ module.exports = {
                     .setImage(`https://cdn.discordapp.com/attachments/907801558765420544/908894961615900702/d2c632b56b38b6c188a67bd5552804b9.png`)
                     .setFooter('Congrats');
                     message.reply({ embeds: [newEmbed] });
-                    client.channels.cache.get("853101428875984957").send(`g$addunit ${unitSelected} ${ID} ${message.channel.id}`);
+                    addUnit(unitSelected, ID);
+                    message.channel.send(`${unitSelected} has been added to your account ${userMention(ID)}`);
                     
                 }
 
@@ -92,14 +97,37 @@ module.exports = {
             
             
         });
+
         
-        
-        
-        
-        
-        
-        
-        
-        
+    }
+}
+
+async function addUnit(unitName, ID){
+    try {
+        await playerModel.findOneAndUpdate(
+            {
+                userID: ID
+            },
+            {
+                $push: {
+                    maids: { unit: unitName, dupes: 0 }
+                },
+            }
+        );
+        await playerModel.findOneAndUpdate(
+            {
+                userID: ID
+            },
+            {
+                $set: {
+                    starterSelected: true,
+                    coins: 500,
+                    totalCP: 10000
+                },
+            }
+        );
+
+    } catch(err){
+        console.log(err);
     }
 }

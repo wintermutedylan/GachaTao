@@ -23,7 +23,9 @@ module.exports = async (Discord, client, message) => {
                     coins: 0,
                     maids: [],
                     dailyRolls: 5,
-                    starterSelected: false
+                    dailyReset: false,
+                    starterSelected: false,
+                    totalCP: 0
                 });
                 player.save();
             }

@@ -30,6 +30,7 @@ module.exports = {
         //<a:pinkstar:907752258870075462>
         
         // good values
+        
         const arr = [
             { id: 1, weight: 6 },
             { id: 2, weight: 30 },
@@ -39,6 +40,7 @@ module.exports = {
             { id: 6, weight: 1500 },
             { id: 7, weight: 2000 },
         ];
+        
         
         
         const arrLR = [
@@ -138,7 +140,7 @@ module.exports = {
             var rolled = lucky.itemBy(arr, 'weight');
             switch (rolled.id){
                 case 1:
-                    rolledCharacter = "Milim";
+                    rolledCharacter = { id: "Milim", weight: 25 };
                     rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
                     break;
                 case 2:
@@ -170,6 +172,7 @@ module.exports = {
             var rolledCP;
             var awkNeeded;
             var awkThisUnit = false;
+            
             for (let i = 0; i < unitSplash.length; i++){
                 if (rolledCharacter.id === unitSplash[i].id){
                     image = unitSplash[i].icon;
@@ -265,6 +268,10 @@ module.exports = {
             if (awkThisUnit){
                 message.channel.send(`${userMention(message.author.id)} has just awoken ${rolledCharacter.id}, Congrats!`);
             }
+            if (rolledCharacter.id === "Milim"){
+                var user = await client.users.fetch(message.author.id);
+                message.channel.send(`${userMention("238364422135873536")}, ${user.username}#${user.discriminator} has just pulled **${rolledCharacter.id}**`);
+            } 
             
             
         }
@@ -470,7 +477,11 @@ module.exports = {
                     message.channel.send(`${userMention(message.author.id)} has just awoken **${awkUnits}**, Congrats!`);
                 }
             }
-        }  
+        }
+        if (rarestUnit === "Milim"){
+            var user = await client.users.fetch(message.author.id);
+            message.channel.send(`${userMention("238364422135873536")}, ${user.username}#${user.discriminator} has just pulled **${rarestUnit}**`);
+        }
         
     } else {
         return message.reply('Please enter either nothing, 1, or 10');

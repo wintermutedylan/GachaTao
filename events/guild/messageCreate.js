@@ -3,16 +3,11 @@ const playerModel = require("../../models/playerSchema");
 
 module.exports = async (Discord, client, message) => {
     const prefix = process.env.PREFIX;
-    if(!message.content.startsWith(prefix)) return;
+    if(!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
-    if (message.author.bot){
-        if (cmd != "addunit"){
-            return;
-        }
-        
-    }
-    if (!message.author.bot){
+    
+    
         let playerData;
 
         try {
@@ -32,7 +27,7 @@ module.exports = async (Discord, client, message) => {
         } catch(err){
             console.log(err);
         }
-    }
+    
 
     
 

@@ -53,7 +53,7 @@ module.exports = {
                     message.reply({ embeds: [newEmbed] });
                     //client.channels.cache.get("853101428875984957").send(`g$addunit ${unitSelected} ${ID} ${message.channel.id}`);
                     addUnit(unitSelected, ID);
-                    message.channel.send(`${unitSelected} has been added to your account ${userMention(ID)}`);
+                    message.channel.send(`**${unitSelected}** has been added to your account ${userMention(ID)}`);
                     
                    
 
@@ -69,7 +69,7 @@ module.exports = {
                     message.reply({ embeds: [newEmbed] });
                     //client.channels.cache.get("853101428875984957").send(`g$addunit ${unitSelected} ${ID} ${message.channel.id}`);
                     addUnit(unitSelected, ID);
-                    message.channel.send(`${unitSelected} has been added to your account ${userMention(ID)}`);
+                    message.channel.send(`**${unitSelected}** has been added to your account ${userMention(ID)}`);
                     
                 }
                 else if (s == 'Ren'){
@@ -82,7 +82,7 @@ module.exports = {
                     .setFooter('Congrats');
                     message.reply({ embeds: [newEmbed] });
                     addUnit(unitSelected, ID);
-                    message.channel.send(`${unitSelected} has been added to your account ${userMention(ID)}`);
+                    message.channel.send(`**${unitSelected}** has been added to your account ${userMention(ID)}`);
                     
                 }
 

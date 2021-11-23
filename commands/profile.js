@@ -4,7 +4,7 @@ const { userMention, memberNicknameMention, channelMention, roleMention } = requ
 module.exports = {
     name: 'profile',
     aliases: ['p','units'],
-    permissions: ["ADMINISTRATOR"],
+    permissions: [],
     description: "embeds",
     async execute(client, message,cmd,args,Discord){
         if (args.length > 1) {
@@ -20,6 +20,7 @@ module.exports = {
         
         var sorted = [];
         var totalCP = playerData.totalCP;
+        var totalCoins = playerData.coins;
         
         for (let i = 0; i < playerData.maids.length; i++){
             for (let j = 0; j < maids.length; j++){
@@ -48,7 +49,7 @@ module.exports = {
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#E76AA3')
         .setAuthor(`${message.author.username}'s Units`)
-        .setDescription(`Total CP: ${new Intl.NumberFormat().format(totalCP)}`)
+        .setDescription(`Total CP: ${new Intl.NumberFormat().format(totalCP)} \nTotal<:bootaomonez:909294739197681754>: ${new Intl.NumberFormat().format(totalCoins)}`)
         .setThumbnail(message.author.avatarURL())
         .setFooter(`Page # ${pageNumber}`)
 
@@ -66,7 +67,7 @@ module.exports = {
                     
                     
                     newEmbed.addFields(
-                        { name: `**${sorted[k].rarity}: ${sorted[k].id}**`, value: `Dupes: ${dupeValue}, \nTotal CP: ${new Intl.NumberFormat().format(sorted[k].CP)}`}
+                        { name: `**${sorted[k].rarity}: ${sorted[k].id}**`, value: `Dupes: ${dupeValue}, \nCP: ${new Intl.NumberFormat().format(sorted[k].CP)}`}
                     )
                 }
                 }

@@ -5,7 +5,7 @@ module.exports = {
     name: 'wipe',
     aliases: [],
     permissions: ["ADMINISTRATOR"],
-    description: "adds the specified unit to the user",
+    description: "resets a user in the DB",
     async execute(client, message,cmd,args,Discord){
         if (args.length === 0) return message.reply("Please enter a user ID");
         var ID = args[0];

@@ -7,6 +7,7 @@ module.exports = {
     permissions: ["ADMINISTRATOR"],
     description: "Remove coins from users",
     async execute(client, message, cmd, args, Discord){
+        if (args.length === 0) return message.reply("Please enter an amount then a user ID");
         var ID = args.pop();
         var amount = args[0];
         

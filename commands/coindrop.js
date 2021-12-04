@@ -9,6 +9,7 @@ module.exports = {
     permissions: ["ADMINISTRATOR"],
     description: "Give coins to users",
     async execute(client, message, cmd, args, Discord){
+        if (args.length === 0) return message.reply("Please enter a channel ID");
         var channels = args[0];
         var amount = getRandomArbitrary(150, 1001);
         const item = quiz[Math.floor(Math.random() * quiz.length)];

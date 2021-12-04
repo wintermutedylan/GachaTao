@@ -49,7 +49,7 @@ module.exports = {
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#E76AA3')
         .setAuthor(`${message.author.username}'s Units`)
-        .setDescription(`Total CP: ${new Intl.NumberFormat().format(totalCP)} \nTotal<:bootaomonez:909294739197681754>: ${new Intl.NumberFormat().format(totalCoins)}`)
+        .setDescription(`Total CP: ${new Intl.NumberFormat().format(totalCP)} \nTotal<:bootaomonez:909294739197681754>: ${new Intl.NumberFormat().format(totalCoins)} \nLR Pity: ${playerData.lrPity} \nUR Pity: ${playerData.urPity}`)
         .setThumbnail(message.author.avatarURL())
         .setFooter(`Page # ${pageNumber}`)
 

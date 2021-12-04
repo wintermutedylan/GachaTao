@@ -12,6 +12,8 @@ module.exports = {
         //so that they have to get their starting unit first
         let playerData; 
         playerData = await playerModel.findOne({ userID: message.author.id});
+        
+        if (!playerData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
         if (playerData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
         if (args.length > 1) {
             return message.reply('Please only enter one number');
@@ -21,6 +23,8 @@ module.exports = {
         }
         if (args[0] === '1' || args[0] === '10'){
             var ID = message.author.id;
+            var LRPity = playerData.lrPity;
+            var URPity = playerData.urPity;
 
         
         
@@ -136,37 +140,68 @@ module.exports = {
         var rolledRarity;
         
         if (args[0] === '1'){ // For the single pull sorted by rarity.  Highest to lowest
+            
+            if (playerData.coins  < 50) return message.reply("Go get more coins baka");
             //check for pity here then roll the certain pity
             var rolled = lucky.itemBy(arr, 'weight');
-            switch (rolled.id){
-                case 1:
-                    rolledCharacter = { id: "Milim", weight: 25 };
-                    rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
-                    break;
-                case 2:
-                    rolledCharacter = lucky.itemBy(arrLR, 'weight');
-                    rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
-                    break;
-                case 3:
-                    rolledCharacter = lucky.itemBy(arrUR, 'weight');
-                    rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
-                    break;
-                case 4:
-                    rolledCharacter = lucky.itemBy(arrSR, 'weight');
-                    rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
-                    break;
-                case 5:
-                    rolledCharacter = lucky.itemBy(arrR, 'weight');
-                    rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
-                    break;
-                case 6:
-                    rolledCharacter = lucky.itemBy(arrUC, 'weight');
-                    rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
-                    break;
-                case 7:
-                    rolledCharacter = lucky.itemBy(arrC, 'weight');
-                    rolledRarity = '<a:pinkstar:907752258870075462>';
-                    break;
+            if (LRPity === 175){
+                rolledCharacter = lucky.itemBy(arrLR, 'weight');
+                rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
+                LRPity = 0;
+                URPity++;
+            } 
+            else if (URPity === 50){
+                rolledCharacter = lucky.itemBy(arrUR, 'weight');
+                rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
+                LRPity++;
+                URPity = 0;
+
+            }
+            else {
+                switch (rolled.id){
+                    case 1:
+                        rolledCharacter = { id: "Milim", weight: 25 };
+                        rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
+                        LRPity++;
+                        URPity++;
+                        break;
+                    case 2:
+                        rolledCharacter = lucky.itemBy(arrLR, 'weight');
+                        rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
+                        LRPity = 0;
+                        URPity++;
+                        break;
+                    case 3:
+                        rolledCharacter = lucky.itemBy(arrUR, 'weight');
+                        rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
+                        LRPity++;
+                        URPity = 0;
+                        break;
+                    case 4:
+                        rolledCharacter = lucky.itemBy(arrSR, 'weight');
+                        rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
+                        LRPity++;
+                        URPity++;
+                        break;
+                    case 5:
+                        rolledCharacter = lucky.itemBy(arrR, 'weight');
+                        rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
+                        LRPity++;
+                        URPity++;
+                        break;
+                    case 6:
+                        rolledCharacter = lucky.itemBy(arrUC, 'weight');
+                        rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
+                        LRPity++;
+                        URPity++;
+                        break;
+                    case 7:
+                        rolledCharacter = lucky.itemBy(arrC, 'weight');
+                        rolledRarity = '<a:pinkstar:907752258870075462>';
+                        LRPity++;
+                        URPity++;
+                        break;
+                }
             }
             var image;
             var rolledCP;
@@ -181,10 +216,22 @@ module.exports = {
                 }
             }
 
-            let playerData; 
-            playerData = await playerModel.findOne({ userID: message.author.id});
-            if (!playerData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
-            if (playerData.coins  < 50) return message.reply("Go get more coins baka");
+            
+            try {
+                await playerModel.findOneAndUpdate(
+                    {
+                        userID: ID
+                    },
+                    {
+                        $inc: {
+                            coins: -50
+                        },
+                    }
+                );
+    
+            } catch(err){
+                console.log(err);
+            }
             
                 
             
@@ -247,10 +294,22 @@ module.exports = {
                         },
                     }
                 );
+                await playerModel.findOneAndUpdate(
+                    {
+                        userID: ID
+                    },
+                    {
+                        $set: {
+                            lrPity: LRPity,
+                            urPity: URPity,
+                        },
+                    }
+                );
 
             } catch(err){
                 console.log(err);
             }
+            
 
 
 
@@ -261,7 +320,7 @@ module.exports = {
             .setTitle(`${rolledRarity} ${rolledCharacter.id}`)
             .setDescription(`${userMention(message.author.id)}  just pulled ${rolledCharacter.id} \nCP: ${rolledCP}`)
             .setImage(`${image}`)
-            .setFooter('Congrats');
+            .setFooter(`LR Pity: ${LRPity}, UR Pity: ${URPity}`);
         
 
             message.channel.send({ embeds: [newEmbed] });
@@ -279,55 +338,99 @@ module.exports = {
         var rolledCharacters = [];
         var awkCharacters = [];
         if (args[0] === '10'){
-            var maids = lucky.itemsBy(arr, 'weight', 10, {unique: false}); //this will be used for 10 rolls
+            if (playerData.coins  < 500) return message.reply("Go get more coins baka");
+            //var maids = lucky.itemsBy(arr, 'weight', 10, {unique: false}); //this will be used for 10 rolls
 
             
             
             var rarestUnit;
-            for (let i = 0; i < maids.length; i++){
-                
+            for (let i = 0; i < 10; i++){
+                var maids = lucky.itemBy(arr, 'weight');
+                var maidsID;
                 var character;
                 //check for pity here and if you are rolling skip the switch statement using and if else
                 //put switch statment in else statement
+                if (LRPity === 175){
+                    character = lucky.itemBy(arrLR, 'weight');
+                    maidsID = 2;
+                    rolledCharacters.push({ unit: character.id, rarity: '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>'});
+                    LRPity = 0;
+                    URPity++;
+                } 
+                else if (URPity === 10){
+                    character = lucky.itemBy(arrUR, 'weight');
+                    maidsID = 3;
+                    rolledCharacters.push({ unit: character.id, rarity: '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>'});
+                    LRPity++;
+                    URPity = 0;
+    
+                }
+                else {
                 
-                switch (maids[i].id){
+                switch (maids.id){
                     case 1:
-                        character = "Milim";
-                        rolledCharacters.push({ unit: character, rarity: '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>'});
+                        character = { id: "Milim", weight: 25 };
+                        maidsID = 1;
+                        rolledCharacters.push({ unit: character.id, rarity: '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>'});
+                        LRPity++;
+                        URPity++;
                         break;
                     case 2:
                         character = lucky.itemBy(arrLR, 'weight');
+                        maidsID = 2;
                         rolledCharacters.push({ unit: character.id, rarity: '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>'});
+                        LRPity = 0;
+                        URPity++;
                         break;
                     case 3:
                         character = lucky.itemBy(arrUR, 'weight');
+                        maidsID = 3;
                         rolledCharacters.push({ unit: character.id, rarity: '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>'});
+                        LRPity++;
+                        URPity = 0;
                         break;
                     case 4:
                         character = lucky.itemBy(arrSR, 'weight');
+                        maidsID = 4;
                         rolledCharacters.push({ unit: character.id, rarity: '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>'});
+                        LRPity++;
+                        URPity++;
                         break;
                     case 5:
                         character = lucky.itemBy(arrR, 'weight');
+                        maidsID = 5;
                         rolledCharacters.push({ unit: character.id, rarity: '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>'});
+                        LRPity++;
+                        URPity++;
                         break;
                     case 6:
                         character = lucky.itemBy(arrUC, 'weight');
+                        maidsID = 6;
                         rolledCharacters.push({ unit: character.id, rarity: '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>'});
+                        LRPity++;
+                        URPity++;
                         break;
                     case 7:
                         character = lucky.itemBy(arrC, 'weight');
+                        maidsID = 7;
                         rolledCharacters.push({ unit: character.id, rarity: '<a:pinkstar:907752258870075462>'});
+                        LRPity++;
+                        URPity++;
                         break;
                 }
-                if (maids[i].id < highestCharacter){
-                    highestCharacter = maids[i].id;
+            }
+            
+            
+                if (maidsID < highestCharacter){
+                    highestCharacter = maidsID;
                     if (character !== "Milim")  {
                         rarestUnit = character.id;
                     } else {
                         rarestUnit = "Milim";
                     }
                 }
+                
+            
                 
                 
             }
@@ -354,18 +457,32 @@ module.exports = {
                     rolledRarity = '<a:pinkstar:907752258870075462>';
                     break;
             }
-            if (playerData.coins  < 50) return message.reply("Go get more coins baka");
+            
+            try {
+                await playerModel.findOneAndUpdate(
+                    {
+                        userID: ID
+                    },
+                    {
+                        $inc: {
+                            coins: -500
+                        },
+                    }
+                );
+    
+            } catch(err){
+                console.log(err);
+            }
             
             for (let k = 0; k < rolledCharacters.length; k++){
-                let playerData; 
+                
                 var rolledCP;
                 for (let l = 0; l < unitSplash.length; l++){
                     if (rolledCharacters[k].unit === unitSplash[l].id){
                         rolledCP = unitSplash[l].CP;
                     }
                 }
-                playerData = await playerModel.findOne({ userID: message.author.id});
-                if (!playerData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
+                
                 
                     
                 
@@ -434,6 +551,17 @@ module.exports = {
                             },
                         }
                     );
+                    await playerModel.findOneAndUpdate(
+                        {
+                            userID: ID
+                        },
+                        {
+                            $set: {
+                                lrPity: LRPity,
+                                urPity: URPity,
+                            },
+                        }
+                    );
     
                 } catch(err){
                     console.log(err);
@@ -444,7 +572,7 @@ module.exports = {
             .setColor('#ff3399')
             .setTitle(`${rolledRarity} ${rarestUnit}`)
             .setDescription(`${userMention(message.author.id)}  just pulled 10 maids \n Rarest Unit: ${rarestUnit}`)
-            .setFooter('Congrats')
+            .setFooter(`LR Pity: ${LRPity}, UR Pity: ${URPity}`)
 
             for (let j = 0; j < rolledCharacters.length; j++){
                 newEmbed10.addFields(

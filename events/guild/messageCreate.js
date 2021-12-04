@@ -17,9 +17,10 @@ module.exports = async (Discord, client, message) => {
                     userID: message.author.id,
                     coins: 0,
                     maids: [],
-                    dailyRolls: 5,
                     dailyReset: false,
                     starterSelected: false,
+                    urPity: 0,
+                    lrPity: 0,
                     totalCP: 0
                 });
                 player.save();

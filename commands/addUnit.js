@@ -7,6 +7,7 @@ module.exports = {
     permissions: ["ADMINISTRATOR"],
     description: "adds the specified unit to the user",
     async execute(client, message,cmd,args,Discord){
+        if (args.length === 0) return message.reply("Please enter a unit name then a user ID");
             var ID = args.pop();
             
             var unitName = args.join(" ");

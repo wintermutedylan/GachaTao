@@ -21,7 +21,7 @@ module.exports = {
         
 
         const filter = (m) => {
-            return  m.author.id === message.author.id;
+            return  m.author.id === message.author.id && (m.content.toLowerCase() === 'smug' || m.content.toLowerCase() === 'dana' || m.content.toLowerCase() === 'ren');
         }
         const collector = message.channel.createMessageCollector({ filter, max: 1, time: 60000})
         var s;
@@ -41,7 +41,7 @@ module.exports = {
                 return
             }
             
-                if (s == 'Smug'){
+                if (s.toLowerCase() == 'smug'){
                     
                     unitSelected = "Sewage Monster Smug";
                     const newEmbed = new Discord.MessageEmbed()
@@ -58,7 +58,7 @@ module.exports = {
                    
 
                 }
-                else if (s == 'Dana'){
+                else if (s.toLowerCase() == 'dana'){
                     unitSelected = "Guardian Angel Dana";
                     const newEmbed = new Discord.MessageEmbed()
                     .setColor('#E76AA3')
@@ -72,7 +72,7 @@ module.exports = {
                     message.channel.send(`**${unitSelected}** has been added to your account ${userMention(ID)}`);
                     
                 }
-                else if (s == 'Ren'){
+                else if (s.toLowerCase() == 'ren'){
                     unitSelected = "Idol Ren";
                     const newEmbed = new Discord.MessageEmbed()
                     .setColor('#E76AA3')

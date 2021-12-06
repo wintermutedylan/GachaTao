@@ -8,7 +8,8 @@ const playerSchema = new mongoose.Schema({
     starterSelected: {type: Boolean, default: false},
     totalCP: { type: Number, default: 0},
     urPity: { type: Number, default: 0},
-    lrPity: { type: Number, default: 0}
+    lrPity: { type: Number, default: 0},
+    position: { type: Number}
 })
 
 const model = mongoose.model('PlayerModels', playerSchema);

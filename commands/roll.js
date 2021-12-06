@@ -357,7 +357,7 @@ module.exports = {
                     LRPity = 0;
                     URPity++;
                 } 
-                else if (URPity === 10){
+                else if (URPity === 50){
                     character = lucky.itemBy(arrUR, 'weight');
                     maidsID = 3;
                     rolledCharacters.push({ unit: character.id, rarity: '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>'});

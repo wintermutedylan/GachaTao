@@ -14,6 +14,30 @@ module.exports = {
         var unitSelected = "";
         if (selected) return message.reply("You've already selected and registered, you can't do it again, baka!")
 
+        let allPlayerData = await playerModel.find({});
+        var sorted = allPlayerData.sort((a, b) => (b.totalCP) - (a.totalCP));
+        var pos;
+
+        for (let i = 0; i < sorted.length; i++){
+            pos = i + 1;
+            try {
+                await playerModel.findOneAndUpdate(
+                    {
+                        userID: sorted[i].userID
+                    },
+                    {
+                        $set: {
+                            position: pos,
+                        },
+                    }
+                );
+
+            } catch(err){
+                console.log(err);
+            }
+        }
+
+
         
 
         message.reply('Profile created.  Please select a starter between, Smug, Ren, Dana (Type the name, Baka)');

@@ -10,6 +10,8 @@ module.exports = {
         let allPlayerData = await playerModel.find({});
         let playerData; 
         playerData = await playerModel.findOne({ userID: message.author.id});
+        if (!playerData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
+        if (playerData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
         if (args.length > 1) {
             return message.reply('Please only enter one number');
         }

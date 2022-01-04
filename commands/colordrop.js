@@ -212,7 +212,7 @@ async function startRound(sent, channels, roundLimit, amount, round, winners, en
                         winnerSelected = true; 
                         return;
                     }
-                    else if (survivors.length > 1 && round != roundLimit){
+                    else if (survivors.length >= 1 && round != roundLimit){
                         winnerSelected = false;
                         
                         round++;

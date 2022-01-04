@@ -13,6 +13,7 @@ module.exports = {
         let playerData; 
         playerData = await playerModel.findOne({ userID: message.author.id});
         
+        
         if (!playerData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
         if (playerData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
         if (args.length > 1) {
@@ -23,6 +24,7 @@ module.exports = {
         }
         if (args[0] === '1' || args[0] === '10'){
             var ID = message.author.id;
+            var channelID = message.channel.id;
             var LRPity = playerData.lrPity;
             var URPity = playerData.urPity;
 
@@ -49,9 +51,36 @@ module.exports = {
         
         const arrLR = [
             { id: "Gine", weight: 25 },
-            { id: "Zyla", weight: 25 },
-            
+            { id: "WynkenBlynken", weight: 25 },
         ];
+
+        var maidBannerChannel = "927374124114911272";
+        const arrLRMaid = [
+            { id: "Gine", weight: 25 },
+            { id: "WynkenBlynken", weight: 25 },
+            { id: "WynkenBlynken", weight: 75 },
+            { id: "WynkenBlynken", weight: 75 },
+
+        ];
+
+        var summerBannerChannel = "";
+        const arrLRSummer = [
+            { id: "Gine", weight: 25 },
+            { id: "WynkenBlynken", weight: 25 },
+            { id: "WynkenBlynken", weight: 75 },
+            { id: "WynkenBlynken", weight: 75 },
+
+        ];
+
+        var galaxyBannerChannel = "";
+        const arrLRGalaxy = [
+            { id: "Gine", weight: 25 },
+            { id: "WynkenBlynken", weight: 25 },
+            { id: "WynkenBlynken", weight: 75 },
+            { id: "WynkenBlynken", weight: 75 },
+
+        ];
+
         const arrUR = [
             { id: "Saltea", weight: 25 },
             { id: "Jahnkeem", weight: 25 },
@@ -63,7 +92,6 @@ module.exports = {
             { id: "Yuki", weight: 25 },
             { id: "X99", weight: 25 },
             { id: "Blakninja", weight: 25 },
-            { id: "Safryz", weight: 25 },
             { id: "Swede", weight: 25 },
             { id: "Jirachi", weight: 25 },
             { id: "RavingTurnip", weight: 25 },
@@ -73,6 +101,7 @@ module.exports = {
 
 
         ];
+
         const arrSR = [
             { id: "Semi", weight: 25 },
             { id: "Poro", weight: 25 },
@@ -81,7 +110,6 @@ module.exports = {
             { id: "Mayo", weight: 25 },
             { id: "Creamy", weight: 25 },
             { id: "Kiui", weight: 25 },
-            { id: "Slasher", weight: 25 },
             { id: "Gaius", weight: 25 },
             { id: "UpGuess", weight: 25 },
             { id: "Pedquin", weight: 25 },
@@ -92,6 +120,7 @@ module.exports = {
             { id: "Notto", weight: 25 },
             
         ];
+
         const arrR = [
             { id: "Lara", weight: 25 },
             { id: "Nove", weight: 25 },
@@ -108,6 +137,7 @@ module.exports = {
 
             
         ];
+
         const arrUC = [
             { id: "JakefromStatefarm", weight: 25 },
             { id: "Nao", weight: 25 },
@@ -124,6 +154,7 @@ module.exports = {
 
             
         ];
+
         const arrC = [
             { id: "Lio", weight: 25 },
             { id: "Seraphael", weight: 25 },
@@ -136,6 +167,7 @@ module.exports = {
             
             
         ];
+
         var rolledCharacter;
         var rolledRarity;
         
@@ -145,7 +177,11 @@ module.exports = {
             //check for pity here then roll the certain pity
             var rolled = lucky.itemBy(arr, 'weight');
             if (LRPity === 175){
-                rolledCharacter = lucky.itemBy(arrLR, 'weight');
+                if (channelID === maidBannerChannel){
+                    rolledCharacter = lucky.itemBy(arrLRMaid, 'weight');
+                } else {
+                    rolledCharacter = lucky.itemBy(arrLR, 'weight');
+                }
                 rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
                 LRPity = 0;
                 URPity++;
@@ -166,7 +202,11 @@ module.exports = {
                         URPity++;
                         break;
                     case 2:
-                        rolledCharacter = lucky.itemBy(arrLR, 'weight');
+                        if (channelID === maidBannerChannel){
+                            rolledCharacter = lucky.itemBy(arrLRMaid, 'weight');
+                        } else {
+                            rolledCharacter = lucky.itemBy(arrLR, 'weight');
+                        }
                         rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
                         LRPity = 0;
                         URPity++;
@@ -204,13 +244,15 @@ module.exports = {
                 }
             }
             var image;
+            var imageFile;
             var rolledCP;
             var awkNeeded;
             var awkThisUnit = false;
             
             for (let i = 0; i < unitSplash.length; i++){
                 if (rolledCharacter.id === unitSplash[i].id){
-                    image = unitSplash[i].icon;
+                    imageFile = unitSplash[i].icon;
+                    image = new Discord.MessageAttachment(`icons/${unitSplash[i].icon}`);
                     rolledCP = unitSplash[i].CP;
                     awkNeeded = unitSplash[i].awakenThreshold;
                 }
@@ -236,10 +278,12 @@ module.exports = {
                 
             
                 var have = false;
-                for (let location = 0; location < playerData.maids.length; location++){
-                    if (playerData.maids[location].unit === rolledCharacter.id){
+                let playerData2; 
+                playerData2 = await playerModel.findOne({ userID: message.author.id}); // take this out and it breaks dupes
+                for (let location = 0; location < playerData2.maids.length; location++){
+                    if (playerData2.maids[location].unit === rolledCharacter.id){
                         
-                        var owned = playerData.maids[location].dupes;
+                        var owned = playerData2.maids[location].dupes;
                         owned++;
                         if (owned === awkNeeded){
                             awkThisUnit = true;
@@ -319,11 +363,11 @@ module.exports = {
             .setColor('#E76AA3')
             .setTitle(`${rolledRarity} ${rolledCharacter.id}`)
             .setDescription(`${userMention(message.author.id)}  just pulled ${rolledCharacter.id} \nCP: ${rolledCP}`)
-            .setImage(`${image}`)
+            .setImage(`attachment://${imageFile}`)
             .setFooter(`LR Pity: ${LRPity}, UR Pity: ${URPity}`);
         
 
-            message.channel.send({ embeds: [newEmbed] });
+            message.channel.send({ embeds: [newEmbed], files: [image] });
             if (awkThisUnit){
                 message.channel.send(`${userMention(message.author.id)} has just awoken ${rolledCharacter.id}, Congrats!`);
             }
@@ -351,7 +395,11 @@ module.exports = {
                 //check for pity here and if you are rolling skip the switch statement using and if else
                 //put switch statment in else statement
                 if (LRPity === 175){
-                    character = lucky.itemBy(arrLR, 'weight');
+                    if (channelID === maidBannerChannel){
+                        character = lucky.itemBy(arrLRMaid, 'weight');
+                    } else {
+                        character = lucky.itemBy(arrLR, 'weight');
+                    }
                     maidsID = 2;
                     rolledCharacters.push({ unit: character.id, rarity: '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>'});
                     LRPity = 0;
@@ -376,7 +424,11 @@ module.exports = {
                         URPity++;
                         break;
                     case 2:
-                        character = lucky.itemBy(arrLR, 'weight');
+                        if (channelID === maidBannerChannel){
+                            character = lucky.itemBy(arrLRMaid, 'weight');
+                        } else {
+                            character = lucky.itemBy(arrLR, 'weight');
+                        }
                         maidsID = 2;
                         rolledCharacters.push({ unit: character.id, rarity: '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>'});
                         LRPity = 0;
@@ -487,16 +539,18 @@ module.exports = {
                     
                 
                     var have = false;
-                    for (let location = 0; location < playerData.maids.length; location++){
+                    let playerData3; 
+                    playerData3 = await playerModel.findOne({ userID: message.author.id}); // take this out and it breaks dupes
+                    for (let location = 0; location < playerData3.maids.length; location++){
                         var awkNeeded;
-                        if (playerData.maids[location].unit === rolledCharacters[k].unit){
+                        if (playerData3.maids[location].unit === rolledCharacters[k].unit){
                             for (let j = 0; j < unitSplash.length; j++){
                                 if (rolledCharacters[k].unit === unitSplash[j].id){
                                     awkNeeded = unitSplash[j].awakenThreshold;
                                 }
                             }
                             
-                            var owned = playerData.maids[location].dupes;
+                            var owned = playerData3.maids[location].dupes;
                             owned++;
                             if (owned === awkNeeded){
                                 awkCharacters.push(rolledCharacters[k].unit);
@@ -580,19 +634,22 @@ module.exports = {
     
                 )
             }
+            var imageFile;
             var image;
             for (let i = 0; i < unitSplash.length; i++){
                 if (rarestUnit === unitSplash[i].id){
-                    image = unitSplash[i].icon;
+                    imageFile = unitSplash[i].icon;
+                    image = new Discord.MessageAttachment(`icons/${unitSplash[i].icon}`);
+                    
                 }
             }
-            newEmbed10.setImage(`${image}`);
+            newEmbed10.setImage(`attachment://${imageFile}`);
             
             
             
         
 
-            message.channel.send({ embeds: [newEmbed10] });
+            message.channel.send({ embeds: [newEmbed10], files: [image] });
             if (awkCharacters.length != 0){
                 var awkUnits = "";
                 if (awkCharacters.length === 1){

@@ -36,6 +36,6 @@ module.exports = {
             console.log(err);
         }
         var user = await client.users.fetch(ID);
-        message.reply(`You have added ${amount} to ${user.username}#${user.discriminator}`)
+        message.reply(`You have added ${amount}<:bootaomonez:909294739197681754> to ${user.username}#${user.discriminator}`)
     }
 }

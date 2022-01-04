@@ -16,17 +16,24 @@ module.exports = {
         .setTitle('Avaliable Commands')
         .setDescription('All the commands that can be used')
         .addFields(
-            { name: 'asdfasf', value: 'asdfasdf'},
-            { name: 'asdfasdf', value: 'esdfsdfsdfsfda', inline: true },
-            { name: 'asdfasdfsdfsf', value: 'sdfdffsf', inline: true}
+            { name: 'g$create/g$register', value: 'Creates your profile and allows you to choose a starter. Usable once only (unless you somehow mess it up, baka).', inline: true},
+            { name: 'g$profile', value: 'Brings up a detailed embed with your units, total cp, pity counter, and ~~adorable~~ disgusting pfp. ( you can also select a page: g$profile 2)', inline: true },
+            { name: '\u200B', value: '\u200B' },
+            { name: 'g$roll', value: 'Does a single pull (costs 50 <:bootaomonez:909294739197681754> )', inline: true},
+            { name: 'g$roll 10', value: 'Does 10 pulls (costs 500 <:bootaomonez:909294739197681754> )', inline: true},
+            { name: '\u200B', value: '\u200B' },
+            { name: 'g$help', value: 'brings up this list of commands + the pity rates', inline: true},
+            { name: 'g$lb', value: 'pulls up a leaderboard where people are ranked by CP ( you can also select a page: g$lb 2)', inline: true},
+            { name: '\u200B', value: '\u200B' },
+
         )
         .setFooter("Hope this helps");
 
         message.channel.send({ embeds: [newEmbed] });
 
         var target = message.guild.members.cache.get(ID);
-        var role = "912807411843203072";
-        if (target.roles.cache.some(role => role.name === 'Chapter 1')){
+        var role = "925850917679562793";
+        if (target.roles.cache.some(role => role.name === '45k Participsny')){
             
         } else {
             target.roles.add(role);

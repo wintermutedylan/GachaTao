@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const playerSchema = new mongoose.Schema({
     userID: { type: String, require: true, unique: true},
     coins: { type: Number, default: 0},
-    raidTickets: { type: Number, default: 0},
+    raidTickets: { type: Number, default: 3},
     maids: { type: Array, default: 0},
     dailyReset: { type: Boolean, default: false},
     starterSelected: {type: Boolean, default: false},
@@ -12,7 +12,8 @@ const playerSchema = new mongoose.Schema({
     lrPity: { type: Number, default: 0},
     position: { type: Number},
     stealCD: { type: Number},
-    raidCD: { type: Number}
+    raidCD: { type: Number},
+    starterDupes: { type: Number, default: 0}
 
 })
 

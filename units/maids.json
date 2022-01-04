@@ -8,6 +8,38 @@
         "awakenThreshold": 1
     },
     {
+        "id": "Milim",
+        "icon": "CuteMilim.jpg",
+        "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 1,
+        "CP": 100000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Sewage Monster Smug",
+        "icon": "smug.png",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 10000,
+        "awakenThreshold": 5
+    },
+    {
+        "id": "Idol Ren",
+        "icon": "idolren.png",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 10000,
+        "awakenThreshold": 5
+    },
+    {
+        "id": "Guardian Angel Dana",
+        "icon": "dana.png",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 10000,
+        "awakenThreshold": 5
+    },
+    {
         "id": "Semi",
         "icon": "semi.png",
         "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
@@ -96,14 +128,6 @@
         "awakenThreshold": 25
     },
     {
-        "id": "Sewage Monster Smug",
-        "icon": "smug.png",
-        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
-        "rValue": 3,
-        "CP": 10000,
-        "awakenThreshold": 5
-    },
-    {
         "id": "Shoko",
         "icon": "shoko.png",
         "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
@@ -118,22 +142,6 @@
         "rValue": 4,
         "CP": 8400,
         "awakenThreshold": 10
-    },
-    {
-        "id": "Guardian Angel Dana",
-        "icon": "dana.png",
-        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
-        "rValue": 3,
-        "CP": 10000,
-        "awakenThreshold": 5
-    },
-    {
-        "id": "Idol Ren",
-        "icon": "idolren.png",
-        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
-        "rValue": 3,
-        "CP": 10000,
-        "awakenThreshold": 5
     },
     {
         "id": "Koryan Fr1edch1ken",

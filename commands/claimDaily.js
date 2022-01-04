@@ -32,6 +32,7 @@ module.exports = {
                     {
                         $set: {
                             dailyReset: true,
+                            raidTickets: 3
                         },
                     }
                 );

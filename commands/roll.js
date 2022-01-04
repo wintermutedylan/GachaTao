@@ -54,7 +54,7 @@ module.exports = {
             { id: "WynkenBlynken", weight: 25 },
         ];
 
-        var maidBannerChannel = "927374124114911272";
+        var maidBannerChannel = "927770197996232784";
         const arrLRMaid = [
             { id: "Gine", weight: 25 },
             { id: "WynkenBlynken", weight: 25 },
@@ -372,8 +372,15 @@ module.exports = {
                 message.channel.send(`${userMention(message.author.id)} has just awoken ${rolledCharacter.id}, Congrats!`);
             }
             if (rolledCharacter.id === "Milim"){
-                var user = await client.users.fetch(message.author.id);
-                message.channel.send(`${userMention("238364422135873536")}, ${user.username}#${user.discriminator} has just pulled **${rolledCharacter.id}**`);
+                var target = message.guild.members.cache.get(message.author.id);
+                var role = "925851063200936027";
+                if (target.roles.cache.some(role => role.name === 'Chapter 1')){
+            
+                } else {
+                    var user = await client.users.fetch(message.author.id);
+                    target.roles.add(role);
+                    message.channel.send(`${userMention("238364422135873536")}, ${user.username}#${user.discriminator} has just pulled **${rolledCharacter.id}**`);
+                }
             } 
             
             

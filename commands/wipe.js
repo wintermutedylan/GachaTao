@@ -57,12 +57,18 @@ async function wipePlayer(i) {
                 $set: {
                     userID: i,
                     coins: 0,
+                    raidTickets: 3,
                     maids: [],
                     dailyReset: false,
                     starterSelected: false,
                     urPity: 0,
                     lrPity: 0,
-                    totalCP: 0
+                    totalCP: 0,
+                    stealCD: 1640744901699,
+                    raidCD: 1640744901699,
+                    starterDupes: 0
+
+
                 },
             }
         );

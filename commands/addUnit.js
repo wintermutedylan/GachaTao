@@ -99,7 +99,7 @@ module.exports = {
             var user = await client.users.fetch(ID);
             message.reply(`**${unitName}** has been added to ${user.username}#${user.discriminator}`);
             if (awkThisUnit){
-                client.channels.cache.get("853101428875984957").send(`${userMention(message.author.id)} has just awoken ${unitName} congrats!`);
+                client.channels.cache.get("852360137528049684").send(`${userMention(message.author.id)} has just awoken ${unitName} congrats!`);
             }
 
     }

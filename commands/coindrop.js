@@ -9,7 +9,7 @@ module.exports = {
     permissions: ["ADMINISTRATOR"],
     description: "Give coins to users",
     async execute(client, message, cmd, args, Discord){
-        return message.channel.send("Under Construction.  Will make an annoucment when done");
+        //return message.channel.send("Under Construction.  Will make an annoucment when done");
         if (args.length === 0) return message.reply("Please enter a channel ID");
         var channels = args[0];
         var amount = getRandomArbitrary(150, 1001);

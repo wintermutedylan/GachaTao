@@ -19,7 +19,7 @@ module.exports = {
         };
         client.channels.cache.get(channels).send(item.question, { fetchReply: true })
             .then(() => {
-                message.channel.awaitMessages({ filter, max: 1, time: 60000, errors: ['time'] })
+                client.channels.cache.get(channels).awaitMessages({ filter, max: 1, time: 60000, errors: ['time'] })
                     .then(collected => {
                         client.channels.cache.get(channels).send(`${collected.first().author} got the correct answer!`);
                         client.channels.cache.get(channels).send(`${collected.first().author.username} has been given ${amount}<:bootaomonez:909294739197681754>, Pog`);

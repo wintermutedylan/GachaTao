@@ -8,6 +8,7 @@ module.exports = {
     permissions: [],
     description: "battle a raid boss",
     async execute(client, message,cmd,args,Discord){
+        return message.channel.send("Under Construction.  Will make an annoucment when done");
         let allPlayerData = await playerModel.find({});
         let authorData; 
         authorData = await playerModel.findOne({ userID: message.author.id});

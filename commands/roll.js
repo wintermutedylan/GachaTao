@@ -48,7 +48,7 @@ module.exports = {
         ];
         
         
-        
+        var standardBannerChannel = "927769520238637076";
         const arrLR = [
             { id: "Gine", weight: 25 },
             { id: "WynkenBlynken", weight: 25 },
@@ -58,8 +58,11 @@ module.exports = {
         const arrLRMaid = [
             { id: "Gine", weight: 25 },
             { id: "WynkenBlynken", weight: 25 },
-            { id: "WynkenBlynken", weight: 75 },
-            { id: "WynkenBlynken", weight: 75 },
+            { id: "Maid Cafe Kiui", weight: 75 },
+            { id: "Catboy Maid Shoko", weight: 75 },
+            { id: "Tsundere Maid Ren", weight: 75 },
+            { id: "Maid Cafe Lio", weight: 75 },
+            { id: "Maid Cafe Merrytaler", weight: 75 },
 
         ];
 
@@ -85,10 +88,7 @@ module.exports = {
             { id: "Saltea", weight: 25 },
             { id: "Jahnkeem", weight: 25 },
             { id: "RKTSM", weight: 25 },
-            
             { id: "Shoko", weight: 25 },
-            
-            
             { id: "Yuki", weight: 25 },
             { id: "X99", weight: 25 },
             { id: "Blakninja", weight: 25 },
@@ -98,6 +98,9 @@ module.exports = {
             { id: "Tatertot", weight: 25 },
             { id: "Cabbag", weight: 25 },
             { id: "Wobbly Carrot", weight: 25 },
+            { id: "Soomiko", weight: 25 },
+            { id: "Cyber_tronic", weight: 25 },
+            { id: "Renii", weight: 25 },
 
 
         ];
@@ -118,6 +121,7 @@ module.exports = {
             { id: "Cinders", weight: 25 },
             { id: "Kitahime", weight: 25 },
             { id: "Notto", weight: 25 },
+
             
         ];
 
@@ -134,6 +138,9 @@ module.exports = {
             { id: "NZPIEFACE", weight: 25 },
             { id: "Corin the Onion", weight: 25 },
             { id: "iCarrot", weight: 25 },
+            { id: "Nimals-Ayomii", weight: 25 },
+            { id: "Sansidia", weight: 25 },
+            { id: "Yoli", weight: 25 },
 
             
         ];
@@ -150,6 +157,12 @@ module.exports = {
             { id: "Jimi", weight: 25 },
             { id: "Arrieh", weight: 25 },
             { id: "Regis", weight: 25 },
+            { id: "Lin", weight: 25 },
+            { id: "Sona", weight: 25 },
+            { id: "Khralle", weight: 25 },
+            { id: "Bliz", weight: 25 },
+
+
 
 
             
@@ -162,7 +175,13 @@ module.exports = {
             { id: "Abababa", weight: 25 },
             { id: "Adam", weight: 25 },
             { id: "Adam (not staff)", weight: 25 },
+            { id: "Fairytaler", weight: 25 },
             { id: "Alblue", weight: 25 },
+            { id: "Taiyaki", weight: 25 },
+            { id: "Annie", weight: 25 },
+            { id: "Dead elph", weight: 25 },
+            { id: "Moist", weight: 25 },
+
 
             
             
@@ -170,7 +189,7 @@ module.exports = {
 
         var rolledCharacter;
         var rolledRarity;
-        
+    if (channelID === standardBannerChannel || channelID === maidBannerChannel || channelID === summerBannerChannel || channelID === galaxyBannerChannel)   {   
         if (args[0] === '1'){ // For the single pull sorted by rarity.  Highest to lowest
             
             if (playerData.coins  < 50) return message.reply("Go get more coins baka");
@@ -196,7 +215,12 @@ module.exports = {
             else {
                 switch (rolled.id){
                     case 1:
-                        rolledCharacter = { id: "Milim", weight: 25 };
+                        if (channelID === maidBannerChannel){
+                            rolledCharacter = { id: "Maid Milim", weight: 25 };
+                        } else {
+                            rolledCharacter = { id: "Milim", weight: 25 };
+                        }
+                        
                         rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
                         LRPity++;
                         URPity++;
@@ -371,7 +395,7 @@ module.exports = {
             if (awkThisUnit){
                 message.channel.send(`${userMention(message.author.id)} has just awoken ${rolledCharacter.id}, Congrats!`);
             }
-            if (rolledCharacter.id === "Milim"){
+            if (rolledCharacter.id === "Milim" || rolledCharacter.id === "Maid Milim"){
                 var target = message.guild.members.cache.get(message.author.id);
                 var role = "925851063200936027";
                 if (target.roles.cache.some(role => role.name === 'Chapter 1')){
@@ -401,7 +425,7 @@ module.exports = {
                 var character;
                 //check for pity here and if you are rolling skip the switch statement using and if else
                 //put switch statment in else statement
-                if (LRPity === 175){
+                if (LRPity === 175){ 
                     if (channelID === maidBannerChannel){
                         character = lucky.itemBy(arrLRMaid, 'weight');
                     } else {
@@ -424,7 +448,11 @@ module.exports = {
                 
                 switch (maids.id){
                     case 1:
-                        character = { id: "Milim", weight: 25 };
+                        if (channelID === maidBannerChannel){
+                            character = { id: "Maid Milim", weight: 25 };
+                        } else {
+                            character = { id: "Milim", weight: 25 };
+                        }
                         maidsID = 1;
                         rolledCharacters.push({ unit: character.id, rarity: '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>'});
                         LRPity++;
@@ -485,7 +513,12 @@ module.exports = {
                     if (character !== "Milim")  {
                         rarestUnit = character.id;
                     } else {
-                        rarestUnit = "Milim";
+                        if (channelID === maidBannerChannel){
+                            rarestUnit = "Maid Milim";
+                        } else {
+                            rarestUnit = "Milim";
+                        }
+                        
                     }
                 }
                 
@@ -670,11 +703,22 @@ module.exports = {
                 }
             }
         }
-        if (rarestUnit === "Milim"){
+        if (rarestUnit === "Milim" || rarestUnit === "Maid Milim"){
+            var target = message.guild.members.cache.get(message.author.id);
+            var role = "925851063200936027";
+            if (target.roles.cache.some(role => role.name === 'Milim')){
+            
+            } else {
+                target.roles.add(role);
+                message.reply(`You have rolled Milim and can now run the !milim command. Enjoy the new role`);
+    
+            }
             var user = await client.users.fetch(message.author.id);
             message.channel.send(`${userMention("238364422135873536")}, ${user.username}#${user.discriminator} has just pulled **${rarestUnit}**`);
         }
-        
+        } else {
+            message.reply(`Please only roll in these channels: ${channelMention(standardBannerChannel)}, ${channelMention(maidBannerChannel)}`);//, ${channelMention(summerBannerChannel)}, ${channelMention(galaxyBannerChannel)}
+        }    
     } else {
         return message.reply('Please enter either nothing, 1, or 10');
     }

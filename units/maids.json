@@ -201,7 +201,7 @@
     },
     {
         "id": "Kiui",
-        "icon": "kiui.png",
+        "icon": "normalkiui.jpg",
         "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
         "rValue": 4,
         "CP": 9900,
@@ -518,5 +518,189 @@
         "rValue": 6,
         "CP": 4400,
         "awakenThreshold": 50
+    },
+    {
+        "id": "Renii",
+        "icon": "renii.png",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 15000,
+        "awakenThreshold": 5
+    },
+    {
+        "id": "Moist",
+        "icon": "moist.gif",
+        "rarity": "<:C_:908870913267757066>",
+        "rValue": 7,
+        "CP": 0,
+        "awakenThreshold": 50
+    },
+    {
+        "id": "Cyber_tronic",
+        "icon": "cyber.png",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 13000,
+        "awakenThreshold": 5
+    },
+    {
+        "id": "banmeharder",
+        "icon": "banmeharder.png",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 4000,
+        "awakenThreshold": 50
+    },
+    {
+        "id": "Dead elph",
+        "icon": "deadelph.png",
+        "rarity": "<:C_:908870913267757066>",
+        "rValue": 7,
+        "CP": 400,
+        "awakenThreshold": 50
+    },
+    {
+        "id": "Yoli",
+        "icon": "yoli.png",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 2200,
+        "awakenThreshold": 25
+    },
+    {
+        "id": "Annie",
+        "icon": "annie.png",
+        "rarity": "<:C_:908870913267757066>",
+        "rValue": 7,
+        "CP": 300,
+        "awakenThreshold": 50
+    },
+    {
+        "id": "Bliz",
+        "icon": "bliz.png",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 4600,
+        "awakenThreshold": 50
+    },
+    {
+        "id": "Sansidia",
+        "icon": "sansidia.gif",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 2300,
+        "awakenThreshold": 25
+    },
+    {
+        "id": "Rain",
+        "icon": "rain.png",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 2100,
+        "awakenThreshold": 25
+    },
+    {
+        "id": "Soomiko",
+        "icon": "soomiko.png",
+        "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
+        "rValue": 3,
+        "CP": 12000,
+        "awakenThreshold": 5
+    },
+    {
+        "id": "Khralle",
+        "icon": "khralle.gif",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 4300,
+        "awakenThreshold": 50
+    },
+    {
+        "id": "Taiyaki",
+        "icon": "taiyaki.png",
+        "rarity": "<:C_:908870913267757066>",
+        "rValue": 7,
+        "CP": 100,
+        "awakenThreshold": 50
+    },
+    {
+        "id": "Sona",
+        "icon": "sona.png",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 4700,
+        "awakenThreshold": 50
+    },
+    {
+        "id": "Lin",
+        "icon": "lin.png",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 3800,
+        "awakenThreshold": 50
+    },
+    {
+        "id": "Nimals-Ayomii",
+        "icon": "nimals.png",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 2400,
+        "awakenThreshold": 25
+    },
+    {
+        "id": "Fairytaler",
+        "icon": "fairytaler.png",
+        "rarity": "<:C_:908870913267757066>",
+        "rValue": 7,
+        "CP": 500,
+        "awakenThreshold": 50
+    },
+    {
+        "id": "Maid Cafe Kiui",
+        "icon": "maidkiui.jpg",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 27000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Catboy Maid Shoko",
+        "icon": "maidshoko.jpg",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 69000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Tsundere Maid Ren",
+        "icon": "maidren.jpg",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 40000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Maid Cafe Lio",
+        "icon": "maidlio.jpg",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 20000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Maid Cafe Merrytaler",
+        "icon": "maidmerrytaler.jpg",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 45000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Maid Milim",
+        "icon": "maidmilim.jpg",
+        "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 1,
+        "CP": 120000,
+        "awakenThreshold": 1
     }
 ]

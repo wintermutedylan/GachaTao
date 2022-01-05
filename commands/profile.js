@@ -21,88 +21,29 @@ module.exports = {
         var sorted = [];
         var totalCP = playerData.totalCP;
         var totalCoins = playerData.coins;
-        var starterName;
-        var awkNeeded;
         
         for (let i = 0; i < playerData.maids.length; i++){
             for (let j = 0; j < maids.length; j++){
                 if (playerData.maids[i].unit === maids[j].id){
-                    sorted.push(maids[j]); 
+                    sorted.push(maids[j]);
+                    
+                    
                 }
-                if (playerData.maids[i].unit === maids[2].id){
-                    starterName = "Sewage Monster Smug";
-                    awkNeeded = maids[2].awakenThreshold;
-                } else if (playerData.maids[i].unit === maids[3].id){
-                    starterName = "Idol Ren";
-                    awkNeeded = maids[3].awakenThreshold;
-                } else if (playerData.maids[i].unit === maids[4].id){
-                    starterName = "Guardian Angel Dana";
-                    awkNeeded = maids[4].awakenThreshold;
-                } 
         }
         }
         sorted.sort((a, b) => (a.rValue - b.rValue || b.CP - a.CP));
-        for (let location = 0; location < playerData.maids.length; location++){
-            if (playerData.maids[location].unit === starterName){
-                
-                var owned = playerData.maids[location].dupes;
-                owned++;
-                if (owned === awkNeeded){
-                    awkThisUnit = true;
-                }
-                if (totalCP <= 15000 && playerData.starterDupes === 0){
-                    addStarter(location, message.author.id, owned);
-                } else if (totalCP <= 25000 && playerData.starterDupes === 1){
-                    addStarter(location, message.author.id, owned);
-                } else if (totalCP <= 45000 && playerData.starterDupes === 2){
-                    addStarter(location, message.author.id, owned);
-                } else if (totalCP <= 60000 && playerData.starterDupes === 3){
-                    addStarter(location, message.author.id, owned);
-                } else if (totalCP <= 75000 && playerData.starterDupes === 4){
-                    addStarter(location, message.author.id, owned);
-                }
-                
-                
-                have = true;
-                break;
-            }
-        }
-
         
         
         
         
         
-        
-        var user = await client.users.fetch(ID);
-        message.reply(`**${unitName}** has been added to ${user.username}#${user.discriminator}`);
-        if (awkThisUnit){
-            try {
-                
-                await playerModel.findOneAndUpdate(
-                    {
-                        userID: ID
-                    },
-                    {
-                        $inc: {
-                            starterDupes: 1,
-                        },
-                    }
-                );
-        
-            } catch(err){
-                console.log(err);
-            }
-            message.channel.send(`${userMention(message.author.id)} has just awoken ${unitName} congrats!`);
-        }
+       
         pageNumber = Number(pageNumber) - 1;
         
         
         if (sorted.length > 10) sorted = sorted.slice(pageNumber * 10, pageNumber * 10 + 10);
         
-
         pageNumber++;
-
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#E76AA3')
         .setAuthor(`${message.author.username}'s Units`)
@@ -135,36 +76,7 @@ module.exports = {
         message.channel.send({ embeds: [newEmbed] });
         
         
-
         
     }
-
     
-}
-async function addStarter(location, ID, owned){
-    try {
-        await playerModel.findOneAndUpdate(
-            {
-                userID: ID
-            },
-            {
-                $set: {
-                    ["maids." + location + ".dupes"]: owned
-                },
-            }
-        );
-        await playerModel.findOneAndUpdate(
-            {
-                userID: ID
-            },
-            {
-                $inc: {
-                    starterDupes: 1,
-                },
-            }
-        );
-
-    } catch(err){
-        console.log(err);
-    }
 }

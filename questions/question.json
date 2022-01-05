@@ -1,14 +1,124 @@
 [
 	{
 		"question": "What color is the sky?",
-		"answers": ["blue"]
+		"answers": [
+			"blue"
+		]
 	},
 	{
 		"question": "How many letters are there in the alphabet?",
-		"answers": ["26", "twenty-six", "twenty six", "twentysix"]
+		"answers": [
+			"26",
+			"twenty-six",
+			"twenty six",
+			"twentysix"
+		]
 	},
-    {
+	{
 		"question": "Who is the best Demon Lord",
-		"answers": ["milim", "milim nava"]
+		"answers": [
+			"milim",
+			"milim nava"
+		]
+	},
+	{
+		"question": "Of the Four Winds of Mondstadt, which is not directly represented by an in-game entity?",
+		"answers": [
+			"the falcon",
+			"falcon",
+			"falcon of the west",
+			"the falcon of the west"
+		]
+	},
+	{
+		"question": "Fischl's title, Prinzessin der Verurteilung, translates to what in English?",
+		"answers": [
+			"princess of condemnation"
+		]
+	},
+	{
+		"question": "What are the buffs you can pick from at the beginning of a new spiral abyss chamber officially called?",
+		"answers": [
+			"benedictions",
+			"benediction of the abyss"
+		]
+	},
+	{
+		"question": "What's the name of the Pyro Archon?",
+		"answers": [
+			"murata",
+			"amber"
+		]
+	},
+	{
+		"question": "What is the name of one of the 6 banished kitsune?",
+		"answers": [
+			"itaru"
+		]
+	},
+	{
+		"question": "Ei and Makoto's sword, Musou Isshin, is a symbol of what?",
+		"answers": [
+			"peace",
+			"true peace"
+		]
+	},
+	{
+		"question": "What was the Raiden Shogun’s original plan with her gnosis?",
+		"answers": [
+			"energy supply device",
+			"modify it to an energy supply device"
+		]
+	},
+	{
+		"question": "Ei and Makoto's sword, Musou Isshin, is a symbol of what?",
+		"answers": [
+			"peace",
+			"true peace"
+		]
+	},
+	{
+		"question": "The Musoujin Gorge was created by what conflict?",
+		"answers": [
+			"raiden vs orobashi",
+			"battle between raiden and orobashi"
+		]
+	},
+	{
+		"question": "The ancestors of Watatsumi were terrorized by what dragon?",
+		"answers": [
+			"dragonheir of the depths",
+			"the dragonheir of the depths"
+		]
+	},
+	{
+		"question": "Why was the vagrant cast aside from the heart?",
+		"answers": [
+			"he was too fragile",
+			"too fragile", 
+			"fragile"
+		]
+	},
+	{
+		"question": "This person wishes to battle the great tengu and bring his tengu mask back as a prize.",
+		"answers": [
+			"akuou ",
+			"touzannou ", 
+			"akuou or touzannou"
+		]
+	},
+	{
+		"question": "Name a sword style that was created by the orphan taken in by Watatsumi's god.",
+		"answers": [
+			"getsumouun",
+			"yuushio ", 
+			"getsumouun and yuushio"
+		]
+	},
+	{
+		"question": "The eldest son of the exiled oni created what sword technique that would ultimately lead to their death?",
+		"answers": [
+			"tengu sweeper "
+		]
 	}
 ]

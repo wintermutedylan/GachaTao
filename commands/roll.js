@@ -665,7 +665,7 @@ module.exports = {
             const newEmbed10 = new Discord.MessageEmbed()
             .setColor('#ff3399')
             .setTitle(`${rolledRarity} ${rarestUnit}`)
-            .setDescription(`${userMention(message.author.id)}  just pulled 10 maids \n Rarest Unit: ${rarestUnit}`)
+            .setDescription(`${userMention(message.author.id)}  just pulled 10 units \n Rarest Unit: ${rarestUnit}`)
             .setFooter(`LR Pity: ${LRPity}, UR Pity: ${URPity}`)
 
             for (let j = 0; j < rolledCharacters.length; j++){

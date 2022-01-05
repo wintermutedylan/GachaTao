@@ -32,7 +32,7 @@ module.exports = {
                 { name: '\u200B', value: '\u200B' },
 
             )
-            .setFooter("Hope this helps");
+            .setFooter("LR Pity: 175, UR Pity: 50");
 
             message.channel.send({ embeds: [newEmbed] });
         } else if (page === '2'){
@@ -52,7 +52,7 @@ module.exports = {
                 { name: '\u200B', value: '\u200B' },
 
             )
-            .setFooter("Hope this helps");
+            .setFooter("LR Pity: 175, UR Pity: 50");
 
             message.channel.send({ embeds: [newEmbed] });
         } else {
@@ -72,7 +72,7 @@ module.exports = {
                 { name: '\u200B', value: '\u200B' },
 
             )
-            .setFooter("Hope this helps");
+            .setFooter("LR Pity: 175, UR Pity: 50");
 
             message.channel.send({ embeds: [newEmbed] });
 

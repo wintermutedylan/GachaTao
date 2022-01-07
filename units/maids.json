@@ -138,10 +138,10 @@
     {
         "id": "Otaku",
         "icon": "otaku.gif",
-        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
-        "rValue": 4,
-        "CP": 8400,
-        "awakenThreshold": 10
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 69420,
+        "awakenThreshold": 1
     },
     {
         "id": "Koryan Fr1edch1ken",
@@ -466,10 +466,10 @@
     {
         "id": "iCarrot",
         "icon": "icarrot.png",
-        "rarity": "<:R_:908870913167089704>",
-        "rValue": 5,
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
         "CP": 8300,
-        "awakenThreshold": 25
+        "awakenThreshold": 10
     },
     {
         "id": "Wobbly Carrot",

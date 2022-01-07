@@ -149,7 +149,8 @@ async function addUnit(unitName, ID){
                 $set: {
                     starterSelected: true,
                     coins: 500,
-                    totalCP: 10000
+                    totalCP: 10000,
+                    starterName: unitName
                 },
             }
         );

@@ -11,9 +11,12 @@ const playerSchema = new mongoose.Schema({
     urPity: { type: Number, default: 0},
     lrPity: { type: Number, default: 0},
     position: { type: Number},
+    raidPosition: { type: Number},
     stealCD: { type: Number},
     raidCD: { type: Number},
-    starterDupes: { type: Number, default: 0}
+    starterName: { type: String},
+    raidsWon: { type: Number, default: 0},
+    weeklyRaidsWon: { type: Number, default: 0}
 
 })
 

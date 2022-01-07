@@ -52,12 +52,14 @@ module.exports = {
         const arrLR = [
             { id: "Gine", weight: 25 },
             { id: "WynkenBlynken", weight: 25 },
+            { id: "Otaku", weight: 25 },
         ];
 
         var maidBannerChannel = "927770197996232784";
         const arrLRMaid = [
             { id: "Gine", weight: 25 },
             { id: "WynkenBlynken", weight: 25 },
+            { id: "Otaku", weight: 25 },
             { id: "Maid Cafe Kiui", weight: 75 },
             { id: "Catboy Maid Shoko", weight: 75 },
             { id: "Tsundere Maid Ren", weight: 75 },
@@ -70,6 +72,7 @@ module.exports = {
         const arrLRSummer = [
             { id: "Gine", weight: 25 },
             { id: "WynkenBlynken", weight: 25 },
+            { id: "Otaku", weight: 25 },
             { id: "WynkenBlynken", weight: 75 },
             { id: "WynkenBlynken", weight: 75 },
 
@@ -79,6 +82,7 @@ module.exports = {
         const arrLRGalaxy = [
             { id: "Gine", weight: 25 },
             { id: "WynkenBlynken", weight: 25 },
+            { id: "Otaku", weight: 25 },
             { id: "WynkenBlynken", weight: 75 },
             { id: "WynkenBlynken", weight: 75 },
 
@@ -108,7 +112,7 @@ module.exports = {
         const arrSR = [
             { id: "Semi", weight: 25 },
             { id: "Poro", weight: 25 },
-            { id: "Otaku", weight: 25 },
+            
             { id: "Koryan Fr1edch1ken", weight: 25 },
             { id: "Mayo", weight: 25 },
             { id: "Creamy", weight: 25 },
@@ -121,6 +125,7 @@ module.exports = {
             { id: "Cinders", weight: 25 },
             { id: "Kitahime", weight: 25 },
             { id: "Notto", weight: 25 },
+            { id: "iCarrot", weight: 25 },
 
             
         ];
@@ -137,7 +142,6 @@ module.exports = {
             { id: "Zero Cream", weight: 25 },
             { id: "NZPIEFACE", weight: 25 },
             { id: "Corin the Onion", weight: 25 },
-            { id: "iCarrot", weight: 25 },
             { id: "Nimals-Ayomii", weight: 25 },
             { id: "Sansidia", weight: 25 },
             { id: "Yoli", weight: 25 },
@@ -386,7 +390,7 @@ module.exports = {
             const newEmbed = new Discord.MessageEmbed()
             .setColor('#E76AA3')
             .setTitle(`${rolledRarity} ${rolledCharacter.id}`)
-            .setDescription(`${userMention(message.author.id)}  just pulled ${rolledCharacter.id} \nCP: ${rolledCP}`)
+            .setDescription(`${userMention(message.author.id)}  just pulled ${rolledCharacter.id} \nCP: ${new Intl.NumberFormat().format(rolledCP)}`)
             .setImage(`attachment://${imageFile}`)
             .setFooter(`LR Pity: ${LRPity}, UR Pity: ${URPity}`);
         
@@ -675,11 +679,11 @@ module.exports = {
                 )
             }
             var imageFile;
-            var image;
+            var images;
             for (let i = 0; i < unitSplash.length; i++){
                 if (rarestUnit === unitSplash[i].id){
                     imageFile = unitSplash[i].icon;
-                    image = new Discord.MessageAttachment(`icons/${unitSplash[i].icon}`);
+                    images = new Discord.MessageAttachment(`icons/${unitSplash[i].icon}`);
                     
                 }
             }
@@ -689,7 +693,7 @@ module.exports = {
             
         
 
-            message.channel.send({ embeds: [newEmbed10], files: [image] });
+            message.channel.send({ embeds: [newEmbed10], files: [images] });
             if (awkCharacters.length != 0){
                 var awkUnits = "";
                 if (awkCharacters.length === 1){

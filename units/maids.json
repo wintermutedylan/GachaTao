@@ -8,11 +8,11 @@
         "awakenThreshold": 1
     },
     {
-        "id": "Milim",
-        "icon": "CuteMilim.jpg",
+        "id": "Summer Milim",
+        "icon": "sumermilim.jpg",
         "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>",
         "rValue": 1,
-        "CP": 100000,
+        "CP": 110000,
         "awakenThreshold": 1
     },
     {
@@ -701,6 +701,14 @@
         "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>",
         "rValue": 1,
         "CP": 120000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Galaxy Milim",
+        "icon": "galaxymilim.png",
+        "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 1,
+        "CP": 150000,
         "awakenThreshold": 1
     }
 ]

@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Reach 300k CP",
+        "number": "1",
+        "type": "CP",
+        "requirement": 300000,
+        "rewardtype": "unit",
+        "reward": "Starter Dupe"
+    },
+    {
+        "name": "Reach 400k CP",
+        "number": "2",
+        "type": "CP",
+        "requirement": 400000,
+        "rewardtype": "unit",
+        "reward": "Starter Dupe"
+    },
+    {
+        "name": "Reach 500k CP",
+        "number": "3",
+        "type": "CP",
+        "requirement": 500000,
+        "rewardtype": "unit",
+        "reward": "Starter Dupe"
+    },
+    {
+        "name": "Reach 600k CP",
+        "number": "4",
+        "type": "CP",
+        "requirement": 600000,
+        "rewardtype": "unit",
+        "reward": "Starter Dupe"
+    },
+    {
+        "name": "Reach 700k CP",
+        "number": "5",
+        "type": "CP",
+        "requirement": 700000,
+        "rewardtype": "unit",
+        "reward": "Starter Dupe"
+    },
+    {
+        "name": "Awaken Your Starter",
+        "number": "6",
+        "type": "Awaken Starter",
+        "requirement": 5,
+        "rewardtype": "bootao",
+        "reward": "1000"
+    },
+    {
+        "name": "Collect Milims",
+        "number": "4454657126549681586481",
+        "type": "Milim",
+        "requirement": 100000,
+        "rewardtype": "bootao",
+        "reward": "10000"
+    }
+]

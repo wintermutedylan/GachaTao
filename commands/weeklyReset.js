@@ -5,13 +5,34 @@ module.exports = {
     name: 'resetweekly',
     aliases: [],
     permissions: ["ADMINISTRATOR"],
-    description: "resets the weekly so people can claim it again",
+    description: "resets the weekly raids won",
     async execute(client, message,cmd,args,Discord){
         let allPlayerData = await playerModel.find({});
+        let sorted = allPlayerData.sort((a, b) => (b.weeklyRaidsWon) - (a.weeklyRaidsWon));
+        let firstPlace = sorted[1];
+        let secondToFifth = sorted.slice(1, 5);
+        let fifthToTwenty = sorted.slice(5, 20);
+        let twentyToFifty = sorted.slice(20, 50);
+        let theRest = sorted.slice(50);
+        giveCoins(2000, firstPlace.userID);
+        for (let s = 0; s < secondToFifth; s++){
+            giveCoins(1500, secondToFifth[s].userID);
+        }
+        for (let a = 0; a < fifthToTwenty; a++){
+            giveCoins(1000, fifthToTwenty[a].userID);
+        }
+        for (let v = 0; v < twentyToFifty; v++){
+            giveCoins(750, twentyToFifty[v].userID);
+        }
+        for (let r = 0; r < theRest; r++){
+            giveCoins(500, theRest[r].userID);
+        }
+        
 
         for (let i = 0; i < allPlayerData.length; i++){
-            
+
             var ID = allPlayerData[i].userID;
+
             try {
                 await playerModel.findOneAndUpdate(
                     {
@@ -33,5 +54,24 @@ module.exports = {
         message.channel.send(`${allPlayerData.length} players weekly raids won has been reset`);
 
 
+    }
+}
+
+async function giveCoins(ammount, ID){
+    try {
+        await playerModel.findOneAndUpdate(
+            {
+                userID: ID
+            },
+            {
+                $inc: {
+                    coins: ammount
+                    
+                },
+            }
+        );
+
+    } catch(err){
+        console.log(err);
     }
 }

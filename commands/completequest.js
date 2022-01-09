@@ -20,17 +20,34 @@ module.exports = {
         if (playerData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
 
         let questNumber = args[0];
+        if (playerData.questsComplete.includes("Milim")) return message.reply("You have already completed this quest!");
         if (questNumber === "Milim"){
             let milimsOwned = [];
             for (let m = 0; m < playerData.maids.length; m++){
                 if (playerData.maids[i].unit === "Milim" || playerData.maids[i].unit === "Summer Milim" || playerData.maids[i].unit === "Maid Milim" || playerData.maids[i].unit === "Galaxy Milim"){
-                    
+                    milimsOwned.push(playerData.maids[i].unit);
                 }
-
+            }
+            if (milimsOwned.includes("Milim") && milimsOwned.includes("Summer Milim") && milimsOwned.includes("Maid Milim") && milimsOwned.includes("Galaxy Milim")){
+                pushQuests("Milim", message.author.id);
+                giveCoins(10000, message.author.id);
+                return message.reply(`CONGRATS, You have Collected all the avaliable Milims.  You either have crazy luck or bribed someone. For completing this quest you have been awarded 10000<:bootaomonez:909294739197681754>`)
+            } else {
+                return message.reply("You don't meet the requirements for this Quest. Please try again later");
             }
 
         }
         if (questNumber === "160"){
+            let secretAuthor = message.author.id;
+            if (playerData.questsComplete.includes("160")) {
+                message.delete();
+                return message.channel.send(`${userMention(secretAuthor)} You have already completed this quest!`);
+                
+            }
+            pushQuests("160", secretAuthor);
+            giveCoins(1000, secretAuthor);
+            giveTickets(4, secretAuthor);
+            return message.channel.send(`${userMention(secretAuthor)} you have been given 1000<:bootaomonez:909294739197681754> and 4 Raid Tickets`);
 
         }
         
@@ -167,7 +184,7 @@ async function giveCoins(ammount, ID){
     }
 }
 
-async function giveCoins(amount, ID){
+async function giveTickets(amount, ID){
     try {
         await playerModel.findOneAndUpdate(
             {

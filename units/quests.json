@@ -46,13 +46,5 @@
         "requirement": 5,
         "rewardtype": "bootao",
         "reward": "1000"
-    },
-    {
-        "name": "Collect Milims",
-        "number": "4454657126549681586481",
-        "type": "Milim",
-        "requirement": 100000,
-        "rewardtype": "bootao",
-        "reward": "10000"
     }
 ]

@@ -12,18 +12,22 @@ module.exports = {
         let allPlayerData = await playerModel.find({});
         let authorData; 
         authorData = await playerModel.findOne({ userID: message.author.id});
-        var currentTime = message.createdTimestamp;
+        let currentTime = message.createdTimestamp;
+        
         let partyCP = 0;
         
         if (!authorData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
         if (authorData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
         if (authorData.raidTickets === 0) return message.reply("You have no more Raid Tickets to use");
-        var timePassed = authorData.raidCD;
-
-        if ((currentTime + 300000) - timePassed < 300000){
+        let timePassed = authorData.raidCD;
+        
+        
+        if (currentTime - timePassed < 300000){
             return message.reply("You must wait 5 minutes before you can raid again");
         }
+        //return message.channel.send(`${(timePassed + 300000) - currentTime}`);
         removeTickets(1, message.author.id);
+        setRaidCD(currentTime, message.author.id);
         var users = await client.users.fetch(message.author.id);
         let raidStarter = users.username;
         const newEmbed = new Discord.MessageEmbed()
@@ -34,7 +38,7 @@ module.exports = {
     
         message.channel.send({ embeds: [newEmbed] }).then(sent => {
             
-            entries = [];
+            let entries = [];
                     
             sent.react('✅')
             
@@ -42,7 +46,7 @@ module.exports = {
                 return user.id != sent.author.id && (reaction.emoji.name === '✅'); 
             }       
 
-            const collector = sent.createReactionCollector({ filter, time: 10000});
+            const collector = sent.createReactionCollector({ filter, time: 60000});
             //collecting the reactions and updating the embed
             
             
@@ -56,12 +60,13 @@ module.exports = {
                         for (let i = 0; i < allPlayerData.length; i++){
                             if (allPlayerData[i].userID === user.id){
                                 userCP = allPlayerData[i].totalCP;
-                                partyCP = partyCP + allPlayerData[i].totalCP;
+                                
                             }
                         }
-
-                        entries.push({ user: user.id, CP: userCP});
-                        message.channel.send(`${userMention(user.id)} you have been added to the Raid party with a CP of ${new Intl.NumberFormat().format(userCP)} ~ Good Luck!\n Current Party CP: ${new Intl.NumberFormat().format(partyCP)}`);
+                        if (!entries.some( vendor => vendor['user'] === user.id )){
+                            entries.push({ user: user.id, CP: userCP});
+                            message.channel.send(`${userMention(user.id)} you have been added to the Raid party with a CP of ${new Intl.NumberFormat().format(userCP)} ~ Good Luck!`);
+                        }
                     } 
                     
                     
@@ -85,6 +90,10 @@ module.exports = {
                         highestCP = arr1[i].CP;
                     }
                 }
+                for (let p = 0; p < arr1.length; p++){
+                    partyCP = partyCP + arr1[p].CP;
+                }
+                
 
                 bossHP = getRandomArbitrary((highestCP / 2) * numberOfMembers, (highestCP * numberOfMembers) + 1);
                 reward = Math.floor((bossHP / 1000) * 0.5);
@@ -204,6 +213,23 @@ async function removeTickets(ammount, ID){
                 $inc: {
                     raidTickets: -ammount
                     
+                },
+            }
+        );
+
+    } catch(err){
+        console.log(err);
+    }
+}
+async function setRaidCD(time, ID){
+    try {
+        await playerModel.findOneAndUpdate(
+            {
+                userID: ID
+            },
+            {
+                $set: {
+                    raidCD: time,
                 },
             }
         );

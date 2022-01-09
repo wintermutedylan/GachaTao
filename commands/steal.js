@@ -16,8 +16,8 @@ module.exports = {
         if (authorData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
         var timePassed = authorData.stealCD;
 
-        if ((timePassed + 300000) - currentTime < 300000){
-            return message.reply("You must wait 5 minutes before you run this command again");
+        if (currentTime - timePassed < 300000){
+            return message.reply("You must wait 8 hours before you run this command again");
         }
 
         var person = message.mentions.members.first();
@@ -31,6 +31,7 @@ module.exports = {
         if (playerData.starterSelected === false) return message.reply("You can't steal from a player who hasn't selected a Starter yet.");
         if (playerData.coins < 4) return message.reply("This player doesn't have enough coins to steal from");
         var fourthCoins = (1 / 4) * playerData.coins;
+        var authorCoins = (1 / 4) * authorData.coins;
 
 
         
@@ -61,13 +62,13 @@ module.exports = {
                 var amount = getRandomArbitrary(1, fourthCoins);
                 giveCoins(amount, message.author.id);
                 removeCoins(amount, person.id);
-                message.reply(`You have successfully stolen **${amount}** coins from **${person.displayName}**`)
+                message.reply(`You have successfully stolen **${amount}** <:bootaomonez:909294739197681754> from **${person.displayName}**`)
                 break;
             case 2:
-                var amount = getRandomArbitrary(1, fourthCoins);
-                if (authorData.coins - amount < 0) return message.reply(`The steal backfired but looks like you are too poor to lose any coins`);
+                var amount = getRandomArbitrary(1, authorCoins);
+                if (authorData.coins - amount < 0) return message.reply(`The steal backfired but looks like you are too poor to lose any <:bootaomonez:909294739197681754>`);
                 removeCoins(amount, message.author.id);
-                message.reply(`The steal backfired and you have lost **${amount}** coins`);
+                message.reply(`The steal backfired and you have lost **${amount}** <:bootaomonez:909294739197681754>`);
                 break;
             case 3:
                 message.reply("The steal has failed. Try again later");

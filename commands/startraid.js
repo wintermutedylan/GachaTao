@@ -99,7 +99,11 @@ module.exports = {
                 
 
                 bossHP = getRandomArbitrary((highestCP / 2) * numberOfMembers, (highestCP * numberOfMembers) + 1);
-                reward = Math.floor((bossHP / 1000) * 0.5);
+                if (bossHP > 1000000){
+                    reward = Math.floor((bossHP / 1000) * 0.1);
+                } else {
+                    reward = Math.floor((bossHP / 1000) * 0.5);
+                }
                 partyWon = partyCP >= bossHP;
 
                 if (partyWon){

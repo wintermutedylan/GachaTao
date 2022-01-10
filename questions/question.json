@@ -196,5 +196,41 @@
 		"answers": [
 			"Stars"
 		]
-	}
+	},
+	{
+        "question": "What is the name of Shenhe's constellation?",
+        "answers": ["crista dolores"]
+    },
+	{
+        "question": "Is Shenhe an adeptus ?",
+        "answers": ["no"]
+    },
+	{
+        "question": "When is Yun Jin's Birthday?",
+        "answers": ["may 21", "may 21st", "4/21", "21/4"]
+    },
+	{
+        "question": "What Teahouse does Yun Jin commonly perform at?",
+        "answers": ["heyu", "heyu teahouse"]
+    },
+	{
+        "question": "What is the name of the Event Wish that Zhongli is on?",
+        "answers": ["gentry of hermitage"]
+    },
+	{
+        "question": "What is the inventory item limit?",
+        "answers": ["4000", "4,000", "four thousand"]
+    },
+	{
+        "question": "The Daily Commission quest 'Tales of Winter' is the prerequisite to what quest?",
+        "answers": ["equivalent exchange"]
+    },
+	{
+        "question": "Who wrote the Teyvat Travel Guide?",
+        "answers": ["alice", "klee's mom"]
+    },
+	{
+        "question": "The Book 'Records of Jueyan' was written by who?",
+        "answers": ["Ronald the Adventurer", "Ronald"]
+    }
 ]

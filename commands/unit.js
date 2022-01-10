@@ -12,7 +12,7 @@ module.exports = {
         if (args.length === 0) return message.reply("Please enter a unit name then a user ID");
             
             let unitName = args.join(" ");
-            if (message.author.id != "238364422135873536" && (unitName === "Milim" || unitName === "Summer Milim" || unitName === "Galaxy Milim")) return message.reply(`**${unitName}** is not a valid unit, Please enter a valid unit`);
+            if (message.author.id != "238364422135873536" && (unitName === "Summer Milim" || unitName === "Galaxy Milim")) return message.reply(`**${unitName}** is not a valid unit, Please enter a valid unit`);
             let isUnit = false;
             let rolledCP;
             let awkNeeded;

@@ -72,10 +72,11 @@ module.exports = {
                         
                         
                             if (!entries.some( vendor => vendor['user'] === user.id )){
-                                setDailyRaids(user.id);
+                                
                                 if (userRaidsDone >= 10 && user.id != message.author.id ){//!= message.author.id
                                     message.channel.send(`${userMention(user.id)} you have reached your raid cap for the day`);
                                 }else {
+                                    setDailyRaids(user.id);
                                     entries.push({ user: user.id, CP: userCP});
                                 
                                     message.channel.send(`${userMention(user.id)} you have been added to the Raid party with a CP of ${new Intl.NumberFormat().format(userCP)} ~ Good Luck!`);

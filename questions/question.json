@@ -46,8 +46,50 @@
 	{
 		"question": "What's the name of the Pyro Archon?",
 		"answers": [
-			"murata",
-			"amber"
+			"murata"
+		]
+	},
+	{
+		"question": "What's the name of the Hydro Archon?",
+		"answers": [
+			"God of Justice"
+		]
+	},
+	{
+		"question": "What's the name of the Anemo Archon?",
+		"answers": [
+			"Venti",
+			"Lord Barbatos",
+			"Barbatos"
+		]
+	},
+	{
+		"question": "What's the name of the Cryo Archon?",
+		"answers": [
+			"The Tsaritsa"
+		]
+	},
+	{
+		"question": "What's the name of the Dendro Archon?",
+		"answers": [
+			"Lesser Lord",
+			"Kusanali"
+		]
+	},
+	{
+		"question": "What's the name of the Geo Archon?",
+		"answers": [
+			"Zhongli",
+			"Rex Lapis",
+			"Morax"
+		]
+	},
+	{
+		"question": "What's the name of the Electro Archon?",
+		"answers": [
+			"Raiden Ei",
+			"Raiden Shogun",
+			"Beelzebul"
 		]
 	},
 	{
@@ -95,8 +137,8 @@
 	{
 		"question": "This person wishes to battle the great tengu and bring his tengu mask back as a prize.",
 		"answers": [
-			"akuou ",
-			"touzannou ", 
+			"akuou",
+			"touzannou", 
 			"akuou or touzannou"
 		]
 	},
@@ -104,14 +146,55 @@
 		"question": "Name a sword style that was created by the orphan taken in by Watatsumi's god.",
 		"answers": [
 			"getsumouun",
-			"yuushio ", 
+			"yuushio", 
 			"getsumouun and yuushio"
 		]
 	},
 	{
 		"question": "The eldest son of the exiled oni created what sword technique that would ultimately lead to their death?",
 		"answers": [
-			"tengu sweeper "
+			"tengu sweeper"
+		]
+	},
+	{
+		"question": "What was the Night mother the source of?",
+		"answers": [
+			"sins"
+		]
+	},
+	{
+		"question": "What are the names of the 3 moon sisters?",
+		"answers": [
+			"Aria, Sonnet and Canon",
+			"Aria Sonnet Canon",
+			"Aria, Sonnet, Canon",
+			"Aria and Sonnet and Canon"
+		]
+	},
+	{
+		"question": "What are the known moons of Genshin?",
+		"answers": [
+			"welkin and abyssal",
+			"welkin abyssal",
+			"welkin, abyssal"
+		]
+	},
+	{
+		"question": "What king does Kaeya's grandfather represent?",
+		"answers": [
+			"Soloman"
+		]
+	},
+	{
+		"question": "Albedo is named after what alchemical process?",
+		"answers": [
+			"Magnum Opus programme mirror"
+		]
+	},
+	{
+		"question": "The Travellers keep describing themselves as what?",
+		"answers": [
+			"Stars"
 		]
 	}
 ]

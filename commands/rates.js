@@ -7,10 +7,10 @@ module.exports = {
     permissions: [],
     description: "Displays all the commands a user and use",
     async execute(client, message, cmd, args, Discord, profileData){
-        let playerData; 
-        playerData = await playerModel.findOne({ userID: message.author.id});
-        if (playerData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
-        var ID = message.author.id;
+        // let playerData; 
+        // playerData = await playerModel.findOne({ userID: message.author.id});
+        // if (playerData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
+        // var ID = message.author.id;
         
             const newEmbed = new Discord.MessageEmbed()
             .setColor('#BE0000')

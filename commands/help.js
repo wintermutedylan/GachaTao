@@ -14,8 +14,8 @@ module.exports = {
         
             const newEmbed = new Discord.MessageEmbed()
             .setColor('#BE0000')
-            .setTitle('Avaliable Commands')
-            .setDescription(`__**FAQ**__
+            .setTitle('Available Commands')
+            .setDescription(`__**Info**__
             Concept: HTC Gacha Game
             Participants play a rudimentary version of a HTC gacha game where participating in quests, mini games, and other events give them currency to roll for characters. 
             
@@ -24,13 +24,15 @@ module.exports = {
             Currency: 50 <:bootaomonez:909294739197681754> = 1 pull 
             
             __Commands__
-            **g$profile** - Brings up a detailed embed with your units, total cp, pity counter, and ~~adorable~~ disgusting pfp.
+            **g$profile** <page number> - Brings up a detailed embed with your units, total cp, pity counter, and ~~adorable~~ disgusting pfp.
             **g$roll** -  Does a single pull (costs 50 <:bootaomonez:909294739197681754> )
             **g$roll 10** - Does 10 pulls (costs 500 <:bootaomonez:909294739197681754> )
             **g$help** - brings up this list of commands + the pity rates
             **g$lb** - pulls up a leaderboard where people are ranked by CP
             **g$claimquest** <quest number/code> - claims the quest specified
-            **g$myquests** - brings up a list of completed quests`)
+            **g$myquests** - brings up a list of completed quests
+            **g$unit** <unit name> - brings up a brief description of the unit
+            **g$claimdaily** - Claims your daily <:bootaomonez:909294739197681754> and Raid Tickets`)
             .setFooter("LR Pity: 175, UR Pity: 50");
 
             message.channel.send({ embeds: [newEmbed] });

@@ -2,7 +2,7 @@ var maids = require("../units/maids.json");
 const playerModel = require("../models/playerSchema");
 const { userMention, memberNicknameMention, channelMention, roleMention } = require('@discordjs/builders');
 module.exports = {
-    name: 'milim',
+    name: 'testmilim',
     aliases: [],
     permissions: ["ADMINISTRATOR"],
     description: "embeds",

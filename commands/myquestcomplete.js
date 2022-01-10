@@ -23,11 +23,17 @@ module.exports = {
                 questList.splice(index, 1);
             }
         }
+        if (questList.includes("37894")){
+            const index = questList.indexOf("37894");
+            if (index > -1){
+                questList.splice(index, 1);
+            }
+        }
         
-        for (let j = 0; j < questList.length; j++){
-            for (let k = 0; k < quests.length; k++)
-            if (questList[j] === quests[k].number){
-                questNames.push(quests[k].name);
+        for (let t = 0; t < questList.length; t++){
+            for (let y = 0; y < quests.length; y++)
+            if (questList[t] === quests[y].number){
+                questNames.push(quests[y].name);
             }
         }
         

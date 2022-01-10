@@ -4,7 +4,7 @@ const playerSchema = new mongoose.Schema({
     userID: { type: String, require: true, unique: true},
     coins: { type: Number, default: 0},
     raidTickets: { type: Number, default: 3},
-    maids: { type: Array, default: 0},
+    maids: { type: Array, default: []},
     dailyReset: { type: Boolean, default: false},
     starterSelected: {type: Boolean, default: false},
     totalCP: { type: Number, default: 0},
@@ -17,7 +17,7 @@ const playerSchema = new mongoose.Schema({
     starterName: { type: String},
     raidsWon: { type: Number, default: 0},
     weeklyRaidsWon: { type: Number, default: 0},
-    questsComplete: { type: Array}
+    questsComplete: { type: Array, default: []}
 
 })
 

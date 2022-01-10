@@ -16,6 +16,7 @@ module.exports = {
         var pageNumber = args[0];
         let playerData; 
         playerData = await playerModel.findOne({ userID: message.author.id});
+        if (!playerData) return message.channel.send("You don't exist. Please try again.");
         if (playerData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
         
         var sorted = [];
@@ -47,7 +48,7 @@ module.exports = {
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#E76AA3')
         .setAuthor(`${message.author.username}'s Units`)
-        .setDescription(`**Total CP:** ${new Intl.NumberFormat().format(totalCP)} \n**Total<:bootaomonez:909294739197681754>:** ${new Intl.NumberFormat().format(totalCoins)} \n**Raids Won:** ${playerData.raidsWon} \n**Weekly Raids Won:** ${playerData.weeklyRaidsWon} \n**LR Pity:** ${playerData.lrPity} \n**UR Pity:** ${playerData.urPity}`)
+        .setDescription(`**Total CP:** ${new Intl.NumberFormat().format(totalCP)} \n**Total<:bootaomonez:909294739197681754>:** ${new Intl.NumberFormat().format(totalCoins)} \n**Raid Tickets:** ${playerData.raidTickets} \n**Raids Won:** ${playerData.raidsWon} \n**Weekly Raids Won:** ${playerData.weeklyRaidsWon} \n**LR Pity:** ${playerData.lrPity} \n**UR Pity:** ${playerData.urPity}`)
         .setThumbnail(message.author.avatarURL())
         .setFooter(`Page # ${pageNumber}`)
 

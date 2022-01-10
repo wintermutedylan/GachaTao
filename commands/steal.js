@@ -5,9 +5,12 @@ const lucky = require('lucky-item').default;
 module.exports = {
     name: 'steal',
     aliases: [],
-    permissions: [],
+    permissions: ["ADMINISTRATOR"],
     description: "steal Boo Taos from a specific user",
     async execute(client, message,cmd,args,Discord){
+        return message.channel.send("No");
+        //return message.channel.send("Under Construction.  Will make an annoucment when done");
+
         let authorData; 
         authorData = await playerModel.findOne({ userID: message.author.id});
         var currentTime = message.createdTimestamp;
@@ -16,7 +19,7 @@ module.exports = {
         if (authorData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
         var timePassed = authorData.stealCD;
 
-        if (currentTime - timePassed < 300000){
+        if (currentTime - timePassed < 300000){ 
             return message.reply("You must wait 8 hours before you run this command again");
         }
 

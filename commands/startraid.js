@@ -22,21 +22,24 @@ module.exports = {
         let timePassed = authorData.raidCD;
         
         
-        if (currentTime - timePassed < 300000){
-            return message.reply("You must wait 5 minutes before you can raid again");
-        }
+        // if (currentTime - timePassed < 300000){
+        //     return message.reply("You must wait 5 minutes before you can raid again");
+        // }
         //return message.channel.send(`${(timePassed + 300000) - currentTime}`);
         removeTickets(1, message.author.id);
         setRaidCD(currentTime, message.author.id);
+        const attachment = new Discord.MessageAttachment('icons/raidbossmilim.png');
         var users = await client.users.fetch(message.author.id);
         let raidStarter = users.username;
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#E76AA3')
         .setTitle(`${users.username} has started a Raid`)
-        .setDescription(`React with ✅ here to join the raid party!\n Dungeon closes in 60 seconds!`)
+        .setDescription(`React with ✅ here to join the raid party!\n Dungeon closes in 60 seconds!
+        **Battle Mode Milim: Destroyer of Worlds**`)
+        .setImage('attachment://raidbossmilim.png')
         
     
-        message.channel.send({ embeds: [newEmbed] }).then(sent => {
+        message.channel.send({ embeds: [newEmbed], files: [attachment] }).then(sent => {
             
             let entries = [];
                     
@@ -46,7 +49,7 @@ module.exports = {
                 return user.id != sent.author.id && (reaction.emoji.name === '✅'); 
             }       
 
-            const collector = sent.createReactionCollector({ filter, time: 60000});
+            const collector = sent.createReactionCollector({ filter, time: 10000});
             //collecting the reactions and updating the embed
             
             
@@ -119,19 +122,21 @@ module.exports = {
                     message.channel.send({ embeds: [newEmbed] })
                     
                 } else {
+                    const attachment = new Discord.MessageAttachment('icons/milimtrim.gif');
                     let remainingHP = bossHP - partyCP;
                     const newEmbed = new Discord.MessageEmbed()
                     .setColor('#E76AA3')
                     .setTitle(`Raid Lost`)
-                    .setDescription(`Sorry for your loss <a:milimcry:928779807783780392>`)
+                    .setDescription(`Looks like you got beat up by Milim, Try again later <a:milimcry:928779807783780392>`)
                     .addFields(
                         {name: 'Started By', value: `${raidStarter}`},
                         {name: 'Boss HP', value: `${new Intl.NumberFormat().format(bossHP)}`},
                         {name: 'Party CP', value: `${new Intl.NumberFormat().format(partyCP)}`},
                         {name: 'Remaining HP', value: `${new Intl.NumberFormat().format(remainingHP)}`}
                     )
+                    .setImage('attachment://milimtrim.gif')
 
-                    message.channel.send({ embeds: [newEmbed] })
+                    message.channel.send({ embeds: [newEmbed], files: [attachment]  })
 
 
                 }

@@ -20,12 +20,13 @@ module.exports = {
         if (playerData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
 
         let questNumber = args[0];
-        if (playerData.questsComplete.includes("Milim")) return message.reply("You have already completed this quest!");
+        
         if (questNumber === "Milim"){
+            if (playerData.questsComplete.includes("Milim")) return message.reply("You have already completed this quest!");
             let milimsOwned = [];
             for (let m = 0; m < playerData.maids.length; m++){
-                if (playerData.maids[i].unit === "Milim" || playerData.maids[i].unit === "Summer Milim" || playerData.maids[i].unit === "Maid Milim" || playerData.maids[i].unit === "Galaxy Milim"){
-                    milimsOwned.push(playerData.maids[i].unit);
+                if (playerData.maids[m].unit === "Milim" || playerData.maids[m].unit === "Summer Milim" || playerData.maids[m].unit === "Maid Milim" || playerData.maids[m].unit === "Galaxy Milim"){
+                    milimsOwned.push(playerData.maids[m].unit);
                 }
             }
             if (milimsOwned.includes("Milim") && milimsOwned.includes("Summer Milim") && milimsOwned.includes("Maid Milim") && milimsOwned.includes("Galaxy Milim")){
@@ -37,19 +38,38 @@ module.exports = {
             }
 
         }
-        if (questNumber === "160"){
+        else if (questNumber === "160"){
             let secretAuthor = message.author.id;
+            message.delete();
             if (playerData.questsComplete.includes("160")) {
-                message.delete();
+                
                 return message.channel.send(`${userMention(secretAuthor)} You have already completed this quest!`);
                 
+            } else {
+            
+            
+                pushQuests("160", secretAuthor);
+                giveCoins(1000, secretAuthor);
+                giveTickets(4, secretAuthor);
+                return message.channel.send(`Congrats ${userMention(secretAuthor)} you have found the sugar cookies and claimed 1000<:bootaomonez:909294739197681754> and 4 raid tickets!`);
             }
-            pushQuests("160", secretAuthor);
-            giveCoins(1000, secretAuthor);
-            giveTickets(4, secretAuthor);
-            return message.channel.send(`${userMention(secretAuthor)} you have been given 1000<:bootaomonez:909294739197681754> and 4 Raid Tickets`);
 
         }
+        else if (questNumber === "37894"){
+            let secretAuthor1 = message.author.id;
+            message.delete();
+            if (playerData.questsComplete.includes("37894")) {
+                
+                return message.channel.send(`${userMention(secretAuthor1)} You have already completed this quest!`);
+                
+            } else {
+            
+                pushQuests("37894", secretAuthor1);
+                giveCoins(1000, secretAuthor1);
+                return message.channel.send(`Congrats, ${userMention(secretAuthor1)} you've solved Chapter 1's secret quest and earned 2,500<:bootaomonez:909294739197681754>`);
+            }
+
+        } 
         
         //check for milim and the ice cream quest here
         let selectedQuest
@@ -97,7 +117,11 @@ module.exports = {
                     let rewardAmount = parseInt(selectedQuest.reward);
                     pushQuests(selectedQuest.number, message.author.id);
                     giveCoins(rewardAmount, message.author.id);
-                    message.reply(`You have completed the quest ${selectedQuest.name} and have been awarded ${rewardAmount}<:bootaomonez:909294739197681754>`);
+                    if (selectedQuest.type === "Total Raids Won"){
+                        message.reply(selectedQuest.rewardMessage);
+                    } else {
+                        message.reply(`You have completed the quest ${selectedQuest.name} and have been awarded ${rewardAmount}<:bootaomonez:909294739197681754>`);
+                    }
                     break;
                 case "unit":
                     let awkThisUnit = false;

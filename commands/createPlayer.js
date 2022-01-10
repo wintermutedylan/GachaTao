@@ -36,6 +36,27 @@ module.exports = {
                 console.log(err);
             }
         }
+        let raidSorted = allPlayerData.sort((a, b) => (b.raidsWon) - (a.raidsWon));
+        let raidPos;
+
+        for (let i = 0; i < raidSorted.length; i++){
+            raidPos = i + 1;
+            try {
+                await playerModel.findOneAndUpdate(
+                    {
+                        userID: raidSorted[i].userID
+                    },
+                    {
+                        $set: {
+                            raidPosition: raidPos,
+                        },
+                    }
+                );
+
+            } catch(err){
+                console.log(err);
+            }
+        }
 
 
         
@@ -148,9 +169,19 @@ async function addUnit(unitName, ID){
             {
                 $set: {
                     starterSelected: true,
-                    coins: 500,
-                    totalCP: 10000,
                     starterName: unitName
+                },
+            }
+        );
+        await playerModel.findOneAndUpdate(
+            {
+                userID: ID
+            },
+            {
+                $inc: {
+                    
+                    coins: 500,
+                    totalCP: 10000
                 },
             }
         );

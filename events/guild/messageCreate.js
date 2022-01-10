@@ -25,7 +25,10 @@ module.exports = async (Discord, client, message) => {
                     totalCP: 0,
                     stealCD: 1640744901699,
                     raidCD: 1640744901699,
-                    starterDupes: 0
+                    raidsWon: 0,
+                    weeklyRaidsWon: 0,
+                    questsComplete: []
+                    
                 });
                 player.save();
             }

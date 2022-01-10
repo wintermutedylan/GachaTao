@@ -66,7 +66,11 @@ async function wipePlayer(i) {
                     totalCP: 0,
                     stealCD: 1640744901699,
                     raidCD: 1640744901699,
-                    starterDupes: 0
+                    starterName: "",
+                    raidsWon: 0,
+                    weeklyRaidsWon: 0,
+                    questsComplete: []
+                    
 
 
                 },

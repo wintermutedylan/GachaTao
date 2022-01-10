@@ -3,7 +3,7 @@ const playerModel = require("../models/playerSchema");
 const { userMention, memberNicknameMention, channelMention, roleMention } = require('@discordjs/builders');
 module.exports = {
     name: 'claimdaily',
-    aliases: ['claim'],
+    aliases: [],
     permissions: [],
     description: "lets users claim their daily rolls",
     async execute(client, message,cmd,args,Discord){
@@ -21,7 +21,8 @@ module.exports = {
                     },
                     {
                         $inc: {
-                            coins: 250
+                            coins: 250,
+                            raidTickets: 3
                         },
                     }
                 );
@@ -31,8 +32,8 @@ module.exports = {
                     },
                     {
                         $set: {
-                            dailyReset: true,
-                            raidTickets: 3
+                            dailyReset: true
+                            
                         },
                     }
                 );
@@ -40,7 +41,7 @@ module.exports = {
             } catch(err){
                 console.log(err);
             }
-            message.reply('You have claimed your daily 250 Boo Taos.');
+            message.reply('You have claimed your daily 250<:bootaomonez:909294739197681754> and 3 Raid Tickets');
         }
         else {
             message.reply('Baka, You have already claimed your daily today.');

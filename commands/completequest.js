@@ -65,7 +65,7 @@ module.exports = {
             } else {
             
                 pushQuests("37894", secretAuthor1);
-                giveCoins(1000, secretAuthor1);
+                giveCoins(2500, secretAuthor1);
                 return message.channel.send(`Congrats, ${userMention(secretAuthor1)} you've solved Chapter 1's secret quest and earned 2,500<:bootaomonez:909294739197681754>`);
             }
 

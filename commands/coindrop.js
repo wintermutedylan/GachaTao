@@ -12,7 +12,7 @@ module.exports = {
         //return message.channel.send("Under Construction.  Will make an annoucment when done");
         if (args.length === 0) return message.reply("Please enter a channel ID");
         var channels = args[0];
-        var amount = getRandomArbitrary(150, 1001);
+        var amount = getRandomArbitrary(150, 251);
         const item = quiz[Math.floor(Math.random() * quiz.length)];
         const filter = response => {
 	        return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());

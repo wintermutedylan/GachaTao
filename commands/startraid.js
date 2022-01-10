@@ -27,6 +27,7 @@ module.exports = {
         }
         //return message.channel.send(`${(timePassed + 300000) - currentTime}`);
         removeTickets(1, message.author.id);
+        
         setRaidCD(currentTime, message.author.id);
         const attachment = new Discord.MessageAttachment('icons/raidbossmilim.png');
         var users = await client.users.fetch(message.author.id);
@@ -56,20 +57,28 @@ module.exports = {
                 collector.on('collect', (reaction, user) => {
                     
                     var userCP = 0;
-                    
+                    let userRaidsDone;
                     
                     
                     if (userHasProfile(message, user.id)){
                         for (let i = 0; i < allPlayerData.length; i++){
                             if (allPlayerData[i].userID === user.id){
                                 userCP = allPlayerData[i].totalCP;
+                                userRaidsDone = allPlayerData[i].dailyRaidsPlayed;
                                 
                             }
                         }
-                        if (!entries.some( vendor => vendor['user'] === user.id )){
-                            entries.push({ user: user.id, CP: userCP});
-                            message.channel.send(`${userMention(user.id)} you have been added to the Raid party with a CP of ${new Intl.NumberFormat().format(userCP)} ~ Good Luck!`);
-                        }
+                        setDailyRaids(user.id);
+                        
+                        if (userRaidsDone >= 10 && user.id != message.author.id ){//!= message.author.id
+                            message.channel.send(`${userMention(user.id)} you have reached your raid cap for the day`);
+                        }else {
+                            if (!entries.some( vendor => vendor['user'] === user.id )){
+                                entries.push({ user: user.id, CP: userCP});
+                                
+                                message.channel.send(`${userMention(user.id)} you have been added to the Raid party with a CP of ${new Intl.NumberFormat().format(userCP)} ~ Good Luck!`);
+                            }
+                    }
                     } 
                     
                     
@@ -239,6 +248,23 @@ async function setRaidCD(time, ID){
             {
                 $set: {
                     raidCD: time,
+                },
+            }
+        );
+
+    } catch(err){
+        console.log(err);
+    }
+}
+async function setDailyRaids(ID){
+    try {
+        await playerModel.findOneAndUpdate(
+            {
+                userID: ID
+            },
+            {
+                $inc: {
+                    dailyRaidsPlayed: 1,
                 },
             }
         );

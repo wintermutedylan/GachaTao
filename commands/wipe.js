@@ -69,7 +69,8 @@ async function wipePlayer(i) {
                     starterName: "",
                     raidsWon: 0,
                     weeklyRaidsWon: 0,
-                    questsComplete: []
+                    questsComplete: [],
+                    dailyRaidsPlayed: 0
                     
 
 

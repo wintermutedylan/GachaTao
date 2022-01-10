@@ -22,9 +22,9 @@ module.exports = {
         let timePassed = authorData.raidCD;
         
         
-        // if (currentTime - timePassed < 300000){
-        //     return message.reply("You must wait 5 minutes before you can raid again");
-        // }
+        if (currentTime - timePassed < 300000){
+            return message.reply("You must wait 5 minutes before you can raid again");
+        }
         //return message.channel.send(`${(timePassed + 300000) - currentTime}`);
         removeTickets(1, message.author.id);
         setRaidCD(currentTime, message.author.id);
@@ -49,7 +49,7 @@ module.exports = {
                 return user.id != sent.author.id && (reaction.emoji.name === '✅'); 
             }       
 
-            const collector = sent.createReactionCollector({ filter, time: 10000});
+            const collector = sent.createReactionCollector({ filter, time: 60000});
             //collecting the reactions and updating the embed
             
             

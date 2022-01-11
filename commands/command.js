@@ -9,6 +9,9 @@ module.exports = {
     async execute(client, message,cmd,args,Discord){
 
         const attachment = new Discord.MessageAttachment('icons/CuteMilim.jpg');
+        
+        
+
 
 
         const newEmbed = new Discord.MessageEmbed()

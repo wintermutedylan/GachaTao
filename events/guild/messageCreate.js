@@ -1,8 +1,32 @@
 require('dotenv').config();
 const playerModel = require("../../models/playerSchema");
+let count = 0;
+let countTotal = 10;
+let timeStampt = 1641854534523;
 
 module.exports = async (Discord, client, message) => {
     const prefix = process.env.PREFIX;
+    
+    if (!message.content.startsWith(prefix) && !message.author.bot && message.channel.id === "851169729808302140"){
+        count++;
+        console.log(count);
+        if (count >= countTotal && (message.createdTimestamp - timeStampt  > 120000)){
+        
+            
+            
+            const commandDrop = client.commands.get("drop");
+            try {
+                commandDrop.execute(client, message, "drop", [ '854047198291689542' ], Discord);
+            } catch (err){
+                message.reply("There was an error trying to execute this command!");
+                console.log(err);
+            }
+            timeStampt = message.createdTimestamp;
+            
+            countTotal = Math.floor(Math.random() * (151 - 50) + 50);
+            count = 0;
+        }
+    }
     if(!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();

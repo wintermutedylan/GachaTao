@@ -2,7 +2,7 @@ const playerModel = require("../models/playerSchema");
 var maids = require("../units/maids.json");
 var quiz = require("../questions/question.json");
 const { userMention, memberNicknameMention, channelMention, roleMention } = require('@discordjs/builders');
-
+const lucky = require('lucky-item').default;
 module.exports = {
     name: 'drop',
     aliases: [],
@@ -13,7 +13,7 @@ module.exports = {
         if (args.length === 0) return message.reply("Please enter a channel ID");
         var channels = args[0];
         var amount = getRandomArbitrary(150, 251);
-        const item = quiz[Math.floor(Math.random() * quiz.length)];
+        const item = lucky.item(quiz);//quiz[Math.floor(Math.random() * quiz.length)];
         const filter = response => {
 	        return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
         };

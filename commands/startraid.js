@@ -23,7 +23,10 @@ module.exports = {
         
         
         if (currentTime - timePassed < 300000){
-            return message.reply("You must wait 5 minutes before you can raid again");
+            const d = new Date(currentTime - timePassed);
+            let minutes = 4 - d.getMinutes();
+            let seconds = 60 - d.getSeconds();
+            return message.reply(`You must wait ${minutes.toString().padStart(2, 0)}:${seconds.toString().padStart(2, 0)} minutes before you can raid again`);
         }
         //return message.channel.send(`${(timePassed + 300000) - currentTime}`);
         removeTickets(1, message.author.id);
@@ -58,8 +61,7 @@ module.exports = {
                     
                     var userCP = 0;
                     let userRaidsDone;
-                    
-                    
+                    let A = Date.now();
                     if (userHasProfile(message, user.id)){
                         for (let i = 0; i < allPlayerData.length; i++){
                             if (allPlayerData[i].userID === user.id){
@@ -73,10 +75,17 @@ module.exports = {
                         
                             if (!entries.some( vendor => vendor['user'] === user.id )){
                                 
-                                if (userRaidsDone >= 10 && user.id != message.author.id ){//!= message.author.id
-                                    message.channel.send(`${userMention(user.id)} you have reached your raid cap for the day`);
-                                }else {
-                                    setDailyRaids(user.id);
+                                // if (userRaidsDone >= 10 && user.id != message.author.id ){//!= message.author.id
+                                //     message.channel.send(`${userMention(user.id)} you have reached your raid cap for the day`);
+                                // }
+                                if (A - userRaidsDone < 300000 && user.id != message.author.id){
+                                    const ds = new Date(A - userRaidsDone);
+                                    let minutes = 4 - ds.getMinutes();
+                                    let seconds = 60 - ds.getSeconds();
+                                    return message.channel.send(`${userMention(user.id)} You must wait ${minutes.toString().padStart(2, 0)}:${seconds.toString().padStart(2, 0)} minutes before you can raid again`);
+                                }                       
+                                else {
+                                    setDailyRaids(A, user.id);
                                     entries.push({ user: user.id, CP: userCP});
                                 
                                     message.channel.send(`${userMention(user.id)} you have been added to the Raid party with a CP of ${new Intl.NumberFormat().format(userCP)} ~ Good Luck!`);
@@ -112,7 +121,7 @@ module.exports = {
                 
 
                 bossHP = getRandomArbitrary((highestCP / 2) * numberOfMembers, (highestCP * numberOfMembers) + 1);
-                if (bossHP > 1000000){
+                if (bossHP > 1500000){
                     reward = Math.floor((bossHP / 1000) * 0.1);
                 } else {
                     reward = Math.floor((bossHP / 1000) * 0.5);
@@ -180,8 +189,11 @@ async function userHasProfile(message, ID){
     if (authorData && authorData.starterSelected === true){
         return true;
     } else {
-        if (!authorData)  message.channel.send(`${userMention(ID)} Looks like there was an error finding your profile .  Try running g$register then try again`);
-        if (authorData.starterSelected === false) message.channel.send(`${userMention(ID)} You need to run g$register first before anything else`);
+        if (!authorData)  {
+            message.channel.send(`${userMention(ID)} Looks like there was an error finding your profile .  Try running g$register then try again`);
+            return false;
+        }
+        else if (authorData.starterSelected === false) message.channel.send(`${userMention(ID)} You need to run g$register first before anything else`);
         return false;
     }
 
@@ -260,15 +272,15 @@ async function setRaidCD(time, ID){
         console.log(err);
     }
 }
-async function setDailyRaids(ID){
+async function setDailyRaids(timeer, ID){
     try {
         await playerModel.findOneAndUpdate(
             {
                 userID: ID
             },
             {
-                $inc: {
-                    dailyRaidsPlayed: 1,
+                $set: {
+                    dailyRaidsPlayed: timeer,
                 },
             }
         );

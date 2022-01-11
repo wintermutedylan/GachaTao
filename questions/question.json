@@ -39,7 +39,7 @@
 		"question": "What's the name of the Hydro Archon?",
 		"answers": [
 			"god of justice",
-		"archon of justice"
+			"archon of justice"
 		]
 	},
 	{
@@ -58,7 +58,7 @@
 		]
 	},
 	{
-		"question": "What's the name of the Dendro Archon?",
+		"question": "What's the title of the Dendro Archon?",
 		"answers": [
 			"lesser lord",
 			"god of wisdom",
@@ -114,7 +114,7 @@
 		"question": "This person wishes to battle the great tengu and bring his mask back as a prize.",
 		"answers": [
 			"akuou",
-			"touzannou", 
+			"touzannou",
 			"akuou or touzannou"
 		]
 	},
@@ -122,7 +122,7 @@
 		"question": "Name a sword style that was created by the orphan taken in by Watatsumi's god.",
 		"answers": [
 			"getsumouun",
-			"yuushio", 
+			"yuushio",
 			"getsumouun and yuushio"
 		]
 	},
@@ -177,75 +177,121 @@
 		]
 	},
 	{
-        "question": "What is the name of Shenhe's constellation?",
-        "answers": ["crista doloris"]
-    },
+		"question": "What is the name of Shenhe's constellation?",
+		"answers": [
+			"crista doloris"
+		]
+	},
 	{
-        "question": "Is Shenhe an adeptus ?",
-        "answers": ["no"]
-    },
+		"question": "Is Shenhe an adeptus ?",
+		"answers": [
+			"no"
+		]
+	},
 	{
-        "question": "When is Yun Jin's Birthday?",
-        "answers": ["may 21", "may 21st", "4/21", "21/4"]
-    },
+		"question": "When is Yun Jin's Birthday?",
+		"answers": [
+			"may 21",
+			"may 21st",
+			"4/21",
+			"21/4"
+		]
+	},
 	{
-        "question": "What Teahouse does Yun Jin commonly perform at?",
-        "answers": ["heyu", "heyu teahouse"]
-    },
+		"question": "What Teahouse does Yun Jin commonly perform at?",
+		"answers": [
+			"heyu",
+			"heyu teahouse"
+		]
+	},
 	{
-        "question": "What is the name of the Event Wish that Zhongli is on?",
-        "answers": ["gentry of hermitage"]
-    },
+		"question": "What is the name of the Event Wish that Zhongli is on?",
+		"answers": [
+			"gentry of hermitage"
+		]
+	},
 	{
-        "question": "What is the combined inventory item limit?",
-        "answers": ["4000", "4,000", "four thousand"]
-    },
+		"question": "What is the combined inventory item limit?",
+		"answers": [
+			"4000",
+			"4,000",
+			"four thousand"
+		]
+	},
 	{
-        "question": "The Daily Commission quest 'Tales of Winter' is the prerequisite to what quest?",
-        "answers": ["equivalent exchange"]
-    },
+		"question": "The Daily Commission quest 'Tales of Winter' is the prerequisite to what quest?",
+		"answers": [
+			"equivalent exchange"
+		]
+	},
 	{
-        "question": "Who wrote the Teyvat Travel Guide?",
-        "answers": ["alice", "klee's mother", "klee’s mom"]
-    },
+		"question": "Who wrote the Teyvat Travel Guide?",
+		"answers": [
+			"alice",
+			"klee's mother",
+			"klee’s mom"
+		]
+	},
 	{
-        "question": "The knight described in the artifact set ‘Bloodstained Chivalry’ is also mentioned in which other artifact set’s story?",
-        "answers": ["maiden beloved"]
-    },
+		"question": "The knight described in the artifact set ‘Bloodstained Chivalry’ is also mentioned in which other artifact set’s story?",
+		"answers": [
+			"maiden beloved"
+		]
+	},
 	{
-        "question": "At refinement level 3, how much base elemental mastery does the bow ‘Elegy for the End’ give? (Without the *Millennial Movement: Farewell Song* buff)",
-        "answers": ["90", "ninety"]
-    },
-{
-        "question": "What name did Ruu give to his godly friend?",
-        "answers": ["maushiro"]
-    },
-{
-        "question": "Through what quest do you gain the Maushiro __for keeps__?",
-        "answers": ["octave of the maushiro"]
-    },
-{
-        "question": "What is the name of the original animal that the rifthound monsters replaced in Tsurumi Island?",
-        "answers": ["wen kamuy"]
-    },
-{
-        "question": "Before he was called Xiao, what was the Silent Yasha’s name?",
-        "answers": ["altus"]
-    },
-{
-        "question": "What is the name of the domain where you can farm the Pale Flame and Tenacity of the Millelith artifact sets?",
-        "answers": ["ridge watch"]
-    },
-{
-        "question": "Which shrine maiden is Sayu afraid of?",
-        "answers": ["kano nana"]
-    },
-{
-        "question": "What Keqing’s Opulent Splendor outfit made of?",
-        "answers": ["silk flowers and violetgrass", "silk flowers violetgrass"]
-    },
-{
-        "question": "Who is Beidou’s EN voice actor?",
-        "answers": ["allegra clark"]
-    }
+		"question": "At refinement level 3, how much base elemental mastery does the bow ‘Elegy for the End’ give? (Without the *Millennial Movement: Farewell Song* buff)",
+		"answers": [
+			"90",
+			"ninety"
+		]
+	},
+	{
+		"question": "What name did Ruu give to his godly friend?",
+		"answers": [
+			"kanna kapatcir"
+		]
+	},
+	{
+		"question": "Through what quest do you gain the Maushiro __for keeps__?",
+		"answers": [
+			"octave of the maushiro"
+		]
+	},
+	{
+		"question": "What is the name of the original animal that the rifthound monsters replaced in Tsurumi Island?",
+		"answers": [
+			"wen kamuy"
+		]
+	},
+	{
+		"question": "Before he was called Xiao, what was the Silent Yasha’s name?",
+		"answers": [
+			"altus"
+		]
+	},
+	{
+		"question": "What is the name of the domain where you can farm the Pale Flame and Tenacity of the Millelith artifact sets?",
+		"answers": [
+			"ridge watch"
+		]
+	},
+	{
+		"question": "Which shrine maiden is Sayu afraid of?",
+		"answers": [
+			"kano nana"
+		]
+	},
+	{
+		"question": "What Keqing’s Opulent Splendor outfit made of?",
+		"answers": [
+			"silk flowers and violetgrass",
+			"silk flowers violetgrass"
+		]
+	},
+	{
+		"question": "Who is Beidou’s EN voice actor?",
+		"answers": [
+			"allegra clark"
+		]
+	}
 ]

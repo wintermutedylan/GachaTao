@@ -9,6 +9,7 @@ module.exports = {
     permissions: [],
     description: "Complete a quest",
     async execute(client, message,cmd,args,Discord){
+        return message.channel.send("No");
         if (args.length === 0) return message.reply("Please enter a unit name then a user ID");
             
             let unitName = args.join(" ");

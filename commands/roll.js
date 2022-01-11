@@ -8,6 +8,7 @@ module.exports = {
     permissions: [],
     description: "Give coins to users",
     async execute(client, message, cmd, args, Discord){
+        return message.channel.send("No");
         //make a thing where people can't use this command untill they run register
         //so that they have to get their starting unit first
         let playerData; 

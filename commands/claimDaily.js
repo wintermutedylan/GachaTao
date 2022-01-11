@@ -21,7 +21,7 @@ module.exports = {
                     },
                     {
                         $inc: {
-                            coins: 250,
+                            coins: 100,
                             raidTickets: 3
                         },
                     }
@@ -41,7 +41,7 @@ module.exports = {
             } catch(err){
                 console.log(err);
             }
-            message.reply('You have claimed your daily 250<:bootaomonez:909294739197681754> and 3 Raid Tickets');
+            message.reply('You have claimed your daily 100<:bootaomonez:909294739197681754> and 3 Raid Tickets');
         }
         else {
             message.reply('Baka, You have already claimed your daily today.');

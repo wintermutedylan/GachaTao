@@ -21,8 +21,10 @@ module.exports = {
         if (authorData.raidTickets === 0) return message.reply("You have no more Raid Tickets to use");
         let timePassed = authorData.raidCD;
         
-        
-        if (currentTime - timePassed < 300000 && (message.author.id != "618884909494304808" || message.author.id != "238364422135873536")){
+        if (message.author.id === "618884909494304808" || message.author.id === "238364422135873536"){
+
+        }
+        else if (currentTime - timePassed < 300000){
             const d = new Date(currentTime - timePassed);
             let minutes = 4 - d.getMinutes();
             let seconds = 60 - d.getSeconds();
@@ -32,7 +34,7 @@ module.exports = {
         removeTickets(1, message.author.id);
         
         setRaidCD(currentTime, message.author.id);
-        const attachment = new Discord.MessageAttachment('icons/raidbossmilim.png');
+        
         var users = await client.users.fetch(message.author.id);
         let raidStarter = users.username;
         const newEmbed = new Discord.MessageEmbed()
@@ -40,10 +42,10 @@ module.exports = {
         .setTitle(`${users.username} has started a Raid`)
         .setDescription(`React with ✅ here to join the raid party!\n Dungeon closes in 60 seconds!
         **Battle Mode Milim: Destroyer of Worlds**`)
-        .setImage('attachment://raidbossmilim.png')
+        .setImage('https://media.discordapp.net/attachments/646489430777004045/930575556557299772/raidbossmilim.png')
         
     
-        message.channel.send({ embeds: [newEmbed], files: [attachment] }).then(sent => {
+        message.channel.send({ embeds: [newEmbed] }).then(sent => {
             
             let entries = [];
                     
@@ -127,12 +129,10 @@ module.exports = {
                 
 
                 bossHP = getRandomArbitrary((highestCP / 2) * numberOfMembers, (highestCP * numberOfMembers) + 1);
-                if (bossHP > 1500000){
-                    reward = Math.floor((1500000 / 1000) * 0.5);
-                    let remainingBossHP = bossHP - 1500000;
-                    reward = reward + Math.floor((remainingBossHP / 1000) * 0.1);
+                if (bossHP > 500000){
+                    reward = 500;
                 } else {
-                    reward = Math.floor((bossHP / 1000) * 0.5);
+                    reward = Math.floor((bossHP / 1000) * 1);
                 }
                 partyWon = partyCP >= bossHP;
 
@@ -156,7 +156,7 @@ module.exports = {
                     message.channel.send({ embeds: [newEmbed] })
                     
                 } else {
-                    const attachment = new Discord.MessageAttachment('icons/milimtrim.gif');
+                    
                     let remainingHP = bossHP - partyCP;
                     const newEmbed = new Discord.MessageEmbed()
                     .setColor('#E76AA3')
@@ -168,9 +168,9 @@ module.exports = {
                         {name: 'Party CP', value: `${new Intl.NumberFormat().format(partyCP)}`},
                         {name: 'Remaining HP', value: `${new Intl.NumberFormat().format(remainingHP)}`}
                     )
-                    .setImage('attachment://milimtrim.gif')
+                    .setImage('https://media.discordapp.net/attachments/646489430777004045/930575510050836500/milimtrim.gif')
 
-                    message.channel.send({ embeds: [newEmbed], files: [attachment]  })
+                    message.channel.send({ embeds: [newEmbed] })
 
 
                 }

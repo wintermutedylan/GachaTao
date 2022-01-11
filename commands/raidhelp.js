@@ -19,8 +19,8 @@ module.exports = {
             Anyone who reacts ✅ to the raid party embed within 60 seconds will automatically join the party. 
             The raid will begin after the 60 second mark. 
             To defeat the boss, the collective party's CP must be greater than the raid boss's CP. 
-            > Rewards: 1 Boo Tao for every 2,000 Raid Boss CP 
-            > past 1.5M CP: 0.1 Boo Tao per 1K CP
+            > Rewards: 1 Boo Tao for every 1,000 Raid Boss CP 
+            > past 500k CP: 500 Boo Tao cap
             **g$raidhelp** - brings up this embed 
             **g$raidlb** - brings up weekly & all time raid leaderboard`)
             .setFooter("*Note: Once you start a raid, you lose 1 ticket. No refunds");

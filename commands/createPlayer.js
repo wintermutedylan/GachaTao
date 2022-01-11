@@ -89,14 +89,14 @@ module.exports = {
                 if (s.toLowerCase() == 'smug'){
                     
                     unitSelected = "Sewage Monster Smug";
-                    const attachment = new Discord.MessageAttachment('icons/smug.png');
+                    
                     const newEmbed = new Discord.MessageEmbed()
                     .setColor('#E76AA3')
                     .setTitle(`<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> **Sewage Monster Smug**`)
                     .setDescription(`${userMention(message.author.id)} has selected **Sewage Monster Smug** as their Starter`)
-                    .setImage('attachment://smug.png')
+                    .setImage('https://media.discordapp.net/attachments/930577252406685726/930577317552590878/smug.png')
                     .setFooter('Congrats');
-                    message.reply({ embeds: [newEmbed], files: [attachment]  });
+                    message.reply({ embeds: [newEmbed] });
                     //client.channels.cache.get("853101428875984957").send(`g$addunit ${unitSelected} ${ID} ${message.channel.id}`);
                     addUnit(unitSelected, ID);
                     message.channel.send(`**${unitSelected}** has been added to your account ${userMention(ID)}`);
@@ -106,14 +106,14 @@ module.exports = {
                 }
                 else if (s.toLowerCase() == 'dana'){
                     unitSelected = "Guardian Angel Dana";
-                    const attachment = new Discord.MessageAttachment('icons/dana.png');
+                    
                     const newEmbed = new Discord.MessageEmbed()
                     .setColor('#E76AA3')
                     .setTitle(`<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> **Guardian Angel Dana**`)
                     .setDescription(`${userMention(message.author.id)} has selected **Guardian Angel Dana** as their Starter`)
-                    .setImage('attachment://dana.png')
+                    .setImage('https://media.discordapp.net/attachments/930577252406685726/930577316902494208/dana.png')
                     .setFooter('Congrats');
-                    message.reply({ embeds: [newEmbed], files: [attachment]  });
+                    message.reply({ embeds: [newEmbed] });
                     //client.channels.cache.get("853101428875984957").send(`g$addunit ${unitSelected} ${ID} ${message.channel.id}`);
                     addUnit(unitSelected, ID);
                     message.channel.send(`**${unitSelected}** has been added to your account ${userMention(ID)}`);
@@ -121,14 +121,14 @@ module.exports = {
                 }
                 else if (s.toLowerCase() == 'ren'){
                     unitSelected = "Idol Ren";
-                    const attachment = new Discord.MessageAttachment('icons/idolren.png');
+                    
                     const newEmbed = new Discord.MessageEmbed()
                     .setColor('#E76AA3')
                     .setTitle(`<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> **Idol Ren**`)
                     .setDescription(`${userMention(message.author.id)} has selected **Idol Ren** as their Starter`)
-                    .setImage('attachment://idolren.png')
+                    .setImage('https://media.discordapp.net/attachments/930577252406685726/930577317170917446/idolren.png?width=910&height=910')
                     .setFooter('Congrats');
-                    message.reply({ embeds: [newEmbed], files: [attachment]  });
+                    message.reply({ embeds: [newEmbed] });
                     addUnit(unitSelected, ID);
                     message.channel.send(`**${unitSelected}** has been added to your account ${userMention(ID)}`);
                     

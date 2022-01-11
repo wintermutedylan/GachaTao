@@ -21,7 +21,8 @@ module.exports = {
                     },
                     {
                         $inc: {
-                            coins: amount
+                            coins: amount,
+                            raidTickets: 3
                             
                         },
                     }
@@ -31,7 +32,7 @@ module.exports = {
                 console.log(err);
             }
         }
-        message.channel.send(`${allPlayerData.length} players can now claim their daily rolls`);
+        message.channel.send(`${allPlayerData.length} players have been given ${amount}<:bootaomonez:909294739197681754>`);
 
 
     }

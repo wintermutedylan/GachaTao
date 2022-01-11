@@ -1,20 +1,5 @@
 [
 	{
-		"question": "What color is the sky?",
-		"answers": [
-			"blue"
-		]
-	},
-	{
-		"question": "How many letters are there in the alphabet?",
-		"answers": [
-			"26",
-			"twenty-six",
-			"twenty six",
-			"twentysix"
-		]
-	},
-	{
 		"question": "Who is the best Demon Lord",
 		"answers": [
 			"milim",
@@ -40,6 +25,7 @@
 		"question": "What are the buffs you can pick from at the beginning of a new spiral abyss chamber officially called?",
 		"answers": [
 			"benedictions",
+			"benediction",
 			"benediction of the abyss"
 		]
 	},
@@ -52,48 +38,53 @@
 	{
 		"question": "What's the name of the Hydro Archon?",
 		"answers": [
-			"God of Justice"
+			"god of justice",
+		"archon of justice"
 		]
 	},
 	{
 		"question": "What's the name of the Anemo Archon?",
 		"answers": [
-			"Venti",
-			"Lord Barbatos",
-			"Barbatos"
+			"venti",
+			"lord barbatos",
+			"barbatos"
 		]
 	},
 	{
 		"question": "What's the name of the Cryo Archon?",
 		"answers": [
-			"The Tsaritsa"
+			"the tsaritsa",
+			"tsaritsa"
 		]
 	},
 	{
 		"question": "What's the name of the Dendro Archon?",
 		"answers": [
-			"Lesser Lord",
-			"Kusanali"
+			"lesser lord",
+			"god of wisdom",
+			"archon of wisdom"
 		]
 	},
 	{
 		"question": "What's the name of the Geo Archon?",
 		"answers": [
-			"Zhongli",
-			"Rex Lapis",
-			"Morax"
+			"zhongli",
+			"rex lapis",
+			"morax"
 		]
 	},
 	{
 		"question": "What's the name of the Electro Archon?",
 		"answers": [
-			"Raiden Ei",
-			"Raiden Shogun",
-			"Beelzebul"
+			"raiden ei",
+			"raiden shogun",
+			"beelzebul",
+			"baal",
+			"ei"
 		]
 	},
 	{
-		"question": "What is the name of one of the 6 banished kitsune?",
+		"question": "What is the name of the eldest of the 6 kitsune?",
 		"answers": [
 			"itaru"
 		]
@@ -113,13 +104,6 @@
 		]
 	},
 	{
-		"question": "Ei and Makoto's sword, Musou Isshin, is a symbol of what?",
-		"answers": [
-			"peace",
-			"true peace"
-		]
-	},
-	{
 		"question": "The Musoujin Gorge was created by what conflict?",
 		"answers": [
 			"raiden vs orobashi",
@@ -127,15 +111,7 @@
 		]
 	},
 	{
-		"question": "Why was the vagrant cast aside from the heart?",
-		"answers": [
-			"he was too fragile",
-			"too fragile", 
-			"fragile"
-		]
-	},
-	{
-		"question": "This person wishes to battle the great tengu and bring his tengu mask back as a prize.",
+		"question": "This person wishes to battle the great tengu and bring his mask back as a prize.",
 		"answers": [
 			"akuou",
 			"touzannou", 
@@ -159,36 +135,39 @@
 	{
 		"question": "What was the Night mother the source of?",
 		"answers": [
-			"sins"
+			"sins",
+			"all sins"
 		]
 	},
 	{
 		"question": "What are the names of the 3 moon sisters?",
 		"answers": [
-			"Aria, Sonnet and Canon",
-			"Aria Sonnet Canon",
-			"Aria, Sonnet, Canon",
-			"Aria and Sonnet and Canon"
+			"aria, sonnet and canon",
+			"aria sonnet canon",
+			"aria, sonnet, canon",
+			"aria and sonnet and canon",
+			"aria, sonnet, and canon"
 		]
 	},
 	{
-		"question": "What are the known moons of Genshin?",
+		"question": "What is the base attack of the bow Mouun’s Moon at level 90?",
 		"answers": [
-			"welkin and abyssal",
-			"welkin abyssal",
-			"welkin, abyssal"
+			"565",
+			"565 attack",
+			"565 atk"
 		]
 	},
 	{
-		"question": "What king does Kaeya's grandfather represent?",
+		"question": "What biblical king does Kaeya's grandfather represent?",
 		"answers": [
-			"Soloman"
+			"solomon",
+			"king solomon"
 		]
 	},
 	{
-		"question": "Albedo is named after what alchemical process?",
+		"question": "What is the name of the type of Favonius Bladework that Albedo fights with?",
 		"answers": [
-			"Magnum Opus programme mirror"
+			"weiss"
 		]
 	},
 	{
@@ -199,7 +178,7 @@
 	},
 	{
         "question": "What is the name of Shenhe's constellation?",
-        "answers": ["crista dolores"]
+        "answers": ["crista doloris"]
     },
 	{
         "question": "Is Shenhe an adeptus ?",
@@ -218,7 +197,7 @@
         "answers": ["gentry of hermitage"]
     },
 	{
-        "question": "What is the inventory item limit?",
+        "question": "What is the combined inventory item limit?",
         "answers": ["4000", "4,000", "four thousand"]
     },
 	{
@@ -227,10 +206,46 @@
     },
 	{
         "question": "Who wrote the Teyvat Travel Guide?",
-        "answers": ["alice", "klee's mom"]
+        "answers": ["alice", "klee's mother", "klee’s mom"]
     },
 	{
-        "question": "The Book 'Records of Jueyan' was written by who?",
-        "answers": ["Ronald the Adventurer", "Ronald"]
+        "question": "The knight described in the artifact set ‘Bloodstained Chivalry’ is also mentioned in which other artifact set’s story?",
+        "answers": ["maiden beloved"]
+    },
+	{
+        "question": "At refinement level 3, how much base elemental mastery does the bow ‘Elegy for the End’ give? (Without the *Millennial Movement: Farewell Song* buff)",
+        "answers": ["90", "ninety"]
+    },
+{
+        "question": "What name did Ruu give to his godly friend?",
+        "answers": ["maushiro"]
+    },
+{
+        "question": "Through what quest do you gain the Maushiro __for keeps__?",
+        "answers": ["octave of the maushiro"]
+    },
+{
+        "question": "What is the name of the original animal that the rifthound monsters replaced in Tsurumi Island?",
+        "answers": ["wen kamuy"]
+    },
+{
+        "question": "Before he was called Xiao, what was the Silent Yasha’s name?",
+        "answers": ["altus"]
+    },
+{
+        "question": "What is the name of the domain where you can farm the Pale Flame and Tenacity of the Millelith artifact sets?",
+        "answers": ["ridge watch"]
+    },
+{
+        "question": "Which shrine maiden is Sayu afraid of?",
+        "answers": ["kano nana"]
+    },
+{
+        "question": "What Keqing’s Opulent Splendor outfit made of?",
+        "answers": ["silk flowers and violetgrass", "silk flowers violetgrass"]
+    },
+{
+        "question": "Who is Beidou’s EN voice actor?",
+        "answers": ["allegra clark"]
     }
 ]

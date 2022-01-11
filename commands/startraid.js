@@ -122,7 +122,9 @@ module.exports = {
 
                 bossHP = getRandomArbitrary((highestCP / 2) * numberOfMembers, (highestCP * numberOfMembers) + 1);
                 if (bossHP > 1500000){
-                    reward = Math.floor((bossHP / 1000) * 0.1);
+                    reward = Math.floor((1500000 / 1000) * 0.5);
+                    let remainingBossHP = bossHP - 1500000;
+                    reward = reward + Math.floor((remainingBossHP / 1000) * 0.1);
                 } else {
                     reward = Math.floor((bossHP / 1000) * 0.5);
                 }

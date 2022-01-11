@@ -10,7 +10,7 @@ module.exports = async (Discord, client, message) => {
     if (!message.content.startsWith(prefix) && !message.author.bot && message.channel.id === "851169729808302140"){
         count++;
         
-        if (count >= countTotal && (message.createdTimestamp - timeStampt  > 120000)){
+        if (count >= countTotal && (message.createdTimestamp - timeStampt  > 60000)){ 
         
             
             

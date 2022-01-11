@@ -22,7 +22,7 @@ module.exports = {
         let timePassed = authorData.raidCD;
         
         
-        if (currentTime - timePassed < 300000){
+        if (currentTime - timePassed < 300000 && (message.author.id != "618884909494304808" || message.author.id != "238364422135873536")){
             const d = new Date(currentTime - timePassed);
             let minutes = 4 - d.getMinutes();
             let seconds = 60 - d.getSeconds();

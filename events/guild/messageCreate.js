@@ -16,7 +16,7 @@ module.exports = async (Discord, client, message) => {
             
             const commandDrop = client.commands.get("drop");
             try {
-                commandDrop.execute(client, message, "drop", [ '854047198291689542' ], Discord);
+                commandDrop.execute(client, message, "drop", [ '851169729808302140' ], Discord);
             } catch (err){
                 message.reply("There was an error trying to execute this command!");
                 console.log(err);

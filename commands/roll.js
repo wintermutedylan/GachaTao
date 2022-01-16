@@ -422,11 +422,11 @@ module.exports = {
             }
         
 
-            message.channel.send({ embeds: [newEmbed]});
+            message.reply({ embeds: [newEmbed]});
             if (awkThisUnit){
                 message.channel.send(`${userMention(message.author.id)} has just awoken ${rolledCharacter.id}, Congrats!`);
             }
-            if (rolledCharacter.id === "Milim" || rolledCharacter.id === "Maid Milim"){
+            if (rolledCharacter.id === "Milim" || rolledCharacter.id === "Maid Milim" || rolledCharacter.id === "Summer Milim"){
                 var target = message.guild.members.cache.get(message.author.id);
                 var role = "925851063200936027";
                 if (target.roles.cache.some(role => role.name === 'Chapter 1')){
@@ -552,6 +552,8 @@ module.exports = {
                     } else {
                         if (channelID === maidBannerChannel){
                             rarestUnit = "Maid Milim";
+                        } else if (channelID === summerBannerChannel){
+                            rarestUnit = "Summer Milim";
                         } else {
                             rarestUnit = "Milim";
                         }
@@ -729,7 +731,7 @@ module.exports = {
             
         
 
-            message.channel.send({ embeds: [newEmbed10]});
+            message.reply({ embeds: [newEmbed10]});
             if (awkCharacters.length != 0){
                 var awkUnits = "";
                 if (awkCharacters.length === 1){
@@ -743,7 +745,7 @@ module.exports = {
                 }
             }
         }
-        if (rarestUnit === "Milim" || rarestUnit === "Maid Milim"){
+        if (rarestUnit === "Milim" || rarestUnit === "Maid Milim" || rarestUnit === "Summer Milim"){
             var target = message.guild.members.cache.get(message.author.id);
             var role = "925851063200936027";
             if (target.roles.cache.some(role => role.name === 'Milim')){

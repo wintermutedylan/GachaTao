@@ -722,7 +722,7 @@ module.exports = {
                 }
             }
             if (rarityValue2 <= 2){
-                newEmbed.setImage(`${image2}`)
+                newEmbed10.setImage(`${image2}`)
             }
             
             

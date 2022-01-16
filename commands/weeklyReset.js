@@ -41,6 +41,7 @@ module.exports = {
                     {
                         $set: {
                             weeklyRaidsWon: 0,
+                            megaRaidDamageDone: 0
                             
                         },
                     }

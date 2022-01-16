@@ -33,7 +33,9 @@ module.exports = {
             **g$myquests** - brings up a list of completed quests
             **g$unit** <unit name> - brings up a brief description of the unit
             **g$claimdaily** - Claims your daily <:bootaomonez:909294739197681754> and Raid Tickets
-            **g$raidhelp** - brings up the simple raid guide`)
+            **g$raidhelp** - brings up the simple raid guide
+            **g$shortprofile** - brings up a version of your profile without units
+            **g$startmegaraid** - opens a takedown-quest raid party`)
             .setFooter("LR Pity: 175, UR Pity: 50");
 
             message.channel.send({ embeds: [newEmbed] });

@@ -8,8 +8,7 @@ module.exports = {
     permissions: ["ADMINISTRATOR"],
     description: "steal Boo Taos from a specific user",
     async execute(client, message,cmd,args,Discord){
-        return message.channel.send("No");
-        //return message.channel.send("Under Construction.  Will make an annoucment when done");
+        return message.channel.send("Under Construction.  Will make an annoucment when done");
 
         let authorData; 
         authorData = await playerModel.findOne({ userID: message.author.id});
@@ -19,13 +18,23 @@ module.exports = {
         if (authorData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
         var timePassed = authorData.stealCD;
 
-        if (currentTime - timePassed < 300000){ 
-            return message.reply("You must wait 8 hours before you run this command again");
-        }
+        
+        
 
         var person = message.mentions.members.first();
         if (!person) return message.channel.send("Please metion a user when using that command");
         if (person.id === message.author.id) return message.channel.send("You can't steal from yourself");
+        if (person.user.bot) return message.channel.send("You can't steal from a bot");
+        
+        if (currentTime - timePassed < 28800000){
+            const d = new Date(currentTime - timePassed);
+            let hours = 26 - d.getHours();
+            let minutes = 60 - d.getMinutes();
+            let seconds = 60 - d.getSeconds();
+            return message.reply(`You must wait ${hours.toString().padStart(2, 0)}:${minutes.toString().padStart(2, 0)}:${seconds.toString().padStart(2, 0)} hours before you can steal again`);
+        }
+        
+        
 
         let playerData; 
         playerData = await playerModel.findOne({ userID: person.id});
@@ -65,16 +74,19 @@ module.exports = {
                 var amount = getRandomArbitrary(1, fourthCoins);
                 giveCoins(amount, message.author.id);
                 removeCoins(amount, person.id);
+                setStealCD(currentTime, message.author.id);
                 message.reply(`You have successfully stolen **${amount}** <:bootaomonez:909294739197681754> from **${person.displayName}**`)
                 break;
             case 2:
                 var amount = getRandomArbitrary(1, authorCoins);
                 if (authorData.coins - amount < 0) return message.reply(`The steal backfired but looks like you are too poor to lose any <:bootaomonez:909294739197681754>`);
                 removeCoins(amount, message.author.id);
+                setStealCD(currentTime, message.author.id);
                 message.reply(`The steal backfired and you have lost **${amount}** <:bootaomonez:909294739197681754>`);
                 break;
             case 3:
                 message.reply("The steal has failed. Try again later");
+                setStealCD(currentTime, message.author.id);
                 break;
         }
         
@@ -113,6 +125,23 @@ async function removeCoins(ammount, ID){
                 $inc: {
                     coins: -ammount
                     
+                },
+            }
+        );
+
+    } catch(err){
+        console.log(err);
+    }
+}
+async function setStealCD(time, ID){
+    try {
+        await playerModel.findOneAndUpdate(
+            {
+                userID: ID
+            },
+            {
+                $set: {
+                    stealCD: time,
                 },
             }
         );

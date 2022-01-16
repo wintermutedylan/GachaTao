@@ -1,15 +1,23 @@
 var maids = require("../units/maids.json");
 const playerModel = require("../models/playerSchema");
+const bossModel = require("../models/bossSchema");
 const { userMention, memberNicknameMention, channelMention, roleMention } = require('@discordjs/builders');
 const lucky = require('lucky-item').default;
+const { MessageActionRow } = require("discord.js");
+const progressbar = require('string-progressbar');
 module.exports = {
-    name: 'startraid',
+    name: 'startmegaraid',
     aliases: [],
     permissions: [],
     description: "battle a raid boss",
     async execute(client, message,cmd,args,Discord){
         
         let allPlayerData = await playerModel.find({});
+        let allBossData = await bossModel.find({});
+        let boss = allBossData[0];
+        var line = '🟥'
+        var slider = '🟩';
+        if (boss.currentHP === 0) return message.channel.send("Boss is already dead. Congrats");
         let authorData; 
         authorData = await playerModel.findOne({ userID: message.author.id});
         let currentTime = message.createdTimestamp;
@@ -39,10 +47,12 @@ module.exports = {
         let raidStarter = users.username;
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#E76AA3')
-        .setTitle(`${users.username} has started a Raid`)
+        .setTitle(`${users.username} has started a Mega Raid`)
         .setDescription(`React with ✅ here to join the raid party!\n Dungeon closes in 60 seconds!
-        **Battle Mode Milim: Destroyer of Worlds**`)
-        .setImage('https://media.discordapp.net/attachments/646489430777004045/930575556557299772/raidbossmilim.png')
+        **${boss.bossName}**
+        Current HP: ${progressbar.filledBar(boss.totalHP, boss.currentHP, 10, line, slider)[0]}
+        HP: ${new Intl.NumberFormat().format(boss.currentHP)}/${new Intl.NumberFormat().format(boss.totalHP)}`)
+        .setImage(`${boss.bossIcon}`)
         
     
         message.channel.send({ embeds: [newEmbed] }).then(sent => {
@@ -84,7 +94,7 @@ module.exports = {
                                     setDailyRaids(A, user.id);
                                     entries.push({ user: user.id, CP: userCP});
                                 
-                                    message.channel.send(`${userMention(user.id)} you have been added to the Raid party with a CP of ${new Intl.NumberFormat().format(userCP)} ~ Good Luck!`);
+                                    message.channel.send(`${userMention(user.id)} you have been added to the Mega Raid party with a CP of ${new Intl.NumberFormat().format(userCP)} ~ Good Luck!`);
                                 }
                                 else if (A - userRaidsDone < 300000 && user.id != message.author.id){
                                     const ds = new Date(A - userRaidsDone);
@@ -96,7 +106,7 @@ module.exports = {
                                     setDailyRaids(A, user.id);
                                     entries.push({ user: user.id, CP: userCP});
                                 
-                                    message.channel.send(`${userMention(user.id)} you have been added to the Raid party with a CP of ${new Intl.NumberFormat().format(userCP)} ~ Good Luck!`);
+                                    message.channel.send(`${userMention(user.id)} you have been added to the Mega Raid party with a CP of ${new Intl.NumberFormat().format(userCP)} ~ Good Luck!`);
                                 }
                             }
                     
@@ -110,66 +120,53 @@ module.exports = {
 
             collector.on('end', collected => {
                 
-                let bossHP = 0;
-                let highestCP = 0;
-                let numberOfMembers = 0;
-                let partyWon = false;
-                let reward = 0;
                 
+                let highestDMG = 0;
+                let highestUser;
+                let killedBoss = false;
                 let arr1 = getUniqueListBy(entries, 'user');
-                numberOfMembers = arr1.length;
                 for(let i = 0; i < arr1.length; i++){
-                    if (arr1[i].CP > highestCP){
-                        highestCP = arr1[i].CP;
+                    if (arr1[i].CP > highestDMG){
+                        highestDMG = arr1[i].CP;
+                        highestUser = arr1[i].user;
                     }
                 }
                 for (let p = 0; p < arr1.length; p++){
                     partyCP = partyCP + arr1[p].CP;
                 }
-                
-
-                bossHP = getRandomArbitrary((highestCP / 2) * numberOfMembers, (highestCP * numberOfMembers) + 1);
-                reward = Math.floor(100 * Math.log10(highestCP) * Math.sqrt(arr1.length));
-                partyWon = partyCP >= bossHP;
-
-                if (partyWon){
-                    const newEmbed = new Discord.MessageEmbed()
-                    .setColor('#E76AA3')
-                    .setTitle(`Raid Won`)
-                    .setDescription(`Congrats on winning the raid <a:HuTaoHype:878793570969063475>\nhere are some more details` )
-                    .addFields(
-                        {name: 'Started By', value: `${raidStarter}`},
-                        {name: 'Boss HP', value: `${new Intl.NumberFormat().format(bossHP)}`},
-                        {name: 'Party CP', value: `${new Intl.NumberFormat().format(partyCP)}`},
-                        {name: 'Reward Amount', value: `${new Intl.NumberFormat().format(reward)}<:bootaomonez:909294739197681754>`}
-                    )
-                    //message.channel.send(`Boss HP: ${new Intl.NumberFormat().format(bossHP)}\nParty CP: ${new Intl.NumberFormat().format(partyCP)}\nReward: ${new Intl.NumberFormat().format(reward)}\nWon? ${partyWon}`);
-                    for (let j = 0; j < arr1.length; j++){
-                        giveCoins(reward, arr1[j].user);
-                        updateRaidCounter(arr1[j].user);
-                    }
-
-                    message.reply({ embeds: [newEmbed] })
-                    
-                } else {
-                    
-                    let remainingHP = bossHP - partyCP;
-                    const newEmbed = new Discord.MessageEmbed()
-                    .setColor('#E76AA3')
-                    .setTitle(`Raid Lost`)
-                    .setDescription(`Looks like you got beat up by Milim, Try again later <a:milimcry:928779807783780392>`)
-                    .addFields(
-                        {name: 'Started By', value: `${raidStarter}`},
-                        {name: 'Boss HP', value: `${new Intl.NumberFormat().format(bossHP)}`},
-                        {name: 'Party CP', value: `${new Intl.NumberFormat().format(partyCP)}`},
-                        {name: 'Remaining HP', value: `${new Intl.NumberFormat().format(remainingHP)}`}
-                    )
-                    .setImage('https://media.discordapp.net/attachments/646489430777004045/930575510050836500/milimtrim.gif')
-
-                    message.reply({ embeds: [newEmbed] })
-
-
+                let afterHP = boss.currentHP - partyCP;
+                if (afterHP <= 0) {
+                    killedBoss = true;
+                    afterHP = 0;
                 }
+                
+                minusBossHP(afterHP, boss.bossName);
+                const newEmbed = new Discord.MessageEmbed()
+                .setColor('#E76AA3')
+                .setTitle(`Raid Won`)
+                .setDescription(`You dealt some damage to **${boss.bossName}**
+                Here are some stats` )
+                .addFields(
+                    {name: 'Started By', value: `${raidStarter}`},
+                    {name: 'Dealt the Most DMG', value: `${userMention(highestUser)}`},
+                    {name: 'Party CP', value: `${new Intl.NumberFormat().format(partyCP)}`},
+                    {name: 'Remaining HP', value: `${progressbar.filledBar(boss.totalHP, afterHP, 10, line, slider)[0]}
+                    ${new Intl.NumberFormat().format(afterHP)}/${new Intl.NumberFormat().format(boss.totalHP)}`}
+                )
+                
+                for (let j = 0; j < arr1.length; j++){
+                    updateDamageDone(arr1[j].CP, arr1[j].user);
+                    
+                }
+
+                message.reply({ embeds: [newEmbed] })
+                if (killedBoss){
+                    message.channel.send("Congrats on killing this weeks Mega boss. \nCome back next week for another round")
+                }
+
+
+                
+                
 
             });
         })
@@ -203,7 +200,7 @@ async function userHasProfile(message, ID){
 
 }
 
-async function giveCoins(ammount, ID){
+async function updateDamageDone(ammount, ID){
     try {
         await playerModel.findOneAndUpdate(
             {
@@ -211,7 +208,7 @@ async function giveCoins(ammount, ID){
             },
             {
                 $inc: {
-                    coins: ammount
+                    megaRaidDamageDone: ammount
                     
                 },
             }
@@ -250,6 +247,24 @@ async function removeTickets(ammount, ID){
             {
                 $inc: {
                     raidTickets: -ammount
+                    
+                },
+            }
+        );
+
+    } catch(err){
+        console.log(err);
+    }
+}
+async function minusBossHP(ammount, ID){
+    try {
+        await bossModel.findOneAndUpdate(
+            {
+                bossName: ID
+            },
+            {
+                $set: {
+                    currentHP: ammount
                     
                 },
             }

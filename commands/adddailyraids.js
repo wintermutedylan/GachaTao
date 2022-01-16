@@ -7,9 +7,9 @@ module.exports = {
     permissions: ["ADMINISTRATOR"],
     description: "resets the daily so people can claim it again",
     async execute(client, message,cmd,args,Discord){
-        let IDs = args[0];
-        let allPlayerData = await playerModel.find({ userID: IDs});
-        return message.channel.send(`${allPlayerData.dailyRaidsPlayed}`)
+        
+        let allPlayerData = await playerModel.find({});
+        //return message.channel.send(`${allPlayerData.dailyRaidsPlayed}`)
         for (let i = 0; i < allPlayerData.length; i++){
             var ID = allPlayerData[i].userID;
             try {
@@ -19,7 +19,7 @@ module.exports = {
                     },
                     {
                         $set: {
-                            dailyRaidsPlayed: 0
+                            rollCD: 0
                             
                         },
                     }

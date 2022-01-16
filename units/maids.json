@@ -1,7 +1,7 @@
 [
     {
         "id": "Milim",
-        "icon": "CuteMilim.jpg",
+        "icon": "https://media.discordapp.net/attachments/932376501918253097/932382976199778334/CuteMilim.jpg?width=649&height=910",
         "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>",
         "rValue": 1,
         "CP": 100000,
@@ -9,7 +9,7 @@
     },
     {
         "id": "Summer Milim",
-        "icon": "sumermilim.jpg",
+        "icon": "https://media.discordapp.net/attachments/930596168902254652/932382909657149460/sumermilim.jpg?width=682&height=910",
         "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>",
         "rValue": 1,
         "CP": 110000,
@@ -17,7 +17,7 @@
     },
     {
         "id": "Sewage Monster Smug",
-        "icon": "smug.png",
+        "icon": "https://media.discordapp.net/attachments/930577252406685726/930577317552590878/smug.png",
         "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
         "rValue": 3,
         "CP": 10000,
@@ -25,7 +25,7 @@
     },
     {
         "id": "Idol Ren",
-        "icon": "idolren.png",
+        "icon": "https://media.discordapp.net/attachments/930577252406685726/930577317170917446/idolren.png?width=910&height=910",
         "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
         "rValue": 3,
         "CP": 10000,
@@ -33,7 +33,7 @@
     },
     {
         "id": "Guardian Angel Dana",
-        "icon": "dana.png",
+        "icon": "https://media.discordapp.net/attachments/930577252406685726/930577316902494208/dana.png",
         "rarity": "<:U_:908870913183846401><:R_:908870913167089704>",
         "rValue": 3,
         "CP": 10000,
@@ -113,7 +113,7 @@
     },
     {
         "id": "Gine",
-        "icon": "gine.png",
+        "icon": "https://media.discordapp.net/attachments/932376501918253097/932376539310460959/gine.png",
         "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
         "rValue": 2,
         "CP": 69696,
@@ -137,7 +137,7 @@
     },
     {
         "id": "Otaku",
-        "icon": "otaku.gif",
+        "icon": "https://media.discordapp.net/attachments/932376501918253097/932377692039430176/otaku.gif",
         "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
         "rValue": 2,
         "CP": 69420,
@@ -257,7 +257,7 @@
     },
     {
         "id": "WynkenBlynken",
-        "icon": "wyn.png",
+        "icon": "https://media.discordapp.net/attachments/932376501918253097/932376567227768962/wyn.png",
         "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
         "rValue": 2,
         "CP": 66666,
@@ -657,7 +657,7 @@
     },
     {
         "id": "Maid Cafe Kiui",
-        "icon": "maidkiui.jpg",
+        "icon": "https://media.discordapp.net/attachments/927374124114911272/930559529681309746/BA0C32F7-1321-44ED-817C-623E3A50A008.jpg?width=512&height=910",
         "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
         "rValue": 2,
         "CP": 27000,
@@ -665,7 +665,7 @@
     },
     {
         "id": "Catboy Maid Shoko",
-        "icon": "maidshoko.jpg",
+        "icon": "https://media.discordapp.net/attachments/927374124114911272/930559530079760444/1A8A86A7-2C79-4443-8B2D-F4575819CAC4.jpg?width=512&height=910",
         "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
         "rValue": 2,
         "CP": 69000,
@@ -673,7 +673,7 @@
     },
     {
         "id": "Tsundere Maid Ren",
-        "icon": "maidren.jpg",
+        "icon": "https://media.discordapp.net/attachments/927374124114911272/930574884759818301/6E1DD7BE-2644-4199-ABA2-61FFB63F46EB.jpg?width=514&height=910",
         "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
         "rValue": 2,
         "CP": 40000,
@@ -681,7 +681,7 @@
     },
     {
         "id": "Maid Cafe Lio",
-        "icon": "maidlio.jpg",
+        "icon": "https://media.discordapp.net/attachments/927374124114911272/930574885057605652/28F22B8D-51E3-4CC4-A3F2-02768402DF2E.jpg?width=512&height=910",
         "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
         "rValue": 2,
         "CP": 20000,
@@ -689,7 +689,7 @@
     },
     {
         "id": "Maid Cafe Merrytaler",
-        "icon": "maidmerrytaler.jpg",
+        "icon": "https://media.discordapp.net/attachments/927374124114911272/930574885401550919/918D861D-056E-4E99-AA6C-1DF929CB8A62.jpg?width=514&height=910",
         "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
         "rValue": 2,
         "CP": 45000,
@@ -697,7 +697,7 @@
     },
     {
         "id": "Maid Milim",
-        "icon": "maidmilim.jpg",
+        "icon": "https://media.discordapp.net/attachments/927374124114911272/932375924761063494/maidmilim.jpg?width=910&height=910",
         "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>",
         "rValue": 1,
         "CP": 120000,
@@ -705,10 +705,50 @@
     },
     {
         "id": "Galaxy Milim",
-        "icon": "galaxymilim.png",
+        "icon": "https://media.discordapp.net/attachments/932376271499956304/932376330119544952/galaxymilim.png?width=1324&height=910",
         "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>",
         "rValue": 1,
         "CP": 150000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Summer Swede",
+        "icon": "https://media.discordapp.net/attachments/930596168902254652/930596433013379092/3E85E85C-F6E7-4FC6-9184-CD5A8279C987.jpg?width=537&height=910",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 60000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Summer Shoko",
+        "icon": "https://media.discordapp.net/attachments/930596168902254652/930596433311191110/044420BA-17AD-477D-A017-2F7DCDD35813.jpg?width=478&height=909",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 50069,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Summer Adam",
+        "icon": "https://media.discordapp.net/attachments/930596168902254652/930596433655128194/B8B85DB0-9FCA-4468-A108-A47A3DF4FAD5.jpg?width=431&height=910",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 32000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Bikini Gaius",
+        "icon": "https://media.discordapp.net/attachments/930596168902254652/930596433961299999/3E2D852E-C481-465B-8E14-875E72CBF3DD.jpg?width=448&height=910",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 43000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Summer Aki",
+        "icon": "https://media.discordapp.net/attachments/930596168902254652/930596434179420240/1B6303FD-C5DB-4E6C-BC32-DA846803BA3F.jpg?width=444&height=910",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 42000,
         "awakenThreshold": 1
     }
 ]

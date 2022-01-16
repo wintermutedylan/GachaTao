@@ -8,11 +8,13 @@ module.exports = {
     permissions: [],
     description: "Give coins to users",
     async execute(client, message, cmd, args, Discord){
-        return message.channel.send("No");
+        
         //make a thing where people can't use this command untill they run register
         //so that they have to get their starting unit first
         let playerData; 
         playerData = await playerModel.findOne({ userID: message.author.id});
+        let currentTime = message.createdTimestamp;
+        
         
         
         if (!playerData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
@@ -23,6 +25,9 @@ module.exports = {
         if (args.length === 0){
             args.push('1');
         }
+        let timePassed = playerData.rollCD;
+        var userAboose = await client.users.fetch(message.author.id);
+        
         if (args[0] === '1' || args[0] === '10'){
             var ID = message.author.id;
             var channelID = message.channel.id;
@@ -69,13 +74,16 @@ module.exports = {
 
         ];
 
-        var summerBannerChannel = "";
+        var summerBannerChannel = "928067051657003089";
         const arrLRSummer = [
             { id: "Gine", weight: 25 },
             { id: "WynkenBlynken", weight: 25 },
             { id: "Otaku", weight: 25 },
-            { id: "WynkenBlynken", weight: 75 },
-            { id: "WynkenBlynken", weight: 75 },
+            { id: "Summer Swede", weight: 75 },
+            { id: "Summer Shoko", weight: 75 },
+            { id: "Summer Adam", weight: 75 },
+            { id: "Bikini Gaius", weight: 75 },
+            { id: "Summer Aki", weight: 75 },
 
         ];
 
@@ -194,7 +202,14 @@ module.exports = {
 
         var rolledCharacter;
         var rolledRarity;
-    if (channelID === standardBannerChannel || channelID === maidBannerChannel || channelID === summerBannerChannel || channelID === galaxyBannerChannel)   {   
+    if (channelID === standardBannerChannel || channelID === maidBannerChannel || channelID === summerBannerChannel || channelID === galaxyBannerChannel)   { 
+        if (currentTime - timePassed < 10000){
+            const d = new Date(currentTime - timePassed);
+            let seconds = 10 - d.getSeconds();
+            console.log(`User ${userAboose.username}#${userAboose.discriminator} rolled too fast`);
+            return message.reply(`You must wait ${seconds.toString().padStart(2, 0)} seconds before you can roll again`);
+        }
+        setRollCD(currentTime, message.author.id);  
         if (args[0] === '1'){ // For the single pull sorted by rarity.  Highest to lowest
             
             if (playerData.coins  < 50) return message.reply("Go get more coins baka");
@@ -203,6 +218,9 @@ module.exports = {
             if (LRPity === 175){
                 if (channelID === maidBannerChannel){
                     rolledCharacter = lucky.itemBy(arrLRMaid, 'weight');
+                }
+                else if(channelID === summerBannerChannel){
+                    rolledCharacter = lucky.itemBy(arrLRSummer, 'weight');
                 } else {
                     rolledCharacter = lucky.itemBy(arrLR, 'weight');
                 }
@@ -222,6 +240,8 @@ module.exports = {
                     case 1:
                         if (channelID === maidBannerChannel){
                             rolledCharacter = { id: "Maid Milim", weight: 25 };
+                        } else if(channelID === summerBannerChannel){
+                            rolledCharacter = { id: "Summer Milim", weight: 25 };
                         } else {
                             rolledCharacter = { id: "Milim", weight: 25 };
                         }
@@ -233,6 +253,8 @@ module.exports = {
                     case 2:
                         if (channelID === maidBannerChannel){
                             rolledCharacter = lucky.itemBy(arrLRMaid, 'weight');
+                        } else if(channelID === summerBannerChannel){
+                            rolledCharacter = lucky.itemBy(arrLRSummer, 'weight');
                         } else {
                             rolledCharacter = lucky.itemBy(arrLR, 'weight');
                         }
@@ -273,15 +295,15 @@ module.exports = {
                 }
             }
             var image;
-            var imageFile;
+            let rarityValue;
             var rolledCP;
             var awkNeeded;
             var awkThisUnit = false;
             
             for (let i = 0; i < unitSplash.length; i++){
                 if (rolledCharacter.id === unitSplash[i].id){
-                    imageFile = unitSplash[i].icon;
-                    image = new Discord.MessageAttachment(`icons/${unitSplash[i].icon}`);
+                    image = unitSplash[i].icon;
+                    rarityValue = unitSplash[i].rValue;
                     rolledCP = unitSplash[i].CP;
                     awkNeeded = unitSplash[i].awakenThreshold;
                 }
@@ -392,11 +414,15 @@ module.exports = {
             .setColor('#E76AA3')
             .setTitle(`${rolledRarity} ${rolledCharacter.id}`)
             .setDescription(`${userMention(message.author.id)}  just pulled ${rolledCharacter.id} \nCP: ${new Intl.NumberFormat().format(rolledCP)}`)
-            .setImage(`attachment://${imageFile}`)
+            
             .setFooter(`LR Pity: ${LRPity}, UR Pity: ${URPity}`);
+
+            if (rarityValue <= 2){
+                newEmbed.setImage(`${image}`)
+            }
         
 
-            message.channel.send({ embeds: [newEmbed], files: [image] });
+            message.channel.send({ embeds: [newEmbed]});
             if (awkThisUnit){
                 message.channel.send(`${userMention(message.author.id)} has just awoken ${rolledCharacter.id}, Congrats!`);
             }
@@ -433,6 +459,8 @@ module.exports = {
                 if (LRPity === 175){ 
                     if (channelID === maidBannerChannel){
                         character = lucky.itemBy(arrLRMaid, 'weight');
+                    } else if(channelID === summerBannerChannel){
+                        character = lucky.itemBy(arrLRSummer, 'weight');
                     } else {
                         character = lucky.itemBy(arrLR, 'weight');
                     }
@@ -455,6 +483,8 @@ module.exports = {
                     case 1:
                         if (channelID === maidBannerChannel){
                             character = { id: "Maid Milim", weight: 25 };
+                        } else if(channelID === summerBannerChannel){
+                            character = { id: "Summer Milim", weight: 25 };
                         } else {
                             character = { id: "Milim", weight: 25 };
                         }
@@ -466,6 +496,8 @@ module.exports = {
                     case 2:
                         if (channelID === maidBannerChannel){
                             character = lucky.itemBy(arrLRMaid, 'weight');
+                        }else if(channelID === summerBannerChannel){
+                            character = lucky.itemBy(arrLRSummer, 'weight');
                         } else {
                             character = lucky.itemBy(arrLR, 'weight');
                         }
@@ -679,16 +711,19 @@ module.exports = {
     
                 )
             }
-            var imageFile;
-            var images;
+            
+            let image2;
+            let rarityValue2;
             for (let i = 0; i < unitSplash.length; i++){
                 if (rarestUnit === unitSplash[i].id){
-                    imageFile = unitSplash[i].icon;
-                    images = new Discord.MessageAttachment(`icons/${unitSplash[i].icon}`);
+                    image2 = unitSplash[i].icon;
+                    rarityValue2 = unitSplash[i].rValue;
                     
                 }
             }
-            newEmbed10.setImage(`attachment://${imageFile}`);
+            if (rarityValue2 <= 2){
+                newEmbed.setImage(`${image2}`)
+            }
             
             
             
@@ -722,7 +757,7 @@ module.exports = {
             message.channel.send(`${userMention("238364422135873536")}, ${user.username}#${user.discriminator} has just pulled **${rarestUnit}**`);
         }
         } else {
-            message.reply(`Please only roll in these channels: ${channelMention(standardBannerChannel)}, ${channelMention(maidBannerChannel)}`);//, ${channelMention(summerBannerChannel)}, ${channelMention(galaxyBannerChannel)}
+            message.reply(`Please only roll in these channels: ${channelMention(standardBannerChannel)}, ${channelMention(maidBannerChannel)}, ${channelMention(summerBannerChannel)}`);//, ${channelMention(galaxyBannerChannel)}
         }    
     } else {
         return message.reply('Please enter either nothing, 1, or 10');
@@ -730,4 +765,21 @@ module.exports = {
 
     }
     // setting the dupes in the DB.  search the users array to see if they have a character.  if not push to the array.  if they do set the dictionary to +1 using $set.
+}
+async function setRollCD(time, ID){
+    try {
+        await playerModel.findOneAndUpdate(
+            {
+                userID: ID
+            },
+            {
+                $set: {
+                    rollCD: time,
+                },
+            }
+        );
+
+    } catch(err){
+        console.log(err);
+    }
 }

@@ -9,7 +9,7 @@ module.exports = {
     permissions: [],
     description: "Complete a quest",
     async execute(client, message,cmd,args,Discord){
-        return message.channel.send("No");
+        
         if (args.length === 0) return message.reply("Please enter a unit name then a user ID");
             
             let unitName = args.join(" ");
@@ -20,14 +20,16 @@ module.exports = {
             let rolledRarity;
             let imageFile;
             let image;
+            let rarityValue;
             for (let i = 0; i < maids.length; i++){
                 if (unitName === maids[i].id){
                     isUnit = true;
-                    imageFile = maids[i].icon;
-                    image = new Discord.MessageAttachment(`icons/${maids[i].icon}`);
+                    image = maids[i].icon;
                     rolledCP = maids[i].CP;
                     awkNeeded = maids[i].awakenThreshold;
                     rolledRarity = maids[i].rarity;
+                    rarityValue = maids[i].rValue;
+
 
 
                     
@@ -40,10 +42,13 @@ module.exports = {
             .setTitle(`${rolledRarity} ${unitName}`)
             .setDescription(`**CP**: ${new Intl.NumberFormat().format(rolledCP)}
             **Awaken Threshold**: ${awkNeeded}`)
-            .setImage(`attachment://${imageFile}`)
+            if (rarityValue <= 2){
+                newEmbed.setImage(`${image}`)
+            }
+            
         
 
-            message.channel.send({ embeds: [newEmbed], files: [image] });
+            message.channel.send({ embeds: [newEmbed]});
 
     }
 }

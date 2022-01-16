@@ -18,7 +18,9 @@ const playerSchema = new mongoose.Schema({
     raidsWon: { type: Number, default: 0},
     weeklyRaidsWon: { type: Number, default: 0},
     dailyRaidsPlayed: { type: Number, default: 0},
-    questsComplete: { type: Array, default: []}
+    questsComplete: { type: Array, default: []},
+    megaRaidDamageDone: { type: Number, default: 0},
+    rollCD: { type: Number}
 
 })
 

@@ -19,7 +19,7 @@ module.exports = {
             Anyone who reacts ✅ to the raid party embed within 60 seconds will automatically join the party. 
             The raid will begin after the 60 second mark. 
             To defeat the boss, the collective party's CP must be greater than the raid boss's CP. 
-            > Rewards: 500 Base Boo Taos + 50 Boo Taos for each party member that joins. 
+            > Rewards: 100 x log(HCP) x sqrt(#ofparticipants) 
             **g$raidhelp** - brings up this embed 
             **g$raidlb** - brings up weekly & all time raid leaderboard`)
             .setFooter("*Note: Once you start a raid, you lose 1 ticket. No refunds");

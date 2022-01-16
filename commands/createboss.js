@@ -3,7 +3,7 @@ const bossModel = require("../models/bossSchema");
 const { userMention, memberNicknameMention, channelMention, roleMention } = require('@discordjs/builders');
 const progressbar = require('string-progressbar');
 module.exports = {
-    name: 'createraidboss',
+    name: 'createboss',
     aliases: [],
     permissions: ["ADMINISTRATOR"],
     description: "resets the weekly raids won",

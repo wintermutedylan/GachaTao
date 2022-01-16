@@ -729,7 +729,7 @@ module.exports = {
             
         
 
-            message.channel.send({ embeds: [newEmbed10], files: [images] });
+            message.channel.send({ embeds: [newEmbed10]});
             if (awkCharacters.length != 0){
                 var awkUnits = "";
                 if (awkCharacters.length === 1){

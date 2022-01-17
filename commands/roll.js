@@ -44,7 +44,7 @@ module.exports = {
         // good values
         
         const arr = [
-            { id: 1, weight: 3 },
+            { id: 1, weight: 5 },
             { id: 2, weight: 30 },
             { id: 3, weight: 150 },
             { id: 4, weight: 900 },

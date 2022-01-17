@@ -70,7 +70,9 @@ async function wipePlayer(i) {
                     raidsWon: 0,
                     weeklyRaidsWon: 0,
                     questsComplete: [],
-                    dailyRaidsPlayed: 0
+                    dailyRaidsPlayed: 0,
+                    rollCD: 1640744901699,
+                    megaRaidDamageDone: 0
                     
 
 

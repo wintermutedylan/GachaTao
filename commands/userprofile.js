@@ -12,7 +12,7 @@ module.exports = {
         let playerData; 
         playerData = await playerModel.findOne({ userID: ID});
         if (!playerData) return message.channel.send("You don't exist. Please try again.");
-        if (playerData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
+        if (playerData.starterSelected === false) return message.reply("user needs to run g$register first before anything else");
         let totalCP = playerData.totalCP;
         let totalCoins = playerData.coins;
         var user = await client.users.fetch(ID);

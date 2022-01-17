@@ -44,7 +44,7 @@ module.exports = {
         // good values
         
         const arr = [
-            { id: 1, weight: 6 },
+            { id: 1, weight: 3 },
             { id: 2, weight: 30 },
             { id: 3, weight: 150 },
             { id: 4, weight: 900 },
@@ -422,19 +422,20 @@ module.exports = {
             }
         
 
-            message.reply({ embeds: [newEmbed]});
+            message.channel.send({ embeds: [newEmbed]});
             if (awkThisUnit){
                 message.channel.send(`${userMention(message.author.id)} has just awoken ${rolledCharacter.id}, Congrats!`);
             }
             if (rolledCharacter.id === "Milim" || rolledCharacter.id === "Maid Milim" || rolledCharacter.id === "Summer Milim"){
                 var target = message.guild.members.cache.get(message.author.id);
                 var role = "925851063200936027";
-                if (target.roles.cache.some(role => role.name === 'Chapter 1')){
+                if (target.roles.cache.some(role => role.name === 'Milim')){
             
                 } else {
                     var user = await client.users.fetch(message.author.id);
                     target.roles.add(role);
-                    message.channel.send(`${userMention("238364422135873536")}, ${user.username}#${user.discriminator} has just pulled **${rolledCharacter.id}**`);
+                    message.channel.send(`${userMention(message.author.id)}You have rolled Milim and can now run the !milim command. Enjoy the new role`);
+                    
                 }
             } 
             
@@ -731,7 +732,7 @@ module.exports = {
             
         
 
-            message.reply({ embeds: [newEmbed10]});
+            message.channel.send({ embeds: [newEmbed10]});
             if (awkCharacters.length != 0){
                 var awkUnits = "";
                 if (awkCharacters.length === 1){
@@ -752,11 +753,10 @@ module.exports = {
             
             } else {
                 target.roles.add(role);
-                message.reply(`You have rolled Milim and can now run the !milim command. Enjoy the new role`);
+                message.channel.send(`${userMention(message.author.id)}You have rolled Milim and can now run the !milim command. Enjoy the new role`);
     
             }
             var user = await client.users.fetch(message.author.id);
-            message.channel.send(`${userMention("238364422135873536")}, ${user.username}#${user.discriminator} has just pulled **${rarestUnit}**`);
         }
         } else {
             message.reply(`Please only roll in these channels: ${channelMention(standardBannerChannel)}, ${channelMention(maidBannerChannel)}, ${channelMention(summerBannerChannel)}`);//, ${channelMention(galaxyBannerChannel)}

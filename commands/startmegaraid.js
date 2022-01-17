@@ -159,7 +159,7 @@ module.exports = {
                     
                 }
 
-                message.reply({ embeds: [newEmbed] })
+                message.channel.send({ embeds: [newEmbed] })
                 if (killedBoss){
                     message.channel.send("Congrats on killing this weeks Mega boss. \nCome back next week for another round")
                 }

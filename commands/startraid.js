@@ -149,7 +149,7 @@ module.exports = {
                         updateRaidCounter(arr1[j].user);
                     }
 
-                    message.reply({ embeds: [newEmbed] })
+                    message.channel.send({ embeds: [newEmbed] })
                     
                 } else {
                     
@@ -166,7 +166,7 @@ module.exports = {
                     )
                     .setImage('https://media.discordapp.net/attachments/646489430777004045/930575510050836500/milimtrim.gif')
 
-                    message.reply({ embeds: [newEmbed] })
+                    message.channel.send({ embeds: [newEmbed] })
 
 
                 }

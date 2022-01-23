@@ -750,5 +750,93 @@
         "rValue": 2,
         "CP": 42000,
         "awakenThreshold": 1
+    },
+    {
+        "id": "Sheptile",
+        "icon": "lin.png",
+        "rarity": "<:U_:908870913183846401><:C_:908870913267757066>",
+        "rValue": 6,
+        "CP": 2500,
+        "awakenThreshold": 50
+    },
+    {
+        "id": "Doge",
+        "icon": "fairytaler.png",
+        "rarity": "<:C_:908870913267757066>",
+        "rValue": 7,
+        "CP": 5,
+        "awakenThreshold": 50
+    },
+    {
+        "id": "Callie",
+        "icon": "sansidia.gif",
+        "rarity": "<:R_:908870913167089704>",
+        "rValue": 5,
+        "CP": 5300,
+        "awakenThreshold": 25
+    },
+    {
+        "id": "Stoermshark",
+        "icon": "icarrot.png",
+        "rarity": "<:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 4,
+        "CP": 8000,
+        "awakenThreshold": 10
+    },
+    {
+        "id": "Breadbun",
+        "icon": "fairytaler.png",
+        "rarity": "<:C_:908870913267757066>",
+        "rValue": 7,
+        "CP": 10,
+        "awakenThreshold": 50
+    },
+    {
+        "id": "Crowin",
+        "icon": "https://media.discordapp.net/attachments/932376271499956304/932676058984087602/IMG_0841.png?width=605&height=909",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 69421,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Space Bear Miko",
+        "icon": "https://media.discordapp.net/attachments/932376271499956304/932676078361784330/IMG_0867.png?width=557&height=910",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 80000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Space Infinity",
+        "icon": "https://media.discordapp.net/attachments/932376271499956304/933396926647386242/IMG_0877.png?width=538&height=910",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 66000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Eye of the Universe: Wobbly the Carrot",
+        "icon": "https://media.discordapp.net/attachments/932376271499956304/933398337737064498/IMG_0879.png?width=525&height=910",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 96000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Space Phantom of Wholesome",
+        "icon": "https://media.discordapp.net/attachments/932376271499956304/934525222361653268/IMG_0902.png?width=489&height=910",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 44000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "Milim Aki",
+        "icon": "https://media.discordapp.net/attachments/930577252406685726/934863664991858778/D352FACC-240F-40C4-B5D2-FEDA4A4278CA.jpg?width=910&height=910",
+        "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 1,
+        "CP": 75000,
+        "awakenThreshold": 1
     }
 ]

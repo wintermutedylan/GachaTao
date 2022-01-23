@@ -41,10 +41,24 @@ module.exports = {
             } catch(err){
                 console.log(err);
             }
-            message.reply('You have claimed your daily 100<:bootaomonez:909294739197681754> and 3 Raid Tickets');
+            
+            try {
+                message.reply('You have claimed your daily 100<:bootaomonez:909294739197681754> and 3 Raid Tickets');
+            } catch(err){
+                message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
+                client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
+                client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
+            }
         }
         else {
-            message.reply('Baka, You have already claimed your daily today.');
+            
+            try {
+                message.reply('Baka, You have already claimed your daily today.');
+            } catch(err){
+                message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
+                client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
+                client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
+            }
         }
 
 

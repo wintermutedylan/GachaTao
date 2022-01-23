@@ -3,7 +3,7 @@ const playerModel = require("../models/playerSchema");
 const { userMention, memberNicknameMention, channelMention, roleMention } = require('@discordjs/builders');
 module.exports = {
     name: 'megaraidleaderboard',
-    aliases: ['megaraidlb', 'rlb'],
+    aliases: ['megaraidlb', 'mrlb'],
     permissions: [],
     description: "leaderboard for users.  based off raids won",
     async execute(client, message,cmd,args,Discord){

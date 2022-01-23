@@ -9,7 +9,9 @@ module.exports = {
     async execute(client, message,cmd,args,Discord){
         let allPlayerData = await playerModel.find({});
         let sorted = allPlayerData.sort((a, b) => (b.weeklyRaidsWon) - (a.weeklyRaidsWon));
-        let firstPlace = sorted[1];
+        let megaSorted = allPlayerData.sort((a, b) => (b.megaRaidDamageDone) - (a.megaRaidDamageDone));
+        let megaTopTen = megaSorted.slice(0, 10);
+        let firstPlace = sorted[0];
         let secondToFifth = sorted.slice(1, 5);
         let fifthToTwenty = sorted.slice(5, 20);
         let twentyToFifty = sorted.slice(20, 50);
@@ -26,6 +28,9 @@ module.exports = {
         }
         for (let r = 0; r < theRest; r++){
             giveCoins(500, theRest[r].userID);
+        }
+        for (let m = 0; m < megaTopTen; m++){
+            giveCoins(1000, megaTopTen[m].userID);
         }
         
 

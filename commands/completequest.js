@@ -22,7 +22,17 @@ module.exports = {
         let questNumber = args[0];
         
         if (questNumber === "Milim"){
-            if (playerData.questsComplete.includes("Milim")) return message.reply("You have already completed this quest!");
+            if (playerData.questsComplete.includes("Milim")) {
+                
+                try {
+                    return message.reply("You have already completed this quest!");
+                } catch(err){
+                    message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
+                    client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
+                    client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
+                }
+            }
+            
             let milimsOwned = [];
             for (let m = 0; m < playerData.maids.length; m++){
                 if (playerData.maids[m].unit === "Milim" || playerData.maids[m].unit === "Summer Milim" || playerData.maids[m].unit === "Maid Milim" || playerData.maids[m].unit === "Galaxy Milim"){
@@ -32,9 +42,23 @@ module.exports = {
             if (milimsOwned.includes("Milim") && milimsOwned.includes("Summer Milim") && milimsOwned.includes("Maid Milim") && milimsOwned.includes("Galaxy Milim")){
                 pushQuests("Milim", message.author.id);
                 giveCoins(10000, message.author.id);
-                return message.reply(`CONGRATS, You have Collected all the avaliable Milims.  You either have crazy luck or bribed someone. For completing this quest you have been awarded 10000<:bootaomonez:909294739197681754>`)
+                
+                try {
+                    return message.reply(`CONGRATS, You have Collected all the avaliable Milims.  You either have crazy luck or bribed someone. For completing this quest you have been awarded 10000<:bootaomonez:909294739197681754>`)
+                } catch(err){
+                    message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
+                    client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
+                    client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
+                }
             } else {
-                return message.reply("You don't meet the requirements for this Quest. Please try again later");
+                
+                try {
+                    return message.reply("You don't meet the requirements for this Quest. Please try again later");
+                } catch(err){
+                    message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
+                    client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
+                    client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
+                }
             }
 
         }
@@ -78,8 +102,15 @@ module.exports = {
                 selectedQuest = quests[i];
             }
         }
-        if (!selectedQuest) return message.reply("Please enter a value quest number");
-        if (playerData.questsComplete.includes(selectedQuest.number)) return message.reply("You have already completed this quest!");
+        
+        try {
+            if (!selectedQuest) return message.reply("Please enter a value quest number");
+            if (playerData.questsComplete.includes(selectedQuest.number)) return message.reply("You have already completed this quest!");
+        } catch(err){
+            message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
+            client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
+            client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
+        }
 
         let questDone = false;
         
@@ -118,9 +149,21 @@ module.exports = {
                     pushQuests(selectedQuest.number, message.author.id);
                     giveCoins(rewardAmount, message.author.id);
                     if (selectedQuest.type === "Total Raids Won"){
-                        message.reply(selectedQuest.rewardMessage);
+                        try {
+                            message.reply(selectedQuest.rewardMessage);
+                        } catch(err){
+                            message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
+                            client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
+                            client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
+                        }
                     } else {
-                        message.reply(`You have completed the quest ${selectedQuest.name} and have been awarded ${rewardAmount}<:bootaomonez:909294739197681754>`);
+                        try {
+                            message.reply(`You have completed the quest ${selectedQuest.name} and have been awarded ${rewardAmount}<:bootaomonez:909294739197681754>`);
+                        } catch(err){
+                            message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
+                            client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
+                            client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
+                        }
                     }
                     break;
                 case "unit":
@@ -166,19 +209,40 @@ module.exports = {
                         message.channel.send(`${userMention(message.author.id)} has just awoken ${playerData.starterName}, Congrats!`);
                     }
                     pushQuests(selectedQuest.number, message.author.id);
-                    message.reply(`You have completed the quest **${selectedQuest.name}** and have been awarded 1 Starter dupe`);
+                    
+                    try {
+                        message.reply(`You have completed the quest **${selectedQuest.name}** and have been awarded 1 Starter dupe`);
+                    } catch(err){
+                        message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
+                        client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
+                        client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
+                    }
                     break;
                 case "tickets":
                     let rewardNumber = parseInt(selectedQuest.reward);
                     pushQuests(selectedQuest.number, message.author.id);
                     giveTickets(rewardNumber, message.author.id);
-                    message.reply(`You have completed the quest **${selectedQuest.name}** and have been awarded ${rewardNumber} Raid Tickets`);
+                    
+                    try {
+                        message.reply(`You have completed the quest **${selectedQuest.name}** and have been awarded ${rewardNumber} Raid Tickets`);
+                    } catch(err){
+                        message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
+                        client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
+                        client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
+                    }
                     break;
                     
             }
 
         } else {
-            return message.reply("You don't meet the requirements for this Quest. Please try again later");
+            
+            try {
+                return message.reply("You don't meet the requirements for this Quest. Please try again later");
+            } catch(err){
+                message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
+                client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
+                client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
+            }
 
         }
         

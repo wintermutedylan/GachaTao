@@ -2,7 +2,7 @@ var maids = require("../units/maids.json");
 const playerModel = require("../models/playerSchema");
 const { userMention, memberNicknameMention, channelMention, roleMention } = require('@discordjs/builders');
 module.exports = {
-    name: 'compensation',
+    name: 'compensationTickets',
     aliases: [],
     permissions: ["ADMINISTRATOR"],
     description: "resets the daily so people can claim it again",
@@ -21,7 +21,7 @@ module.exports = {
                     },
                     {
                         $inc: {
-                            coins: amount
+                            raidTickets: amount
                             
                         },
                     }
@@ -31,7 +31,7 @@ module.exports = {
                 console.log(err);
             }
         }
-        message.channel.send(`${allPlayerData.length} players have been given ${amount}<:bootaomonez:909294739197681754>`);
+        message.channel.send(`${allPlayerData.length} players have been given ${amount} Tickets`);
 
 
     }

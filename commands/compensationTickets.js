@@ -2,7 +2,7 @@ var maids = require("../units/maids.json");
 const playerModel = require("../models/playerSchema");
 const { userMention, memberNicknameMention, channelMention, roleMention } = require('@discordjs/builders');
 module.exports = {
-    name: 'compensationTickets',
+    name: 'compensationtickets',
     aliases: [],
     permissions: ["ADMINISTRATOR"],
     description: "resets the daily so people can claim it again",

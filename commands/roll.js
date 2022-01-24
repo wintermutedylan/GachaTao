@@ -54,7 +54,7 @@ module.exports = {
         ];
 
         const akiArr = [
-            { id: 1, weight: 1 },
+            { id: 1, weight: 6 },
             { id: 7, weight: 2000 },
         ];
         

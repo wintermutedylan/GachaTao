@@ -2,7 +2,7 @@ var maids = require("../units/maids.json");
 const playerModel = require("../models/playerSchema");
 const { userMention, memberNicknameMention, channelMention, roleMention } = require('@discordjs/builders');
 module.exports = {
-    name: 'add',
+    name: 'addcoins',
     aliases: [],
     permissions: ["ADMINISTRATOR"],
     description: "Give coins to users",

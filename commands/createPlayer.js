@@ -15,56 +15,52 @@ module.exports = {
         if (selected) return message.reply("You've already selected and registered, you can't do it again, baka!")
         let userStuff = await client.users.fetch(message.author.id);
 
-        let allPlayerData = await playerModel.find({});
-        var sorted = allPlayerData.sort((a, b) => (b.totalCP) - (a.totalCP));
-        var pos;
+        // let allPlayerData = await playerModel.find({});
+        // var sorted = allPlayerData.sort((a, b) => (b.totalCP) - (a.totalCP));
+        // var pos;
 
-        for (let i = 0; i < sorted.length; i++){
-            pos = i + 1;
-            try {
-                await playerModel.findOneAndUpdate(
-                    {
-                        userID: sorted[i].userID
-                    },
-                    {
-                        $set: {
-                            position: pos,
-                        },
-                    }
-                );
+        // for (let i = 0; i < sorted.length; i++){
+        //     pos = i + 1;
+        //     try {
+        //         await playerModel.findOneAndUpdate(
+        //             {
+        //                 userID: sorted[i].userID
+        //             },
+        //             {
+        //                 $set: {
+        //                     position: pos,
+        //                 },
+        //             }
+        //         );
 
-            } catch(err){
-                console.log(err);
-            }
-        }
-        let raidSorted = allPlayerData.sort((a, b) => (b.raidsWon) - (a.raidsWon));
-        let raidPos;
+        //     } catch(err){
+        //         console.log(err);
+        //     }
+        // }
+        // let raidSorted = allPlayerData.sort((a, b) => (b.raidsWon) - (a.raidsWon));
+        // let raidPos;
 
-        for (let i = 0; i < raidSorted.length; i++){
-            raidPos = i + 1;
-            try {
-                await playerModel.findOneAndUpdate(
-                    {
-                        userID: raidSorted[i].userID
-                    },
-                    {
-                        $set: {
-                            raidPosition: raidPos,
-                        },
-                    }
-                );
+        // for (let i = 0; i < raidSorted.length; i++){
+        //     raidPos = i + 1;
+        //     try {
+        //         await playerModel.findOneAndUpdate(
+        //             {
+        //                 userID: raidSorted[i].userID
+        //             },
+        //             {
+        //                 $set: {
+        //                     raidPosition: raidPos,
+        //                 },
+        //             }
+        //         );
 
-            } catch(err){
-                console.log(err);
-            }
-        }
-        try {
-            message.reply('Profile created.  Please select a starter between, Smug, Ren, Dana (Type the name, Baka)');
-        } catch(err){
-            message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
-            client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
-            client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
-        }
+        //     } catch(err){
+        //         console.log(err);
+        //     }
+        // }
+        
+            message.channel.send(`${userMention(message.author.id)} Profile created.  Please select a starter between, Smug, Ren, Dana (Type the name, Baka)`);
+        
 
 
         
@@ -91,13 +87,9 @@ module.exports = {
             if (collected.size === 0) {
                 
                 
-                try {
-                    message.reply ('You did not select a starter in time.')
-                } catch(err){
-                    message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
-                    client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
-                    client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
-                }
+                
+                    message.channel.send(`${userMention(message.author.id)} You did not select a starter in time.`)
+                
                 return
             }
             
@@ -112,13 +104,9 @@ module.exports = {
                     .setImage('https://media.discordapp.net/attachments/930577252406685726/930577317552590878/smug.png')
                     .setFooter('Congrats');
                     
-                    try {
-                        message.reply({ embeds: [newEmbed] });
-                    } catch(err){
-                        message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
-                        client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
-                        client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
-                    }
+                    
+                    message.channel.send({ embeds: [newEmbed] });
+                    
                     
                     addUnit(unitSelected, ID);
                     message.channel.send(`**${unitSelected}** has been added to your account ${userMention(ID)}`);
@@ -136,13 +124,9 @@ module.exports = {
                     .setImage('https://media.discordapp.net/attachments/930577252406685726/930577316902494208/dana.png')
                     .setFooter('Congrats');
                     
-                    try {
-                        message.reply({ embeds: [newEmbed] });
-                    } catch(err){
-                        message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
-                        client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
-                        client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
-                    }
+                    
+                        message.channel.send({ embeds: [newEmbed] });
+                    
                     
                     addUnit(unitSelected, ID);
                     message.channel.send(`**${unitSelected}** has been added to your account ${userMention(ID)}`);
@@ -158,13 +142,9 @@ module.exports = {
                     .setImage('https://media.discordapp.net/attachments/930577252406685726/930577317170917446/idolren.png?width=910&height=910')
                     .setFooter('Congrats');
                     
-                    try {
-                        message.reply({ embeds: [newEmbed] });
-                    } catch(err){
-                        message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
-                        client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
-                        client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
-                    }
+                    
+                        message.channel.send({ embeds: [newEmbed] });
+                    
                     addUnit(unitSelected, ID);
                     message.channel.send(`**${unitSelected}** has been added to your account ${userMention(ID)}`);
                     
@@ -173,13 +153,9 @@ module.exports = {
                 else {
                     
                     
-                    try {
-                        message.reply("Please run Register command again and select from Smug, Dana, or Ren, baka!")
-                    } catch(err){
-                        message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
-                        client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
-                        client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
-                    }
+                    
+                        message.channel.send(`${userMention(message.author.id)} Please run Register command again and select from Smug, Dana, or Ren, baka!`)
+                    
             }
             
             

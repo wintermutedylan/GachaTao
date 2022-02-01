@@ -65,7 +65,7 @@ module.exports = {
         message.channel.send({ embeds: [newEmbed], components: [row]}).then(sent => {
             let entries = [];
             let totalPartyCP = 0;
-            const collector = sent.createMessageComponentCollector({componentType: 'BUTTON', time: 15000});
+            const collector = sent.createMessageComponentCollector({componentType: 'BUTTON', time: 60000});
 
             collector.on('collect', i => {
                 if (userHasProfile(allPlayerData, i.user.id)){
@@ -91,6 +91,7 @@ module.exports = {
                         } else {
                             entries.push({ user: i.user.id, CP: userCP});
                             totalPartyCP = totalPartyCP + userCP;
+                            
                             const newEmbedJoin = new Discord.MessageEmbed()
                             .setColor('#E76AA3')
                             .setAuthor(`${users.username} has started a Raid`)
@@ -115,6 +116,7 @@ module.exports = {
                             }
                             
                             totalPartyCP = totalPartyCP - userCP;
+                            
                             
                             const newEmbedLeave = new Discord.MessageEmbed()
                             .setColor('#E76AA3')

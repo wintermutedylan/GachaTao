@@ -4,7 +4,7 @@
         "icon": "https://media.discordapp.net/attachments/646489430777004045/930575556557299772/raidbossmilim.png",
         "rareBoss": false,
         "rewards": [ { "id": "Boo Tao", "weight": 4 }],
-        "weight": 75,
+        "weight": 70,
         "items": []
         
         
@@ -14,7 +14,7 @@
         "icon": "https://media.discordapp.net/attachments/932376501918253097/932382976199778334/CuteMilim.jpg?width=649&height=910",
         "rareBoss": true,
         "rewards": [ { "id": "Boo Tao", "weight": 60 },{ "id": "Item", "weight": 40 }],
-        "weight": 25,
+        "weight": 30,
         "items": ["Blakninja's Right Arm", "Blakninja's Left Arm", "Blakninja's Right Leg", "Blakninja's Left Leg", "Blakninja's Head"]
         
         

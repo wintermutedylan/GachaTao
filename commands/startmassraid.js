@@ -65,7 +65,7 @@ module.exports = {
         message.channel.send({ embeds: [newEmbed], components: [row]}).then(sent => {
             let entries = [];
             let totalPartyCP = 0;
-            const collector = sent.createMessageComponentCollector({componentType: 'BUTTON', time: 15000});
+            const collector = sent.createMessageComponentCollector({componentType: 'BUTTON', time: 60000});
 
             collector.on('collect', i => {
                 if (userHasProfile(allPlayerData, i.user.id)){

@@ -16,7 +16,7 @@ module.exports = {
         if (!playerData) return message.channel.send("You don't exist. Please try again.");
         if (playerData.starterSelected === false) return message.reply("you needs to run g$register first before anything else");
         let unit = args.join(" ");
-        var rolledCP = 200000;
+        var rolledCP = 300000;
         var awkNeeded = 5;
         var awkThisUnit = false;
 

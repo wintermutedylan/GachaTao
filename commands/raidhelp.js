@@ -26,7 +26,21 @@ module.exports = {
             > Instead of defeating the boss in one go, parties deal dmg to the boss depending on their CP
             **g$claimitems Blakninja the Forbidden One** - use to complete the raid unit once you've collected all the parts!
             **g$startmassraid** - opens a raid party (costs 10 tickets)
-            > Just like normal raiding but faster~`)
+            > Just like normal raiding but faster~
+            **RAID GUIDE**
+            70% Normal
+            30% RARE
+
+            **DROPS**
+            60% Bootao
+            40% Item
+
+            **TYPE**
+            31% - right arm
+            25% - left arm
+            21% - right leg
+            15% - left leg
+            6% - head`)
             .setFooter("*Note: Once you start a raid, you lose 1 ticket. No refunds");
 
             message.channel.send({ embeds: [newEmbed] });

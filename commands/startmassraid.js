@@ -5,7 +5,7 @@ const { userMention, memberNicknameMention, channelMention, roleMention } = requ
 const lucky = require('lucky-item').default;
 const { MessageActionRow, MessageButton } = require('discord.js');
 module.exports = {
-    name: 'startraid',
+    name: 'startmassraid',
     aliases: [],
     permissions: [],
     description: "battle a raid boss",
@@ -31,7 +31,7 @@ module.exports = {
         
         if (!authorData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
         if (authorData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
-        if (authorData.raidTickets === 0) return message.reply("You have no more Raid Tickets to use");
+        if (authorData.raidTickets < 10) return message.reply("You don't have enough Raid tickets for a Mass Raid");
         let timePassed = authorData.raidCD;
         
         if (message.author.id === "618884909494304808" || message.author.id === "238364422135873536"){
@@ -44,7 +44,7 @@ module.exports = {
             return message.reply(`You must wait ${minutes.toString().padStart(2, 0)}:${seconds.toString().padStart(2, 0)} minutes before you can raid again`);
         }
         //return message.channel.send(`${(timePassed + 300000) - currentTime}`);
-        removeTickets(1, message.author.id);
+        removeTickets(10, message.author.id);
         
         setRaidCD(currentTime, message.author.id);
         let boss = lucky.itemBy(bosses, 'weight');
@@ -155,6 +155,7 @@ module.exports = {
                     let reward = 0;
                     bossHP = getRandomArbitrary((highestCP / 2) * numberOfMembers, (highestCP * numberOfMembers) + 1);
                     reward = Math.floor(100 * Math.log10(highestCP) * Math.sqrt(entries.length));
+                    reward = reward * 10;
                     partyWon = totalPartyCP >= bossHP;
 
                     if (partyWon){
@@ -220,7 +221,9 @@ module.exports = {
                         )
                         //message.channel.send(`Boss HP: ${new Intl.NumberFormat().format(bossHP)}\nParty CP: ${new Intl.NumberFormat().format(partyCP)}\nReward: ${new Intl.NumberFormat().format(reward)}\nWon? ${partyWon}`);
                         for (let j = 0; j < entries.length; j++){
-                            pushItem(rewardItem.id, entries[j].user)
+                            for (let t = 0; t < 10; t++){
+                                pushItem(rewardItem.id, entries[j].user)
+                            }
                             updateRaidCounter(entries[j].user);
                         }
 

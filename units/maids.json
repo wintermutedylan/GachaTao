@@ -838,5 +838,53 @@
         "rValue": 1,
         "CP": 75000,
         "awakenThreshold": 1
+    },
+    {
+        "id": "Blakninja The Forbidden One",
+        "icon": "https://media.discordapp.net/attachments/932376501918253097/937870912550739988/92991865_p0_master1200.png?width=630&height=910",
+        "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 1,
+        "CP": 200000,
+        "awakenThreshold": 5
+    },
+    {
+        "id": "CNY Milim",
+        "icon": "https://media.discordapp.net/attachments/937167198496112673/937857169246785616/90775189_p0_master1200.png?width=643&height=910",
+        "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>",
+        "rValue": 1,
+        "CP": 140000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "CNY Cinders",
+        "icon": "https://media.discordapp.net/attachments/937167198496112673/937437648698634290/IMG_0954.png?width=559&height=909",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 66000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "CNY Blakninja",
+        "icon": "https://media.discordapp.net/attachments/937167198496112673/937168289275191336/IMG_0943.png?width=521&height=910",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 86000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "CNY Kagaxmii",
+        "icon": "https://media.discordapp.net/attachments/937167198496112673/937167216070258698/IMG_0941.png?width=512&height=909",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 53000,
+        "awakenThreshold": 1
+    },
+    {
+        "id": "CNY Tuna",
+        "icon": "https://media.discordapp.net/attachments/937167198496112673/937901317450530816/IMG_0959.png?width=526&height=910",
+        "rarity": "<:L_:908871560851501056><:R_:908870913167089704>",
+        "rValue": 2,
+        "CP": 63000,
+        "awakenThreshold": 1
     }
 ]

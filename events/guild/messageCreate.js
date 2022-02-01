@@ -51,7 +51,8 @@ module.exports = async (Discord, client, message) => {
                     raidCD: 1640744901699,
                     raidsWon: 0,
                     weeklyRaidsWon: 0,
-                    questsComplete: []
+                    questsComplete: [],
+                    items: []
                     
                 });
                 player.save();

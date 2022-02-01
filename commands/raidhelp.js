@@ -21,7 +21,12 @@ module.exports = {
             To defeat the boss, the collective party's CP must be greater than the raid boss's CP. 
             > Rewards: 100 x log(HCP) x sqrt(#ofparticipants) 
             **g$raidhelp** - brings up this embed 
-            **g$raidlb** - brings up weekly & all time raid leaderboard`)
+            **g$raidlb** - brings up weekly & all time raid leaderboard
+            **g$megaraid** - opens a mega raid party (costs 1 ticket)
+            > Instead of defeating the boss in one go, parties deal dmg to the boss depending on their CP
+            **g$claimitems Blakninja the Forbidden One** - use to complete the raid unit once you've collected all the parts!
+            **g$massraid** - opens a raid party (costs 10 tickets)
+            > Just like normal raiding but faster~`)
             .setFooter("*Note: Once you start a raid, you lose 1 ticket. No refunds");
 
             message.channel.send({ embeds: [newEmbed] });

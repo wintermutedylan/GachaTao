@@ -108,6 +108,17 @@ module.exports = {
 
         ];
 
+        var cnyBannerChannel = "937890126334427176";
+        const arrLRcny = [
+            { id: "Gine", weight: 25 },
+            { id: "WynkenBlynken", weight: 25 },
+            { id: "Otaku", weight: 25 },
+            { id: "CNY Cinders", weight: 75 },
+            { id: "CNY Blakninja", weight: 75 },
+            { id: "CNY Kagaxmii", weight: 75 },
+            { id: "CNY Tuna", weight: 75 },
+        ];
+
         const arrUR = [
             { id: "Saltea", weight: 25 },
             { id: "Jahnkeem", weight: 25 },
@@ -218,7 +229,7 @@ module.exports = {
 
         var rolledCharacter;
         var rolledRarity;
-    if (channelID === standardBannerChannel || channelID === maidBannerChannel || channelID === summerBannerChannel || channelID === galaxyBannerChannel || channelID === akiBannerChannel)   { 
+    if (channelID === standardBannerChannel || channelID === maidBannerChannel || channelID === cnyBannerChannel)   { 
         if (currentTime - timePassed < 10000){
             const d = new Date(currentTime - timePassed);
             let seconds = 10 - d.getSeconds();
@@ -244,6 +255,8 @@ module.exports = {
                     rolledCharacter = lucky.itemBy(arrLRSummer, 'weight');
                 } else if(channelID === galaxyBannerChannel){
                     rolledCharacter = lucky.itemBy(arrLRGalaxy, 'weight');
+                } else if(channelID === cnyBannerChannel){
+                    rolledCharacter = lucky.itemBy(arrLRcny, 'weight');
                 } else {
                     rolledCharacter = lucky.itemBy(arrLR, 'weight');
                 }
@@ -269,6 +282,8 @@ module.exports = {
                             rolledCharacter = { id: "Galaxy Milim", weight: 25 };
                         } else if(channelID === akiBannerChannel){
                             rolledCharacter = { id: "Milim Aki", weight: 25 };
+                        } else if(channelID === cnyBannerChannel){
+                            rolledCharacter = { id: "CNY Milim", weight: 25 };
                         } else {
                             rolledCharacter = { id: "Milim", weight: 25 };
                         }
@@ -284,6 +299,8 @@ module.exports = {
                             rolledCharacter = lucky.itemBy(arrLRSummer, 'weight');
                         } else if(channelID === galaxyBannerChannel){
                             rolledCharacter = lucky.itemBy(arrLRGalaxy, 'weight');
+                        } else if(channelID === cnyBannerChannel){
+                            rolledCharacter = lucky.itemBy(arrLRcny, 'weight');
                         } else {
                             rolledCharacter = lucky.itemBy(arrLR, 'weight');
                         }
@@ -459,7 +476,7 @@ module.exports = {
             if (awkThisUnit){
                 message.channel.send(`${userMention(message.author.id)} has just awoken ${rolledCharacter.id}, Congrats!`);
             }
-            if (rolledCharacter.id === "Milim" || rolledCharacter.id === "Maid Milim" || rolledCharacter.id === "Summer Milim" || rolledCharacter.id === "Galaxy Milim" || rolledCharacter.id === "Milim Aki"){
+            if (rolledCharacter.id === "Milim" || rolledCharacter.id === "Maid Milim" || rolledCharacter.id === "Summer Milim" || rolledCharacter.id === "Galaxy Milim" || rolledCharacter.id === "Milim Aki" || rolledCharacter.id === "CNY Milim"){
                 var target = message.guild.members.cache.get(message.author.id);
                 var role = "925851063200936027";
                 if (target.roles.cache.some(role => role.name === 'Milim')){
@@ -502,6 +519,8 @@ module.exports = {
                         character = lucky.itemBy(arrLRSummer, 'weight');
                     } else if(channelID === galaxyBannerChannel){
                         character = lucky.itemBy(arrLRGalaxy, 'weight');
+                    } else if(channelID === cnyBannerChannel){
+                        character = lucky.itemBy(arrLRcny, 'weight');
                     } else {
                         character = lucky.itemBy(arrLR, 'weight');
                     }
@@ -530,6 +549,8 @@ module.exports = {
                             character = { id: "Galaxy Milim", weight: 25 };
                         } else if(channelID === akiBannerChannel){
                             character = { id: "Milim Aki", weight: 25 };
+                        } else if(channelID === cnyBannerChannel){
+                            character = { id: "CNY Milim", weight: 25 };
                         } else {
                             character = { id: "Milim", weight: 25 };
                         }
@@ -545,7 +566,9 @@ module.exports = {
                             character = lucky.itemBy(arrLRSummer, 'weight');
                         } else if(channelID === galaxyBannerChannel){
                             character = lucky.itemBy(arrLRGalaxy, 'weight');
-                        } else {
+                        } else if(channelID === cnyBannerChannel){
+                            character = lucky.itemBy(arrLRcny, 'weight');
+                        }else {
                             character = lucky.itemBy(arrLR, 'weight');
                         }
                         maidsID = 2;
@@ -609,6 +632,8 @@ module.exports = {
                             rarestUnit = "Galaxy Milim";
                         } else if (channelID === akiBannerChannel){
                             rarestUnit = "Milim Aki";
+                        } else if (channelID === cnyBannerChannel){
+                            rarestUnit = "CNY Milim";
                         } else {
                             rarestUnit = "Milim";
                         }
@@ -800,7 +825,7 @@ module.exports = {
                 }
             }
         }
-        if (rarestUnit === "Milim" || rarestUnit === "Maid Milim" || rarestUnit === "Summer Milim" || rarestUnit === "Galaxy Milim" || rarestUnit === "Milim Aki"){
+        if (rarestUnit === "Milim" || rarestUnit === "Maid Milim" || rarestUnit === "Summer Milim" || rarestUnit === "Galaxy Milim" || rarestUnit === "Milim Aki" || rarestUnit === "CNY Milim"){
             var target = message.guild.members.cache.get(message.author.id);
             var role = "925851063200936027";
             if (target.roles.cache.some(role => role.name === 'Milim')){
@@ -813,7 +838,7 @@ module.exports = {
             var user = await client.users.fetch(message.author.id);
         }
         } else {
-            message.reply(`Please only roll in these channels: ${channelMention(standardBannerChannel)}, ${channelMention(galaxyBannerChannel)}, ${channelMention(akiBannerChannel)}`);//, ${channelMention(maidBannerChannel)}, ${channelMention(summerBannerChannel)}
+            message.reply(`Please only roll in these channels: ${channelMention(standardBannerChannel)}, ${channelMention(cnyBannerChannel)}, ${channelMention(maidBannerChannel)}`);//, ${channelMention(maidBannerChannel)}, ${channelMention(summerBannerChannel)}
         }    
     } else {
         return message.reply('Please enter either nothing, 1, or 10');

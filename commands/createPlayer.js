@@ -59,7 +59,7 @@ module.exports = {
         //     }
         // }
         
-            message.channel.send(`${userMention(message.author.id)} Profile created.  Please select a starter between, Smug, Ren, Dana (Type the name, Baka)`);
+        message.channel.send(`${userMention(message.author.id)} Profile created.  Please select a starter between, Smug, Ren, Dana (Type the name, Baka)`);
         
 
 

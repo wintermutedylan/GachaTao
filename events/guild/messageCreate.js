@@ -1,12 +1,17 @@
 require('dotenv').config();
 const playerModel = require("../../models/playerSchema");
+/**
+ * these 3 things are to keep track of all the stats for coin drop
+ */
 let count = 0;
 let countTotal = 10;
 let timeStampt = 1641854534523;
 
 module.exports = async (Discord, client, message) => {
     const prefix = process.env.PREFIX;
-    
+    /**
+     * This is for the random drops for chat
+     */
     if (!message.content.startsWith(prefix) && !message.author.bot && message.channel.id === "851169729808302140"){
         count++;
         
@@ -27,11 +32,15 @@ module.exports = async (Discord, client, message) => {
             count = 0;
         }
     }
+    //Checking the message to see if it starts with the prefix or if its a bot
     if(!message.content.startsWith(prefix) || message.author.bot) return;
+
     const args = message.content.slice(prefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
     
-    
+    /**
+     * Creating the player data in the database if they don't have an account
+     */
         let playerData;
 
         try {
@@ -68,11 +77,11 @@ module.exports = async (Discord, client, message) => {
     
     
     
-    
+    //the next 2 lines look for the command and if it doesn't find the command it returns the provided message
     const command = client.commands.get(cmd) || client.commands.find(a => a.aliases && a.aliases.includes(cmd));
     
     if (!command) return message.channel.send("This command doesn't exist!");
-
+    //The valid permissions to use in the commands
     const validPermissions = [
         "ADMINISTRATOR",
         "CREATE_INSTANT_INVITE",
@@ -106,7 +115,7 @@ module.exports = async (Discord, client, message) => {
         "MANAGE_WEBHOOKS",
         "MANAGE_EMOJIS"
     ];
-
+    //checking if the person running the command has the required permissions for the command being ran
     if (command.permissions.length) {
         let invalidPerms = [];
         for (const perm of command.permissions){
@@ -122,7 +131,7 @@ module.exports = async (Discord, client, message) => {
         }
     }
 
-
+    //this is actually running the command.  sending all the info to the command file to use
     try {
         command.execute(client, message, cmd, args, Discord);
     } catch (err){

@@ -11,7 +11,7 @@ module.exports = {
         var ID = args.pop();
         var amount = args[0];
         
-
+// hewwo I am bwakninja
         if (amount < 1) return message.channel.send(`you can't add ${amount} to the user.`);
 
 

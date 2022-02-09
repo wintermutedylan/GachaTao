@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//this is so dumb 
 const playerSchema = new mongoose.Schema({
     userID: { type: String, require: true, unique: true},
     coins: { type: Number, default: 0},
@@ -21,7 +22,8 @@ const playerSchema = new mongoose.Schema({
     questsComplete: { type: Array, default: []},
     items: { type: Array, default: []},
     megaRaidDamageDone: { type: Number, default: 0},
-    rollCD: { type: Number}
+    rollCD: { type: Number},
+    prestigeHelpStatus: { type: Boolean, default: false},
 
 })
 

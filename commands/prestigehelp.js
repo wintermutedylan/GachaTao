@@ -10,7 +10,7 @@ module.exports = {
         let playerData; 
         playerData = await playerModel.findOne({ userID: message.author.id});
         if (playerData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
-        // adding a comment so i can maybe push this??
+    
         var ID = message.author.id;
         
             const newEmbed = new Discord.MessageEmbed()

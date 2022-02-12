@@ -22,6 +22,8 @@ module.exports = {
         var sorted = [];
         var totalCP = playerData.totalCP;
         var totalCoins = playerData.coins;
+        let milimArray = playerData.milimsOwned;
+        let milimString = "";
         
         for (let i = 0; i < playerData.maids.length; i++){
             for (let j = 0; j < maids.length; j++){
@@ -30,11 +32,32 @@ module.exports = {
                     
                     
                 }
+            }
         }
-        }
+        // try {
+        //     await playerModel.findOneAndUpdate(
+        //         {
+        //             userID: message.author.id
+        //         },
+        //         {
+        //             $set: {
+        //                 milimsOwned: ["<:maidpriscilla:931957660281090068>", "<:milimheart:850916496821059644>"],
+        //             },
+        //         }
+        //     );
+    
+        // } catch(err){
+        //     console.log(err);
+        // }
+        
+
         sorted.sort((a, b) => (a.rValue - b.rValue || b.CP - a.CP));
         
-        
+        if(milimArray.length != 0){  
+            for (let i = 0; i < milimArray.length; i++){
+                milimString = milimString + milimArray[i];
+            }   
+        }
         
         
         
@@ -48,9 +71,18 @@ module.exports = {
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#E76AA3')
         .setAuthor(`${message.author.username}'s Units`)
-        .setDescription(`**Total CP:** ${new Intl.NumberFormat().format(totalCP)} \n**Total<:bootaomonez:909294739197681754>:** ${new Intl.NumberFormat().format(totalCoins)} \n**Raid Tickets:** ${playerData.raidTickets} \n**Raids Won:** ${playerData.raidsWon} \n**Weekly Raids Won:** ${playerData.weeklyRaidsWon} \n**LR Pity:** ${playerData.lrPity} \n**UR Pity:** ${playerData.urPity}`)
+        .setDescription(`**Total CP:** ${new Intl.NumberFormat().format(totalCP)} 
+        **Total<:bootaomonez:909294739197681754>:** ${new Intl.NumberFormat().format(totalCoins)} 
+        **Raid Tickets:** ${playerData.raidTickets} 
+        **Raids Won:** ${playerData.raidsWon} 
+        **Weekly Raids Won:** ${playerData.weeklyRaidsWon} 
+        **LR Pity:** ${playerData.lrPity} 
+        **UR Pity:** ${playerData.urPity}
+        ${milimString}`)
         .setThumbnail(message.author.avatarURL())
         .setFooter(`Page # ${pageNumber}`)
+
+        
 
         for (let k = 0; k < sorted.length; k++){
             var dupeValue = 0;
@@ -72,6 +104,7 @@ module.exports = {
                 }
             }
         }
+        
         
         
         message.channel.send({ embeds: [newEmbed] });

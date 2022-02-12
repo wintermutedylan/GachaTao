@@ -119,6 +119,19 @@ module.exports = {
             { id: "CNY Tuna", weight: 75 },
         ];
 
+        var bugcatBannerChannel = "942102821749264384";
+        const arrLRbugcat = [
+            { id: "Gine", weight: 25 },
+            { id: "WynkenBlynken", weight: 25 },
+            { id: "Otaku", weight: 25 },
+            { id: "Bugcat Doge", weight: 75 },
+            { id: "Bugcat Kagaxmii", weight: 75 },
+            { id: "Bugcat Cinders", weight: 75 },
+            { id: "Bugcat Melody", weight: 75 },
+            { id: "Bugcat Tako", weight: 75 },
+
+        ];
+
         const arrUR = [
             { id: "Saltea", weight: 25 },
             { id: "Jahnkeem", weight: 25 },
@@ -229,7 +242,7 @@ module.exports = {
 
         var rolledCharacter;
         var rolledRarity;
-    if (channelID === standardBannerChannel || channelID === maidBannerChannel || channelID === cnyBannerChannel)   { 
+    if (channelID === standardBannerChannel || channelID === bugcatBannerChannel || channelID === summerBannerChannel)   { 
         if (currentTime - timePassed < 10000){
             const d = new Date(currentTime - timePassed);
             let seconds = 10 - d.getSeconds();
@@ -257,6 +270,8 @@ module.exports = {
                     rolledCharacter = lucky.itemBy(arrLRGalaxy, 'weight');
                 } else if(channelID === cnyBannerChannel){
                     rolledCharacter = lucky.itemBy(arrLRcny, 'weight');
+                } else if(channelID === bugcatBannerChannel){
+                    rolledCharacter = lucky.itemBy(arrLRbugcat, 'weight');
                 } else {
                     rolledCharacter = lucky.itemBy(arrLR, 'weight');
                 }
@@ -284,6 +299,8 @@ module.exports = {
                             rolledCharacter = { id: "Milim Aki", weight: 25 };
                         } else if(channelID === cnyBannerChannel){
                             rolledCharacter = { id: "CNY Milim", weight: 25 };
+                        } else if(channelID === bugcatBannerChannel){
+                            rolledCharacter = { id: "Bugcat Milim", weight: 25 };
                         } else {
                             rolledCharacter = { id: "Milim", weight: 25 };
                         }
@@ -301,6 +318,8 @@ module.exports = {
                             rolledCharacter = lucky.itemBy(arrLRGalaxy, 'weight');
                         } else if(channelID === cnyBannerChannel){
                             rolledCharacter = lucky.itemBy(arrLRcny, 'weight');
+                        } else if(channelID === bugcatBannerChannel){
+                            rolledCharacter = lucky.itemBy(arrLRbugcat, 'weight')
                         } else {
                             rolledCharacter = lucky.itemBy(arrLR, 'weight');
                         }
@@ -521,6 +540,8 @@ module.exports = {
                         character = lucky.itemBy(arrLRGalaxy, 'weight');
                     } else if(channelID === cnyBannerChannel){
                         character = lucky.itemBy(arrLRcny, 'weight');
+                    } else if(channelID === bugcatBannerChannel){
+                        character = lucky.itemBy(arrLRbugcat, 'weight');
                     } else {
                         character = lucky.itemBy(arrLR, 'weight');
                     }
@@ -551,6 +572,8 @@ module.exports = {
                             character = { id: "Milim Aki", weight: 25 };
                         } else if(channelID === cnyBannerChannel){
                             character = { id: "CNY Milim", weight: 25 };
+                        } else if(channelID === bugcatBannerChannel){
+                            character = { id: "Bugcat Milim", weight: 25 };
                         } else {
                             character = { id: "Milim", weight: 25 };
                         }
@@ -568,7 +591,9 @@ module.exports = {
                             character = lucky.itemBy(arrLRGalaxy, 'weight');
                         } else if(channelID === cnyBannerChannel){
                             character = lucky.itemBy(arrLRcny, 'weight');
-                        }else {
+                        } else if(channelID === bugcatBannerChannel){
+                            character = lucky.itemBy(arrLRbugcat, 'weight');
+                        } else {
                             character = lucky.itemBy(arrLR, 'weight');
                         }
                         maidsID = 2;
@@ -634,6 +659,8 @@ module.exports = {
                             rarestUnit = "Milim Aki";
                         } else if (channelID === cnyBannerChannel){
                             rarestUnit = "CNY Milim";
+                        } else if (channelID === bugcatBannerChannel){
+                            rarestUnit = "Bugcat Milim";
                         } else {
                             rarestUnit = "Milim";
                         }
@@ -825,7 +852,7 @@ module.exports = {
                 }
             }
         }
-        if (rarestUnit === "Milim" || rarestUnit === "Maid Milim" || rarestUnit === "Summer Milim" || rarestUnit === "Galaxy Milim" || rarestUnit === "Milim Aki" || rarestUnit === "CNY Milim"){
+        if (rarestUnit === "Milim" || rarestUnit === "Maid Milim" || rarestUnit === "Summer Milim" || rarestUnit === "Galaxy Milim" || rarestUnit === "Milim Aki" || rarestUnit === "CNY Milim" || rarestUnit === "Bugcat Milim"){
             var target = message.guild.members.cache.get(message.author.id);
             var role = "925851063200936027";
             if (target.roles.cache.some(role => role.name === 'Milim')){

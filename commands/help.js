@@ -5,7 +5,7 @@ module.exports = {
     name: 'help',
     aliases: ['h'],
     permissions: [],
-    description: "Displays all the commands a user and use",
+    description: "Displays all the commands a user can use",
     async execute(client, message, cmd, args, Discord, profileData){
         let playerData; 
         playerData = await playerModel.findOne({ userID: message.author.id});

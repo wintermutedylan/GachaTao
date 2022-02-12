@@ -61,7 +61,11 @@ module.exports = async (Discord, client, message) => {
                     raidsWon: 0,
                     weeklyRaidsWon: 0,
                     questsComplete: [],
-                    items: []
+                    items: [],
+                    prestigeLevel: 0,
+                    maxCP: 0,
+                    raidBoost: 0,
+                    dailyRaidCap: 0
                     
                 });
                 player.save();

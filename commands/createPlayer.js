@@ -13,51 +13,7 @@ module.exports = {
         var selected = playerData.starterSelected;
         var unitSelected = "";
         if (selected) return message.reply("You've already selected and registered, you can't do it again, baka!")
-        let userStuff = await client.users.fetch(message.author.id);
-
-        // let allPlayerData = await playerModel.find({});
-        // var sorted = allPlayerData.sort((a, b) => (b.totalCP) - (a.totalCP));
-        // var pos;
-
-        // for (let i = 0; i < sorted.length; i++){
-        //     pos = i + 1;
-        //     try {
-        //         await playerModel.findOneAndUpdate(
-        //             {
-        //                 userID: sorted[i].userID
-        //             },
-        //             {
-        //                 $set: {
-        //                     position: pos,
-        //                 },
-        //             }
-        //         );
-
-        //     } catch(err){
-        //         console.log(err);
-        //     }
-        // }
-        // let raidSorted = allPlayerData.sort((a, b) => (b.raidsWon) - (a.raidsWon));
-        // let raidPos;
-
-        // for (let i = 0; i < raidSorted.length; i++){
-        //     raidPos = i + 1;
-        //     try {
-        //         await playerModel.findOneAndUpdate(
-        //             {
-        //                 userID: raidSorted[i].userID
-        //             },
-        //             {
-        //                 $set: {
-        //                     raidPosition: raidPos,
-        //                 },
-        //             }
-        //         );
-
-        //     } catch(err){
-        //         console.log(err);
-        //     }
-        // }
+        
         
         message.channel.send(`${userMention(message.author.id)} Profile created.  Please select a starter between, Smug, Ren, Dana (Type the name, Baka)`);
         
@@ -179,24 +135,14 @@ async function addUnit(unitName, ID){
                 $push: {
                     maids: { unit: unitName, dupes: 0 }
                 },
-            }
-        );
-        await playerModel.findOneAndUpdate(
-            {
-                userID: ID
-            },
-            {
                 $set: {
                     starterSelected: true,
-                    starterName: unitName
+                    starterName: unitName,
+                    prestigeLevel: 0,
+                    maxCP: 20000000,
+                    raidBoost: 0,
+                    dailyRaidCap: 10
                 },
-            }
-        );
-        await playerModel.findOneAndUpdate(
-            {
-                userID: ID
-            },
-            {
                 $inc: {
                     
                     coins: 500,

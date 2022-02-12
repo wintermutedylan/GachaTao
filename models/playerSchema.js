@@ -22,7 +22,12 @@ const playerSchema = new mongoose.Schema({
     megaRaidDamageDone: { type: Number, default: 0},
     rollCD: { type: Number},
     prestigeHelpStatus: { type: Boolean, default: false},
-    milimsOwned: { type: Array, default: []}
+    milimsOwned: { type: Array, default: []},
+    prestigeLevel: { type: Number, default: 0},
+    maxCP: { type: Number, default: 0},
+    raidBoost: { type: Number, default: 0},
+    dailyRaidCap: { type: Number, default: 0}
+
 
 })
 

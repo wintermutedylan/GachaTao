@@ -21,7 +21,13 @@ const playerSchema = new mongoose.Schema({
     questsComplete: { type: Array, default: []},
     items: { type: Array, default: []},
     megaRaidDamageDone: { type: Number, default: 0},
-    rollCD: { type: Number}
+    rollCD: { type: Number},
+
+
+    prestigeLevel: { type: Number, default: 0},
+    maxCP: { type: Number, default: 0},
+    raidBoost: { type: Number, default: 0},
+    dailyRaidCap: { type: Number, default: 0}
 
 })
 

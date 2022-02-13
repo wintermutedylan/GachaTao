@@ -71,11 +71,14 @@ module.exports = {
                 if (userHasProfile(allPlayerData, i.user.id)){
                     let userCP = 0;
                     let userRaidsDone;
-                    let A = Date.now();
+                    let userRaidCap;
+                    let userBoost;
                     for (let j = 0; j < allPlayerData.length; j++){
                         if (allPlayerData[j].userID === i.user.id){
                             userCP = allPlayerData[j].totalCP;
                             userRaidsDone = allPlayerData[j].dailyRaidsPlayed;
+                            userRaidCap = allPlayerData[j].dailyRaidCap;
+                            userBoost = allPlayerData[j].raidBoost;
                             
                         }
                     }
@@ -86,7 +89,7 @@ module.exports = {
                         } else if(userRaidsDone + 5 >= userRaidCap && i.user.id != message.author.id){
                             i.reply({ content: `You have hit your daily Raid cap of ${userRaidCap} OR by doing this mass raid you will exceed your daily raid cap`, ephemeral: true});
                         } else {
-                            entries.push({ user: i.user.id, CP: userCP});
+                            entries.push({ user: i.user.id, CP: userCP, boost: userBoost});
                             totalPartyCP = totalPartyCP + userCP;
                             const newEmbedJoin = new Discord.MessageEmbed()
                             .setColor('#E76AA3')

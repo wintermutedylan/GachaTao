@@ -60,7 +60,7 @@ module.exports = {
         ];
         
         
-        var standardBannerChannel = "854047198291689542";// 927769520238637076
+        var standardBannerChannel = "927769520238637076";
         const arrLR = [
             { id: "Gine", weight: 25 },
             { id: "WynkenBlynken", weight: 25 },
@@ -952,7 +952,7 @@ module.exports = {
             var user = await client.users.fetch(message.author.id);
         }
         } else {
-            message.reply(`Please only roll in these channels: ${channelMention(standardBannerChannel)}, ${channelMention(cnyBannerChannel)}, ${channelMention(maidBannerChannel)}`);//, ${channelMention(maidBannerChannel)}, ${channelMention(summerBannerChannel)}
+            message.reply(`Please only roll in these channels: ${channelMention(standardBannerChannel)}, ${channelMention(summerBannerChannel)}, ${channelMention(bugcatBannerChannel)}`);//, ${channelMention(maidBannerChannel)}, ${channelMention(summerBannerChannel)}
         }    
     } else {
         return message.reply('Please enter either nothing, 1, or 10');

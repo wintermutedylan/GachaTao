@@ -46,6 +46,7 @@ async function wipePlayer(unitArray, i) {
     if (unitArray.length === 0){
 
     }
+    else {
     unitArray[0].dupes = 0
     try {
         await playerModel.findOneAndUpdate(
@@ -82,6 +83,7 @@ async function wipePlayer(unitArray, i) {
     } catch(err){
         console.log(err);
     }
+}
 }
 
 async function addMilim(milimEmote, ID){

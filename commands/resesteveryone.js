@@ -43,6 +43,9 @@ module.exports = {
 }
 
 async function wipePlayer(unitArray, i) {
+    if (unitArray.length === 0){
+
+    }
     unitArray[0].dupes = 0
     try {
         await playerModel.findOneAndUpdate(

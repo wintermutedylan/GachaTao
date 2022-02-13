@@ -27,7 +27,6 @@ module.exports = {
         authorData = await playerModel.findOne({ userID: message.author.id});
         let currentTime = message.createdTimestamp;
         
-        let partyCP = 0;
         
         if (!authorData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
         if (authorData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
@@ -71,25 +70,24 @@ module.exports = {
                 if (userHasProfile(allPlayerData, i.user.id)){
                     let userCP = 0;
                     let userRaidsDone;
-                    let A = Date.now();
+                    let userRaidCap;
+                    let userBoost;
                     for (let j = 0; j < allPlayerData.length; j++){
                         if (allPlayerData[j].userID === i.user.id){
                             userCP = allPlayerData[j].totalCP;
                             userRaidsDone = allPlayerData[j].dailyRaidsPlayed;
-                            
+                            userRaidCap = allPlayerData[j].dailyRaidCap;
+                            userBoost = allPlayerData[j].raidBoost;
                         }
                     }
                     
                     if (i.customId === 'join'){
                         if (entries.some( vendor => vendor['user'] === i.user.id )){
                             i.reply({ content: 'You have already joined this raid', ephemeral: true})
-                        } else if(A - userRaidsDone < 300000 && i.user.id != message.author.id){
-                            const ds = new Date(A - userRaidsDone);
-                            let minutes = 4 - ds.getMinutes();
-                            let seconds = 60 - ds.getSeconds();
-                            i.reply({ content: `You must wait ${minutes.toString().padStart(2, 0)}:${seconds.toString().padStart(2, 0)} minutes before you can raid again`, ephemeral: true});
+                        } else if(userRaidsDone >= userRaidCap && i.user.id != message.author.id){
+                            i.reply({ content: `You have hit your daily Raid cap of ${userRaidCap}`, ephemeral: true});
                         } else {
-                            entries.push({ user: i.user.id, CP: userCP});
+                            entries.push({ user: i.user.id, CP: userCP, boost: userBoost});
                             totalPartyCP = totalPartyCP + userCP;
                             
                             const newEmbedJoin = new Discord.MessageEmbed()
@@ -103,7 +101,7 @@ module.exports = {
                             }
                             i.update({ embeds: [newEmbedJoin], components: [row]});
                             i.followUp({ content: `You have joined the Raid with ${new Intl.NumberFormat().format(userCP)} CP`, ephemeral: true})
-                            setDailyRaids(A, i.user.id);
+                            
                         }
                     } else if (i.customId === 'leave'){
                         if (!entries.some( vendor => vendor['user'] === i.user.id )){
@@ -129,7 +127,7 @@ module.exports = {
                             }
                             i.update({ embeds: [newEmbedLeave], components: [row]});
                             i.followUp({ content: `You have left the Raid`, ephemeral: true})
-                            setDailyRaids(1641854534523, i.user.id);
+                            
                         }
                     }
                 
@@ -150,7 +148,10 @@ module.exports = {
                             highestCP = entries[i].CP;
                         }
                     }
-                
+                    for (let j = 0; j < entries.length; j++){
+                        setDailyRaids(1, entries[j].user);
+                    }
+
                 if (rewardSelection.id === 'Boo Tao'){
                     
                     
@@ -171,8 +172,14 @@ module.exports = {
                             {name: 'Reward Amount', value: `${new Intl.NumberFormat().format(reward)}<:bootaomonez:909294739197681754>`}
                         )
                         //message.channel.send(`Boss HP: ${new Intl.NumberFormat().format(bossHP)}\nParty CP: ${new Intl.NumberFormat().format(partyCP)}\nReward: ${new Intl.NumberFormat().format(reward)}\nWon? ${partyWon}`);
+                        let newReward;
                         for (let j = 0; j < entries.length; j++){
-                            giveCoins(reward, entries[j].user);
+                            if (entries[j].boost > 0){
+                                newReward = ((reward / 100) * entries[j].boost) + reward;
+                                giveCoins(newReward, entries[j].user);
+                            } else {
+                                giveCoins(reward, entries[j].user);
+                            }
                             updateRaidCounter(entries[j].user);
                         }
 
@@ -356,7 +363,7 @@ async function setDailyRaids(timeer, ID){
                 userID: ID
             },
             {
-                $set: {
+                $inc: {
                     dailyRaidsPlayed: timeer,
                 },
             }

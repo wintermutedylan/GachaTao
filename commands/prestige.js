@@ -77,8 +77,6 @@ async function updatePrestige(prestigeArray, playerLevel, unitArray, ID){
             },
             {
                 $set: {
-                    coins: 500,
-                    raidTickets: 3,
                     maids: unitArray,
                     totalCP: 10000,
                     questsComplete: [],

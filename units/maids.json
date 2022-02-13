@@ -886,15 +886,15 @@
         "rValue": 2,
         "CP": 63000,
         "awakenThreshold": 1
-    }
+    },
     {
         "id": "Bugcat Milim",
         "icon": "https://media.discordapp.net/attachments/938927464460214273/938927508110336030/IMG_0980.png?width=314&height=427",
         "rarity": "<:S_:908870913225818214><:S_:908870913225818214><:R_:908870913167089704>",
-        "rValue": 2,
+        "rValue": 1,
         "CP": 210000,
         "awakenThreshold": 1
-    }
+    },
     {
         "id": "Bugcat Doge",
         "icon": "https://media.discordapp.net/attachments/938927464460214273/938927506269032478/IMG_0988.png?width=323&height=427",
@@ -902,7 +902,7 @@
         "rValue": 2,
         "CP": 48582,
         "awakenThreshold": 1
-    }
+    },
     {
         "id": "Bugcat Cinders",
         "icon": "https://media.discordapp.net/attachments/938927464460214273/938927505824448562/IMG_0990.png?width=335&height=426",
@@ -910,7 +910,7 @@
         "rValue": 2,
         "CP": 78910,
         "awakenThreshold": 1
-    }
+    },
     {
         "id": "Bugcat Kagaxmii",
         "icon": "https://media.discordapp.net/attachments/938927464460214273/938927507820916816/IMG_0982.png?width=325&height=426",
@@ -918,7 +918,7 @@
         "rValue": 2,
         "CP": 65455,
         "awakenThreshold": 1
-    }
+    },
     {
         "id": "Bugcat Tuna",
         "icon": "https://media.discordapp.net/attachments/938927464460214273/938927507246317738/IMG_0984.png?width=315&height=427",
@@ -926,7 +926,7 @@
         "rValue": 2,
         "CP": 42820,
         "awakenThreshold": 1
-    }
+    },
     {
         "id": "Bugcat Tako",
         "icon": "https://media.discordapp.net/attachments/938927464460214273/938927506793316352/IMG_0986.png?width=324&height=427",
@@ -934,7 +934,7 @@
         "rValue": 2,
         "CP": 52347,
         "awakenThreshold": 1
-    }
+    },
     {
         "id": "Bugcat Melody",
         "icon": "https://media.discordapp.net/attachments/938927464460214273/942112540777926696/IMG_1026.png?width=322&height=427",

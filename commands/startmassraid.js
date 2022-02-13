@@ -83,11 +83,8 @@ module.exports = {
                     if (i.customId === 'join'){
                         if (entries.some( vendor => vendor['user'] === i.user.id )){
                             i.reply({ content: 'You have already joined this raid', ephemeral: true})
-                        } else if(A - userRaidsDone < 300000 && i.user.id != message.author.id){
-                            const ds = new Date(A - userRaidsDone);
-                            let minutes = 4 - ds.getMinutes();
-                            let seconds = 60 - ds.getSeconds();
-                            i.reply({ content: `You must wait ${minutes.toString().padStart(2, 0)}:${seconds.toString().padStart(2, 0)} minutes before you can raid again`, ephemeral: true});
+                        } else if(userRaidsDone + 5 >= userRaidCap && i.user.id != message.author.id){
+                            i.reply({ content: `You have hit your daily Raid cap of ${userRaidCap} OR by doing this mass raid you will exceed your daily raid cap`, ephemeral: true});
                         } else {
                             entries.push({ user: i.user.id, CP: userCP});
                             totalPartyCP = totalPartyCP + userCP;
@@ -102,7 +99,7 @@ module.exports = {
                             }
                             i.update({ embeds: [newEmbedJoin], components: [row]});
                             i.followUp({ content: `You have joined the Raid with ${new Intl.NumberFormat().format(userCP)} CP`, ephemeral: true})
-                            setDailyRaids(A, i.user.id);
+                            
                         }
                     } else if (i.customId === 'leave'){
                         if (!entries.some( vendor => vendor['user'] === i.user.id )){
@@ -148,6 +145,9 @@ module.exports = {
                             highestCP = entries[i].CP;
                         }
                     }
+                    for (let j = 0; j < entries.length; j++){
+                        setDailyRaids(5, entries[j].user);
+                    }
                 
                 if (rewardSelection.id === 'Boo Tao'){
                     
@@ -155,7 +155,7 @@ module.exports = {
                     let reward = 0;
                     bossHP = getRandomArbitrary((highestCP / 2) * numberOfMembers, (highestCP * numberOfMembers) + 1);
                     reward = Math.floor(100 * Math.log10(highestCP) * Math.sqrt(entries.length));
-                    reward = reward * 10;
+                    reward = reward * 5;
                     partyWon = totalPartyCP >= bossHP;
 
                     if (partyWon){
@@ -170,9 +170,18 @@ module.exports = {
                             {name: 'Reward Amount', value: `${new Intl.NumberFormat().format(reward)}<:bootaomonez:909294739197681754>`}
                         )
                         //message.channel.send(`Boss HP: ${new Intl.NumberFormat().format(bossHP)}\nParty CP: ${new Intl.NumberFormat().format(partyCP)}\nReward: ${new Intl.NumberFormat().format(reward)}\nWon? ${partyWon}`);
+                        let newReward;
                         for (let j = 0; j < entries.length; j++){
-                            giveCoins(reward, entries[j].user);
-                            updateRaidCounter(entries[j].user);
+                            if (entries[j].boost > 0){
+                                newReward = ((reward / 100) * entries[j].boost) + reward;
+                                giveCoins(newReward, entries[j].user);
+                            } else {
+                                giveCoins(reward, entries[j].user);
+                            }
+                            for (let d = 0; d < 5; d++){
+                                updateRaidCounter(entries[j].user);
+                            }
+                            
                         }
 
                         message.channel.send({ embeds: [newEmbed] })
@@ -221,10 +230,12 @@ module.exports = {
                         )
                         //message.channel.send(`Boss HP: ${new Intl.NumberFormat().format(bossHP)}\nParty CP: ${new Intl.NumberFormat().format(partyCP)}\nReward: ${new Intl.NumberFormat().format(reward)}\nWon? ${partyWon}`);
                         for (let j = 0; j < entries.length; j++){
-                            for (let t = 0; t < 10; t++){
+                            for (let t = 0; t < 5; t++){
                                 pushItem(rewardItem.id, entries[j].user)
+                                updateRaidCounter(entries[j].user);
                             }
-                            updateRaidCounter(entries[j].user);
+                            
+                            
                         }
 
                         message.channel.send({ embeds: [newEmbed] })

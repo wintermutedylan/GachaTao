@@ -34,21 +34,7 @@ module.exports = {
                 }
             }
         }
-        // try {
-        //     await playerModel.findOneAndUpdate(
-        //         {
-        //             userID: message.author.id
-        //         },
-        //         {
-        //             $set: {
-        //                 milimsOwned: ["<:maidpriscilla:931957660281090068>", "<:milimheart:850916496821059644>"],
-        //             },
-        //         }
-        //     );
-    
-        // } catch(err){
-        //     console.log(err);
-        // }
+        
         
 
         sorted.sort((a, b) => (a.rValue - b.rValue || b.CP - a.CP));
@@ -76,8 +62,8 @@ module.exports = {
         **Raid Tickets:** ${playerData.raidTickets} 
         **Raids Won:** ${playerData.raidsWon} 
         **Weekly Raids Won:** ${playerData.weeklyRaidsWon} 
-        **LR Pity:** ${playerData.lrPity} 
-        **UR Pity:** ${playerData.urPity}
+        **Prestige Level:** ${playerData.prestigeLevel}
+        **CP Cap:** ${new Intl.NumberFormat().format(playerData.maxCP)}
         ${milimString}`)
         .setThumbnail(message.author.avatarURL())
         .setFooter(`Page # ${pageNumber}`)

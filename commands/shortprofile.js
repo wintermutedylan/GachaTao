@@ -22,6 +22,8 @@ module.exports = {
         **Total<:bootaomonez:909294739197681754>:** ${new Intl.NumberFormat().format(totalCoins)} 
         **Raid Tickets:** ${playerData.raidTickets} 
         **Raids Won:** ${playerData.raidsWon} 
+        **Prestige Level:** ${playerData.prestigeLevel}
+        **CP Cap:** ${new Intl.NumberFormat().format(playerData.maxCP)}
         **Weekly Raids Won:** ${playerData.weeklyRaidsWon}
         **Damage Done to Mega Boss:** ${new Intl.NumberFormat().format(playerData.megaRaidDamageDone)}`)
         .setThumbnail(message.author.avatarURL())

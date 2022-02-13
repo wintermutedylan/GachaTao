@@ -25,7 +25,7 @@ module.exports = {
             **g$startmegaraid** - opens a mega raid party (costs 1 ticket)
             > Instead of defeating the boss in one go, parties deal dmg to the boss depending on their CP
             **g$claimitems Blakninja The Forbidden One** - use to complete the raid unit once you've collected all the parts!
-            **g$startmassraid** - opens a raid party (costs 10 tickets)
+            **g$startmassraid** - opens a raid party (costs 5 tickets)
             > Just like normal raiding but faster~
             **RAID GUIDE**
             70% Normal

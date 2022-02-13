@@ -1,5 +1,6 @@
 const playerModel = require("../models/playerSchema");
 var unitSplash = require("../units/maids.json");
+var prestigeStuff = require("../units/prestigeinfo.json");
 const { userMention, memberNicknameMention, channelMention, roleMention } = require('@discordjs/builders');
 const lucky = require('lucky-item').default;
 module.exports = {
@@ -59,7 +60,7 @@ module.exports = {
         ];
         
         
-        var standardBannerChannel = "927769520238637076";
+        var standardBannerChannel = "854047198291689542";// 927769520238637076
         const arrLR = [
             { id: "Gine", weight: 25 },
             { id: "WynkenBlynken", weight: 25 },
@@ -254,6 +255,7 @@ module.exports = {
             
             if (playerData.coins  < 50) return message.reply("Go get more coins baka");
             var rolled;
+            let milimBadge = "none";
             //check for pity here then roll the certain pity
             if (channelID === akiBannerChannel){
                 rolled = lucky.itemBy(akiArr, 'weight');
@@ -291,18 +293,25 @@ module.exports = {
                     case 1:
                         if (channelID === maidBannerChannel){
                             rolledCharacter = { id: "Maid Milim", weight: 25 };
+                            milimBadge = "<:maidmilimbadge:942459609497624596>";
                         } else if(channelID === summerBannerChannel){
                             rolledCharacter = { id: "Summer Milim", weight: 25 };
+                            milimBadge = "<:summermilimbadge:942500690113208360>";
                         } else if(channelID === galaxyBannerChannel){
                             rolledCharacter = { id: "Galaxy Milim", weight: 25 };
+                            milimBadge = "<:galaxymilimbadge:942505910641754182>";
                         } else if(channelID === akiBannerChannel){
-                            rolledCharacter = { id: "Milim Aki", weight: 25 };
+                            rolledCharacter = { id: "Aki Milim", weight: 25 };
+                            milimBadge = "<:akimilimbadge:942504140830015558>";
                         } else if(channelID === cnyBannerChannel){
                             rolledCharacter = { id: "CNY Milim", weight: 25 };
+                            milimBadge = "<:cnymilimbadge:942453930082861149>";
                         } else if(channelID === bugcatBannerChannel){
                             rolledCharacter = { id: "Bugcat Milim", weight: 25 };
+                            milimBadge = "<:bugcatmilimbadge:942507932803797022>";
                         } else {
                             rolledCharacter = { id: "Milim", weight: 25 };
+                            milimBadge = "<:milimbadge:942461664031297557>";
                         }
                         
                         rolledRarity = '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>';
@@ -395,7 +404,28 @@ module.exports = {
                 console.log(err);
             }
             
-                
+            if (playerData.totalCP + rolledCP >= playerData.maxCP){
+                let minusCP = playerData.maxCP - playerData.totalCP;
+                if (minusCP > 0){
+                    try {
+                        await playerModel.findOneAndUpdate(
+                            {
+                                userID: ID
+                            },
+                            {
+                                $inc: {
+                                    totalCP: minusCP,
+                                },
+                            }
+                        );
+
+                    } catch(err){
+                        console.log(err);
+                    }
+                }
+
+            } 
+            else if (playerData.totalCP !== playerData.maxCP){
             
                 var have = false;
                 let playerData2; 
@@ -447,31 +477,32 @@ module.exports = {
 
                 }
             
-            try {
-                await playerModel.findOneAndUpdate(
-                    {
-                        userID: ID
-                    },
-                    {
-                        $inc: {
-                            totalCP: rolledCP,
+                try {
+                    await playerModel.findOneAndUpdate(
+                        {
+                            userID: ID
                         },
-                    }
-                );
-                await playerModel.findOneAndUpdate(
-                    {
-                        userID: ID
-                    },
-                    {
-                        $set: {
-                            lrPity: LRPity,
-                            urPity: URPity,
+                        {
+                            $inc: {
+                                totalCP: rolledCP,
+                            },
+                        }
+                    );
+                    await playerModel.findOneAndUpdate(
+                        {
+                            userID: ID
                         },
-                    }
-                );
+                        {
+                            $set: {
+                                lrPity: LRPity,
+                                urPity: URPity,
+                            },
+                        }
+                    );
 
-            } catch(err){
-                console.log(err);
+                } catch(err){
+                    console.log(err);
+                }
             }
             
 
@@ -492,6 +523,14 @@ module.exports = {
         
 
             message.channel.send({ embeds: [newEmbed]});
+            if (milimBadge !== "none"){
+                if (!playerData.milimsOwned.includes(milimBadge)){
+                    addMilim(milimBadge, message.author.id);
+                }
+            }
+            if (playerData.totalCP === playerData.maxCP){
+                message.channel.send(`${userMention(message.author.id)} These units haven't been added becuase you are already at the max CP for your Prestige level`);
+            }
             if (awkThisUnit){
                 message.channel.send(`${userMention(message.author.id)} has just awoken ${rolledCharacter.id}, Congrats!`);
             }
@@ -513,8 +552,10 @@ module.exports = {
         var highestCharacter = 8;
         var rolledCharacters = [];
         var awkCharacters = [];
+        let milimBadgeArray = [];
         if (args[0] === '10'){
             if (playerData.coins  < 500) return message.reply("Go get more coins baka");
+            
             //var maids = lucky.itemsBy(arr, 'weight', 10, {unique: false}); //this will be used for 10 rolls
 
             
@@ -529,6 +570,7 @@ module.exports = {
                 }
                 var maidsID;
                 var character;
+                
                 //check for pity here and if you are rolling skip the switch statement using and if else
                 //put switch statment in else statement
                 if (LRPity >= 175 && channelID != akiBannerChannel){ 
@@ -564,18 +606,25 @@ module.exports = {
                     case 1:
                         if (channelID === maidBannerChannel){
                             character = { id: "Maid Milim", weight: 25 };
+                            milimBadgeArray.push("<:maidmilimbadge:942459609497624596>");
                         } else if(channelID === summerBannerChannel){
                             character = { id: "Summer Milim", weight: 25 };
+                            milimBadgeArray.push("<:summermilimbadge:942500690113208360>")
                         } else if(channelID === galaxyBannerChannel){
                             character = { id: "Galaxy Milim", weight: 25 };
+                            milimBadgeArray.push("<:galaxymilimbadge:942505910641754182>")
                         } else if(channelID === akiBannerChannel){
                             character = { id: "Milim Aki", weight: 25 };
+                            milimBadgeArray.push("<:akimilimbadge:942504140830015558>")
                         } else if(channelID === cnyBannerChannel){
                             character = { id: "CNY Milim", weight: 25 };
+                            milimBadgeArray.push("<:cnymilimbadge:942453930082861149>")
                         } else if(channelID === bugcatBannerChannel){
                             character = { id: "Bugcat Milim", weight: 25 };
+                            milimBadgeArray.push("<:bugcatmilimbadge:942507932803797022>")
                         } else {
                             character = { id: "Milim", weight: 25 };
+                            milimBadgeArray.push("<:milimbadge:942461664031297557>")
                         }
                         maidsID = 1;
                         rolledCharacters.push({ unit: character.id, rarity: '<a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462> <a:pinkstar:907752258870075462>'});
@@ -646,9 +695,7 @@ module.exports = {
             
                 if (maidsID < highestCharacter){
                     highestCharacter = maidsID;
-                    if (character !== "Milim")  {
-                        rarestUnit = character.id;
-                    } else {
+                    if (character === "Milim" || character === "Maid Milim" || character === "Summer Milim"|| character === "Galaxy Milim" || character === "Milim Aki" || character === "CNY Milim" || character === "Bugcat Milim")  {
                         if (channelID === maidBannerChannel){
                             rarestUnit = "Maid Milim";
                         } else if (channelID === summerBannerChannel){
@@ -665,6 +712,9 @@ module.exports = {
                             rarestUnit = "Milim";
                         }
                         
+                    } else {
+                        
+                        rarestUnit = character.id;
                     }
                 }
                 
@@ -711,6 +761,7 @@ module.exports = {
             } catch(err){
                 console.log(err);
             }
+            let currentCP = playerData.totalCP;
             
             for (let k = 0; k < rolledCharacters.length; k++){
                 
@@ -720,6 +771,30 @@ module.exports = {
                         rolledCP = unitSplash[l].CP;
                     }
                 }
+                if (currentCP + rolledCP >= playerData.maxCP){
+                    let minusCP = playerData.maxCP - currentCP;
+                    if (minusCP > 0){
+                        try {
+                            await playerModel.findOneAndUpdate(
+                                {
+                                    userID: ID
+                                },
+                                {
+                                    $inc: {
+                                        totalCP: minusCP,
+                                    },
+                                }
+                            );
+        
+                        } catch(err){
+                            console.log(err);
+                        }
+                        currentCP = currentCP + minusCP;
+
+                    }
+    
+                } 
+                else if (currentCP !== playerData.maxCP){
                 
                 
                     
@@ -806,6 +881,8 @@ module.exports = {
                 } catch(err){
                     console.log(err);
                 }
+                currentCP = currentCP + rolledCP;
+            }
 
             }
             const newEmbed10 = new Discord.MessageEmbed()
@@ -833,7 +910,9 @@ module.exports = {
             if (rarityValue2 <= 2){
                 newEmbed10.setImage(`${image2}`)
             }
-            
+            if (playerData.totalCP === playerData.maxCP){
+                message.channel.send(`${userMention(message.author.id)} These units haven't been added becuase you are already at the max CP for your Prestige level`);
+            }
             
             
         
@@ -852,6 +931,14 @@ module.exports = {
                 }
             }
         }
+        if (milimBadgeArray.length !== 0){
+            for (let m = 0; m < milimBadgeArray.length; m++){
+                if (!playerData.milimsOwned.includes(milimBadgeArray[m])){
+                    addMilim(milimBadgeArray[m], message.author.id);
+                }
+            }
+        }
+
         if (rarestUnit === "Milim" || rarestUnit === "Maid Milim" || rarestUnit === "Summer Milim" || rarestUnit === "Galaxy Milim" || rarestUnit === "Milim Aki" || rarestUnit === "CNY Milim" || rarestUnit === "Bugcat Milim"){
             var target = message.guild.members.cache.get(message.author.id);
             var role = "925851063200936027";
@@ -883,6 +970,24 @@ async function setRollCD(time, ID){
             {
                 $set: {
                     rollCD: time,
+                },
+            }
+        );
+
+    } catch(err){
+        console.log(err);
+    }
+}
+
+async function addMilim(milimEmote, ID){
+    try {
+        await playerModel.findOneAndUpdate(
+            {
+                userID: ID
+            },
+            {
+                $push: {
+                    milimsOwned: milimEmote,
                 },
             }
         );

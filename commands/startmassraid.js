@@ -44,7 +44,7 @@ module.exports = {
             return message.reply(`You must wait ${minutes.toString().padStart(2, 0)}:${seconds.toString().padStart(2, 0)} minutes before you can raid again`);
         }
         //return message.channel.send(`${(timePassed + 300000) - currentTime}`);
-        removeTickets(10, message.author.id);
+        removeTickets(5, message.author.id);
         
         setRaidCD(currentTime, message.author.id);
         let boss = lucky.itemBy(bosses, 'weight');

@@ -130,6 +130,7 @@ module.exports = {
             { id: "Bugcat Cinders", weight: 75 },
             { id: "Bugcat Melody", weight: 75 },
             { id: "Bugcat Tako", weight: 75 },
+            { id: "Bugcat Tuna", weight: 75 },
 
         ];
 

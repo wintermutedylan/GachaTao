@@ -33,6 +33,16 @@ module.exports = {
                 client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
             }
         }
+        if (playerData.questsComplete.includes(code2)) {
+            
+            try {
+                return message.reply("You have already claimed this code")
+            } catch(err){
+                message.channel.send(`${userMention(message.author.id)} Something went wrong. Please try again`);
+                client.channels.cache.get("838666046327619604").send(`${userStuff.username}#${userStuff.discriminator} sent a message in ${channelMention(message.channel.id)}`)
+                client.channels.cache.get("838666046327619604").send(codeBlock('js', err));
+            }
+        }
         if (questNumber === code1){
             pushQuests(code1, message.author.id);
             giveCoins(500, message.author.id);

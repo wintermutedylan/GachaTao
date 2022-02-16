@@ -24,6 +24,7 @@ module.exports = {
         
         let allPlayerData = await playerModel.find({});
         let authorData; 
+        let raidAmount = 5;
         authorData = await playerModel.findOne({ userID: message.author.id});
         let currentTime = message.createdTimestamp;
         
@@ -31,7 +32,7 @@ module.exports = {
         
         if (!authorData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
         if (authorData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
-        if (authorData.raidTickets < 5) return message.reply("You don't have enough Raid tickets for a Mass Raid");
+        if (authorData.raidTickets < raidAmount) return message.reply("You don't have enough Raid tickets for a Mass Raid");
         let timePassed = authorData.raidCD;
         
         if (message.author.id === "618884909494304808" || message.author.id === "238364422135873536"){
@@ -44,7 +45,7 @@ module.exports = {
             return message.reply(`You must wait ${minutes.toString().padStart(2, 0)}:${seconds.toString().padStart(2, 0)} minutes before you can raid again`);
         }
         //return message.channel.send(`${(timePassed + 300000) - currentTime}`);
-        removeTickets(5, message.author.id);
+        removeTickets(raidAmount, message.author.id);
         
         setRaidCD(currentTime, message.author.id);
         let boss = lucky.itemBy(bosses, 'weight');
@@ -86,7 +87,7 @@ module.exports = {
                     if (i.customId === 'join'){
                         if (entries.some( vendor => vendor['user'] === i.user.id )){
                             i.reply({ content: 'You have already joined this raid', ephemeral: true})
-                        } else if(userRaidsDone + 5 >= userRaidCap && i.user.id != message.author.id){
+                        } else if(userRaidsDone + raidAmount >= userRaidCap && i.user.id != message.author.id){
                             i.reply({ content: `You have hit your daily Raid cap of ${userRaidCap} OR by doing this mass raid you will exceed your daily raid cap`, ephemeral: true});
                         } else {
                             entries.push({ user: i.user.id, CP: userCP, boost: userBoost});
@@ -158,7 +159,7 @@ module.exports = {
                     let reward = 0;
                     bossHP = getRandomArbitrary((highestCP / 2) * numberOfMembers, (highestCP * numberOfMembers) + 1);
                     reward = Math.floor(100 * Math.log10(highestCP) * Math.sqrt(entries.length));
-                    reward = reward * 5;
+                    reward = reward * raidAmount;
                     partyWon = totalPartyCP >= bossHP;
 
                     if (partyWon){
@@ -181,7 +182,7 @@ module.exports = {
                             } else {
                                 giveCoins(reward, entries[j].user);
                             }
-                            for (let d = 0; d < 5; d++){
+                            for (let d = 0; d < raidAmount; d++){
                                 updateRaidCounter(entries[j].user);
                             }
                             
@@ -233,7 +234,7 @@ module.exports = {
                         )
                         //message.channel.send(`Boss HP: ${new Intl.NumberFormat().format(bossHP)}\nParty CP: ${new Intl.NumberFormat().format(partyCP)}\nReward: ${new Intl.NumberFormat().format(reward)}\nWon? ${partyWon}`);
                         for (let j = 0; j < entries.length; j++){
-                            for (let t = 0; t < 5; t++){
+                            for (let t = 0; t < raidAmount; t++){
                                 pushItem(rewardItem.id, entries[j].user)
                                 updateRaidCounter(entries[j].user);
                             }

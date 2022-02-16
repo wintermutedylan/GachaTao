@@ -31,7 +31,7 @@ module.exports = {
         
         if (!authorData) return message.reply("Looks like there was an error finding your profile.  Try running g$register then try again");
         if (authorData.starterSelected === false) return message.reply("You need to run g$register first before anything else");
-        if (authorData.raidTickets < 10) return message.reply("You don't have enough Raid tickets for a Mass Raid");
+        if (authorData.raidTickets < 5) return message.reply("You don't have enough Raid tickets for a Mass Raid");
         let timePassed = authorData.raidCD;
         
         if (message.author.id === "618884909494304808" || message.author.id === "238364422135873536"){

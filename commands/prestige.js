@@ -19,7 +19,7 @@ module.exports = {
         let playerPrestigeLevel = playerData.prestigeLevel;
 
         if (playerPrestigeLevel === prestigeStuff.at(-1).level) return message.reply(`You have already reached the max Prestige level of ${playerPrestigeLevel}`);
-        if (playerCP != prestigeStuff[playerPrestigeLevel].cpCap) return message.reply(`You are missing ${new Intl.NumberFormat().format(prestigeStuff[playerPrestigeLevel].cpCap - playerCP)} CP to Prestige to level ${playerPrestigeLevel + 1}`);
+        if (playerCP < prestigeStuff[playerPrestigeLevel].cpCap) return message.reply(`You are missing ${new Intl.NumberFormat().format(prestigeStuff[playerPrestigeLevel].cpCap - playerCP)} CP to Prestige to level ${playerPrestigeLevel + 1}`);
 
         const row = new MessageActionRow()
         .addComponents(

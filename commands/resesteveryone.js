@@ -9,7 +9,7 @@ module.exports = {
     permissions: ["ADMINISTRATOR"],
     description: "resets everyone",
     async execute(client, message,cmd,args,Discord){
-        //return message.reply("no");
+        return message.reply("no");
         let allPlayerData = await playerModel.find({});
         for (let i = 0; i < allPlayerData.length; i++){
             for (let j = 0; j < allPlayerData[i].maids.length; j++){
